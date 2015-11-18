@@ -7,7 +7,7 @@ document.write('\
 |  [<A HREF="ape-task.html">AUTOMATIC POST-EDITING TASK</A>] \
 |  [<A HREF="program.html">SCHEDULE</A>]  \
 |  [<A HREF="papers.html">PAPERS</A>]  \
-|  [<A HREF="authors.html">AUTHORS</A>] \ 
+|  [<A HREF="authors.html">AUTHORS</A>] \
 |  [<A HREF="results.html">RESULTS</A>]\
 ');
 

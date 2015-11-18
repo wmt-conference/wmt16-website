@@ -1,4 +1,4 @@
-document.write('
+document.write('\
 [ <A HREF="index.html">HOME</A>] \
 | [<A HREF="translation-task.html">TRANSLATION TASK</A>] \
 | [<A HREF="metrics-task/">METRICS TASK</A>] \

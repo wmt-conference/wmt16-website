@@ -10,9 +10,9 @@ document.write('\
 | [<A HREF="pronoun-task.html">PRONOUN TASK</A>] \
 | [<A HREF="bilingual-task.html">BILINGUAL DOCUMENT ALIGNMENT TASK</A>] \
 | [<A HREF="multimodal-task.html">MULTIMODAL TRANSLATION TASK</A>] <br> \
-| [<A HREF="program.html">SCHEDULE</A>]  \
+');
+/*| [<A HREF="program.html">SCHEDULE</A>]  \
 | [<A HREF="papers.html">PAPERS</A>]  \
 | [<A HREF="authors.html">AUTHORS</A>] \
-| [<A HREF="results.html">RESULTS</A>]\
-');
+| [<A HREF="results.html">RESULTS</A>]\ */
 

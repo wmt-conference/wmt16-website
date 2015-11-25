@@ -1,14 +1,66 @@
 <HTML>
   <HEAD>
-    <title>Translation Task - ACL 2016 First Conference  on  Machine Translation</title>
+    <title>IT Translation Task - ACL 2016 First Conference  on  Machine Translation</title>
     <style> h3 { margin-top: 2em; } </style>
   </HEAD>
   <body>
 
     <center>
       <script src="title.js"></script>
-      <p><h2>Shared Task: Machine Translation of News</h2></p>
+      <p><h2>Shared Task: Machine Translation of IT domain</h2></p>
       <script src="menu.js"></script>
     </center>
 
+<p>The focus of this task is a domain adaptation of MT to the <abbr title="information technologies">IT</abbr> domain and translation of questions and answers.
+The motivation is a cross-lingual help service, where user questions (troubleshooting for both hardware and software)
+are translated from Portuguese, Spanish, Czech, Dutch and German into English,
+and the answers are translated from English back to the users' languages.</p>
+
+<p>The questions usually consist of one sentence, but rarely more, e.g.
+ <i>"I cannot receive e-mails. I think my IP's been blacklisted. What should I do?"</i>
+and they contain authentic (noisy, informal) language of the users.
+The answers are generally longer than the questions (usually one sentence, but sometimes more).
+<!--We refer to questions and answers as segments.-->
+</p>
+
+<p>
+You may participate in any or all of the following language pairs:
+<ul>
+ <li>German-English (questions)</li>
+ <li>English-German (answers)</li>
+ <li>Czech-English (questions)</li>
+ <li>English-Czech (answers)</li>
+ <li>Spanish-English (questions)</li>
+ <li>English-Spanish (answers)</li>
+ <li>Portuguese-English (questions)</li>
+ <li>English-Portuguese (answers)</li>
+ <li>Dutch-English (questions)</li>
+ <li>English-Dutch (answers)</li>
+</ul>
+</p>
+
+<h3>DATA FOR DOWNLOAD</h3>
+<dl>
+<dt>out-of-domain training data</dt>
+ <dd><a href="/europarl/">Europarl corpus</a>,
+     <a href="http://ufal.mff.cuni.cz/czeng/">CzEng</a> (for en-cs, avoid sections 98 and 99),
+     any monolingual sets from <a href="translation-task.html">WMT16</a> or previous years</dd>
+<dt>in-domain training data</dt>
+ <dd><a href="data/it-train.tgz">Batch1</a> (1000 questions and 1000 answers)</dd>
+<dt>in-domain development data</dt>
+ <dd><a href="data/it-dev.tgz">Batch2</a> (1000 questions and 1000 answers)</dd>
+</dl>
+</p>
+
+<h3><a name="submission">TEST SET SUBMISSION</a></h3>
+<p>Unlike in the News translation task, punctuation in the official test sets will not be altered.</p>
+<p>To submit your results, please first convert into into SGML format as
+required by the NIST BLEU scorer, and then upload it to the
+website <a href="http://matrix.statmt.org/">matrix.statmt.org</a>.
+</p>
+
+<h3>ACKNOWLEDGEMENTS</h3>
+<p>The in-domain data were created within <a href="http://qtleap.eu">QTLeap</a> project, which sponsors this task.
+In case of any questions contact <a href="mailto:popel@ufal.mff.cuni.cz">Martin Popel</a>
+or the <a href="http://groups.google.com/group/wmt-tasks">WMT mailing list</a>.</p>
 </HTML>

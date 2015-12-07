@@ -11,53 +11,74 @@
       <script src="menu.js"></script>
     </center>
 
-<p>The focus of this task is a domain adaptation of MT to the <abbr title="information technologies">IT</abbr> domain and translation of questions and answers.
-The motivation is a cross-lingual help service, where user questions (troubleshooting for both hardware and software)
-are translated from Portuguese, Spanish, Czech, Dutch and German into English,
-and the answers are translated from English back to the users' languages.</p>
+<p>The focus of this task is a domain adaptation of MT to the <abbr title="information technologies">IT</abbr> domain
+and translation of answers in a cross-lingual help-desk service,
+where hardware&amp;software troubleshooting answers are translated from
+English to the users' languages.</p>
 
-<p>The questions usually consist of one sentence, but rarely more, e.g.
- <i>"I cannot receive e-mails. I think my IP's been blacklisted. What should I do?"</i>
-and they contain authentic (noisy, informal) language of the users.
-The answers are generally longer than the questions (usually one sentence, but sometimes more).
-<!--We refer to questions and answers as segments.-->
-</p>
+<!--The answers are generally longer than the questions (usually one sentence, but sometimes more).
+We refer to questions and answers as segments.-->
 
 <p>
 You may participate in any or all of the following language pairs:
 <ul>
- <li>German-English (questions)</li>
- <li>English-German (answers)</li>
- <li>Czech-English (questions)</li>
- <li>English-Czech (answers)</li>
- <li>Spanish-English (questions)</li>
- <li>English-Spanish (answers)</li>
- <li>Portuguese-English (questions)</li>
- <li>English-Portuguese (answers)</li>
- <li>Dutch-English (questions)</li>
- <li>English-Dutch (answers)</li>
+ <li>English-to-Bulgarian (EN-BG)</li>
+ <li>English-to-Czech (EN-CS)</li>
+ <li>English-to-German (EN-DE)</li>
+ <li>English-to-Spanish (EN-ES)</li>
+ <li>English-to-Basque (EN-EU)</li>
+ <li>English-to-Dutch (EN-NL)</li>
+ <li>English-to-Portuguese (EN-PT)</li>
 </ul>
 </p>
 
 <h3>DATA FOR DOWNLOAD</h3>
 <dl>
 <dt>out-of-domain training data</dt>
- <dd><a href="/europarl/">Europarl corpus</a>,
-     <a href="http://ufal.mff.cuni.cz/czeng/">CzEng</a> (for en-cs, avoid sections 98 and 99),
-     any monolingual sets from <a href="translation-task.html">WMT16</a> or previous years</dd>
+ <dd>any parallel and monolingual sets from the <a href="translation-task.html">WMT16 News task</a> or previous years, that is
+  <ul>
+     <li><a href="/europarl/">Europarl corpus</a> (bg, cs, de, es, nl, pt)</li>
+     <li><a href="http://ufal.mff.cuni.cz/czeng/">CzEng</a> (cs, avoid sections 98 and 99)</li>
+     <li><a href="http://www.statmt.org/wmt13/training-parallel-commoncrawl.tgz">Common crawl</a> (cs, de, es)</li>
+     <li><a href="http://www.statmt.org/wmt13/training-parallel-un.tgz">UN corpus</a> (es)</li>
+     <li><a href="http://www.statmt.org/wmt13/training-parallel-nc-v8.tgz">News commentary</a> (cs, de, es)</li>
+   </ul>
+ </dd>
 <dt>in-domain training data</dt>
- <dd><a href="data/it-train.tgz">Batch1</a> (1000 questions and 1000 answers)</dd>
-<dt>in-domain development data</dt>
- <dd><a href="data/it-dev.tgz">Batch2</a> (1000 questions and 1000 answers)</dd>
+ <dd>
+  <ul>
+   <li><a href="data/it-train.tgz">Batch1 and Batch2</a> (2000 answers, you can use part of this data as development test set; some answers may contain more than one sentence),
+   <li>localization PO files:
+     <a href="http://downloads.videolan.org/pub/videolan/vlc/2.1.5/vlc-2.1.5.tar.xz">VLC</a>,
+     <a href="http://download.documentfoundation.org/libreoffice/src/4.4.0/libreoffice-translations-4.4.0.3.tar.xz">LO</a>,
+     <a href="https://websvn.kde.org/trunk/l10n-kde4/">KDE</a> (check out <a href="svn://anonsvn.kde.org/home/kde/branches/stable/l10n-kde4/">svn</a>)
+   </li>
+   <li><a href="http://ufallab.ms.mff.cuni.cz/tectomt/share/data/models/gazeteer/wiki_all.zip">IT-related terms from Wikipedia</a></li>
+   </ul>
+ </dd>
+<dt>in-domain test data</dt>
+ <dd>
+ 1000 answers will be published in April (there will be one week for submissions)
+ </dd>
 </dl>
 </p>
 
+<p>If you use additional training data (or existing translation systems that use additional training data), you must flag that your system uses additional data.
+We will distinguish system submissions that used the provided training data (constrained) from submissions that used significant additional data resources.
+Linguistic tools such as morphological analyzers, taggers, parsers, word-sense disambiguation or named entity recognizers are allowed in the constrained condition.
+
 <h3><a name="submission">TEST SET SUBMISSION</a></h3>
 <p>Unlike in the News translation task, punctuation in the official test sets will not be altered.</p>
+
 <p>To submit your results, please first convert into into SGML format as
 required by the NIST BLEU scorer, and then upload it to the
 website <a href="http://matrix.statmt.org/">matrix.statmt.org</a>.
 </p>
+
+<p>The translation quality will be measured by a manual evaluation and various automatic evaluation metrics.
+Participants agree to contribute to the manual evaluation about four hours of work per each submitted system.
+</p>
+
 
 <h3>ACKNOWLEDGEMENTS</h3>
 <p>The in-domain data were created within <a href="http://qtleap.eu">QTLeap</a> project, which sponsors this task.

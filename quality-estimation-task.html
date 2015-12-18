@@ -11,6 +11,298 @@
       <script src="menu.js"></script>
     </center>
 
+<p>This shared task will build on its previous four editions to further examine automatic&nbsp;methods for estimating the quality of machine translation output at run-time, without relying on reference translations. We include <b>word-level</b>, <b>sentence-level</b> and <b>document-level</b> estimation. The sentence and word-level tasks will explore a large dataset produced from post-editions by professional translators (as opposed to crowdsourced translations as in the previous year). For the first time, the data will be domain-specific (IT domain). The document-level task will use, for the first time, entire documents, which have been human annotated for quality indirectly in two ways: through reading comprehension tests and through a two-stage post-editing exercise. Our tasks have the following <b>goals</b>:
 
+<ul>
+<li>To advance work on sentence and word-level quality estimation by providing domain-specific, larger and professionally annotated datasets.</li>
+<li>To study the utility of detailed information logged during post-editing (time, keystrokes, actual edits) for different levels of prediction.</li>
+<li>To analyse the effectiveness of different types of quality labels provided by humans for longer texts in document-level prediction. </li>
+<!--<li>To investigate quality estimation at a new level of granularity: phrases. </li>
+
+
+<li>To explore differences between sentence-level and document-level
+prediction.</li>
+<li>To analyse the effect of training data sizes and quality for sentence and word-level prediction, particularly the use of annotations obtained from crowdsourced post-editing. </li>
+<li>To explore word-level quality prediction at different levels of granularity. </li>
+<li> To investigate the effectiveness of different quality labels. </li>
+<li>To push current work on sentence-level quality estimation towards robust models that can work across MT systems;</li>
+<li> To study the effects of training and test datasets with mixed domains, language pairs and MT systems. </li>
+<li>To test work on sentence-level quality estimation for the task of selecting the best translation amongst multiple systems;</li>
+<li>To evaluate the applicability of quality estimation for post-editing tasks;</li>
+<li>To provide a first common ground for development and comparison of quality estimation systems at word-level.</li>
+-->
+</ul>
+
+This year's shared task provides new training and test datasets for all tasks, and allows participants to explore any additional data and resources deemed relevant. A in-house MT system was used to produce translations for the sentence and word-level tasks, and multiple MT systems were used to produce translations for the document-level task. Therefore, MT system-dependent information will be made available where possible.
+
+<p><br><hr>
+
+<!-- BEGIN SENTENCE-LEVEL-->
+
+<h3><font color="blue">Task 1: Sentence-level QE</font></h3>
+
+<!--<p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/results/task1.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/gold/Task1_gold.tar.gz">here<a/>  
+-->
+
+<p> This task consists in scoring (and ranking) sentences according to post-editing effort. Multiple labels will be made available, including the percentage of edits need to be fixed (HTER), post-editing time, and keystrokes. Prediction according to each label will be evaluated independently, and any of these can outputs (or their combination) can be used to produce a ranking of translations. The data consists of 15,000 segments on the IT domain translated by an in-house phrase-based SMT system and post-edited by professional translators. The  <a =href="https://github.com/ghpaetzold/PET">PET</a> tool was used to collect these various types of information during post-editing. HTER labels are computed using <a href="http://www.umiacs.umd.edu/~snover/terp/">TER</a> (default settings: tokenised, case insensitive, exact matching only, but with scores capped to 1).
+</p>
+
+<!--
+<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide English-German datasets with <b>13,000</b> and <b>1,000</b>  source sentences, their machine translations, their post-editions (translations) and various post-editing effort scores. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_dev.tar.gz">Download development data (and baseline features)</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_training.tar.gz">Download training data (and baseline features)</a>. </li>
+
+<p>As <i><font color="green">test data</font></i>, we provide a new set of <b>1,817</b> English-Spanish translations produced by the same SMT system used for the training data. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_test.tar.gz">Download test data (and baseline features)</a>. 
+</li>
+-->
+
+<p><p>
+The usual <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox_baseline_17">17 features</a> used in WMT12-15 is considered for the <b>baseline system</b>. This system uses SVM regression with an RBF kernel, as well as grid search algorithm for the optimisation of relevant parameters. <a href="http://www.quest.dcs.shef.ac.uk/">QuEst++</a> is used to build prediction models.
+<!--
+ and this <a href="http://www.quest.dcs.shef.ac.uk/wmt13_files/evaluateWMTQP2013-Task1_1.pl">script</a> is used to evaluation the models. For significance tests, we use the bootstrap resampling method with <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/bootstrap-hypothesis-difference-significance.pl">this code</a>.
+<br>
+
+<p>As in previous years, two variants of the results can be submitted:
+<ul>
+<li><b>Scoring</b>: An absolute quality score for each sentence translation according to the type of prediction, to be interpreted as an error metric: lower scores mean better translations.</li>
+<li><b>Ranking</b>: A ranking of sentence translations for all source sentences from best to worst. For this variant, it does not matter how the ranking is produced (from HTER predictions, likert predictions, post-editing time, etc.). The reference ranking will be defined based on the true HTER scores.</li>
+</ul>
+-->
+
+
+<p><i><font color="green">Evaluation</font></i> is performed against the true label and/or ranking using as metrics:
+<ul>
+<li><b>Scoring</b>: Pearson's correlation, Mean Average Error (MAE), Root Mean Squared Error (RMSE).</li>
+<li><b>Ranking</b>: Spearman's rank correlation and DeltaAvg. </li>
+</ul>
+
+
+<p><br><hr>
+
+<!-- BEGIN WORD-LEVEL-->
+
+<h3><font color="blue">Task 2: Word-level QE</font></h3>
+
+<!--
+<p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/results/task2.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/gold/Task2_gold.tar.gz">here<a/>  
+-->
+
+<p>The goal of this task is to study the prediction of word-level errors in MT output. Often, the overall quality of a translated segment is significantly lowered by specific errors in a a small subset of words in that segment. For practical reasons, we frame the problem as the binary task of distinguishing between 'GOOD' and 'BAD' tokens.</p>
+<p>The data for this task is the same as provided in Task 1, with English-German machine translations. All segments are automatically annotated for errors with binary word-level labels by using the alignments provided by the  <a href="http://www.cs.umd.edu/~snover/tercom/">TER</a> tool.
+<!-- (settings: tokenised, case insensitive, exact matching only, disabling shifts by using the `-d 0` option) between machine translations and their post-edited versions. The edit operations considered as errors are: replacements, insertions and deletions. Shifts (word order errors) were not annotated as such (but rather as deletions+insertions) to avoid introducing noise in the annotation.</p>
+
+As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenized translation outputs with tokens annotated with  <i>good</i> or <i>bad</i> labels. 
+<a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task2_en-es_dev.tar.gz">Download development data (and baseline features)</a>. 
+<a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task2_en-es_training.tar.gz">Download training data (and baseline features)</a>. 
+</li> 
+
+<p>As <i><font color="green">test data</font></i>, we provide tokens from additional 1,817 English-Spanish sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task2_en-es_test.tar.gz">Download test data (and baseline features)</a>. 
+</li> 
+
+-->
+
+<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance (precision, recall, F-1) against the original labels. The main evaluation metric is the average F1 for the 'BAD' class. <a href="http://www.quest.dcs.shef.ac.uk/wmt14_files/evaluate_task2_WMT2014.py">Evaluation script.</a> 
+<!--We also provide an <a href=" https://gist.github.com/chrishokamp/e2b5bcc07d1006026c48">alternative evaluation script </a>that takes as input labels in the exact same format as the labels distributed for training and dev sets, i.e.: one line per sentence, one tag per word, whitespace separated, with tags in the set {'OK', 'BAD'}. -->
+For significance tests, we used the approximate randomisation method with <a href="http://www.nlpado.de/~sebastian/software/sigf.shtml">this code</a>.
+
+<p>As <b>baseline system</b> for this task we use the baseline features provided above to train a binary classifier using a standard logistic regression algorithm (available for example in the scikit-learn toolkit).</p>
+
+<!-- BEGIN DOCUMENT-LEVEL-->
+<p><br><hr>
+
+<h3><font color="blue">Task 3: Document-level QE</font></h3>
+
+<!--
+<p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/results/task3.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/gold/Task3_gold.tar.gz">here<a/>  
+-->
+
+<p>This task consists of predicting the quality of units larger than sentences. Different from WMT14, this year we consider entire documents, instead of paragraphs.
+<!--We consider as application a scenario where the reader needs to process the translation of an entire text, as opposed to individual sentences, and has no knowledge of the source language. -->
+The quality label is computed based on indirect human annotation of two types: a two-stage post-editing approach similar to the one described in <a href="https://aclweb.org/anthology/W/W15/W15-4916.pdf">(Scarton et al., 2014)<a> and reading comprehension tests. 
+<!--against references using <a href="http://www.cs.cmu.edu/~alavie/METEOR/">METEOR</a> (settings: exact match, not tokenised, case insensitive, capped to 1 - from the <a href="http://nlp.lsi.upc.edu/asiya/">Asiya toolkit</a>). Participants are encouraged to devise and explore document-wide features. -->
+
+
+<!--<p>For the <i><font color="green">training</font></i> of prediction models, we provide a new dataset consisting of source documents and their machine translations (for English-German or German-English), all in the <it>news domain</it>, extracted from the test set of WMT13 and MT systems that participated in the translation shared task:
+<ul>
+<li>800 English&#8594;German source&#8594;translation documents. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_en-de_training.tar.gz">Download training data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_en-de_training.baseline17.features">Download 17 baseline feature set</a>.</li> 
+<li>800 German&#8594;English source&#8594;translation documents. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_de-en_training.tar.gz">Download training data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_de-en_training.baseline17.features">Download 17 baseline feature set</a>.</li> 
+</ul>
+
+
+<p>As <i><font color="green">test data</font></i>, we provide a new set of translations produced by the same SMT systems used for the training data:
+
+<ul>
+<li>415 English source documents &#8594; 415 German translation suggestions. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_en-de_test.tar.gz">Download data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_en-de_test.baseline17.features">Download 17 baseline feature set</a>.</li>
+<li>415 German source documents &#8594; 415 English translation suggestions. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_de-en_test.tar.gz">Download data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_de-en_test.baseline17.features">Download 17 baseline feature set</a>.</li>
+</ul>
+
+<p>Two variants of the results can be submitted:
+<ul>
+<li><b>Scoring</b>: An absolute quality score for each document translation according to the type of prediction, to be interpreted as an error metric: higher scores mean better translations.</li>
+<li><b>Ranking</b>: A ranking of document translations for all source documents from best to worst. For this variant, it does not matter how the ranking is produced (from METEOR predictions, likert predictions, post-editing time, etc.). The reference ranking will be defined based on the true METEOR scores.</li>
+</ul>
+-->
+
+<p> <i><font color="green">Evaluation</font></i> is performed against the  true quality label and/or ranking using the following metrics:
+<ul>
+<li><b>Scoring</b>: Pearson's correlation Mean Average Error (MAE), Root Mean Squared Error (RMSE).</li>
+<li><b>Ranking</b>: Spearman's rank correlation and DeltaAvg. </li>
+</ul>
+
+<p><p>
+QuEst++ <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox_baseline_17">17 baseline features</a> for document-level will be used as the baseline system. As with sentence-level, the <b>baseline system</b> is trained using SVM regression with an RBF kernel, as well as grid search algorithm for the optimisation of relevant parameters. <!--We will use the same <a href="http://www.quest.dcs.shef.ac.uk/wmt13_files/evaluateWMTQP2013-Task1_1.pl">evaluation script</a> as for sentence-level. For significance tests, we use the bootstrap resampling method with <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/bootstrap-hypothesis-difference-significance.pl">this code</a>.-->
+<br>
+
+
+<p><br><hr>
+
+
+<!-- EXTRA STUFF -->
+
+<h3>Additional resources</h3>
+
+<p>We suggest the following <b><font color="green">interesting resources</font></b> that can be used as additional data for training (notice the difference in language pairs and/or text domains and/or MT systems):
+<ul>
+<li><a href="http://www.statmt.org/wmt15/quality-estimation-task.html">WMT15</a>, <a href="http://www.statmt.org/wmt14/quality-estimation-task.html">WMT14</a>, <a href="http://www.statmt.org/wmt13/quality-estimation-task.html">WMT13</a>, <a href="http://www.statmt.org/wmt12/quality-estimation-task.html">WMT12</a> Quality Estimation shared-task datasets.</li></li>
+<li><a href="http://www-clips.imag.fr/geod/User/marion.potet/index.php?page=download">LIG corpus</a> of 10,881 French-English SMT translations and their human post-editions (HTER scores can be easily derived). <a href="http://www.lrec-conf.org/proceedings/lrec2012/pdf/506_Paper.pdf">Description</a>.</li></li>
+<li><a href="http://anrtrace.limsi.fr/trace_postedit.tar.bz2">LISMI's TRACE corpora</a> of approximately 7,000 French-English and 7,000 English-French translations by different MT systems, for various text domains, and their post-editions by professionals translators. <a href="http://www.mtsummit2013.info/files/proceedings/main/mt-summit-2013-wisniewski-et-al.pdf">Description</a>.</li>
+<li><a href="http://bridge.cbs.dk/platform/?q=CRITT_TPR-db">CRITT Translation Process Research Database<a> with user activity data of translators behavior collected in several translation studies with Translog-II and with the CASMACAT workbench.</li>
+</ul>
+
+<!--
+<p>These are the resources we have used to extract the baseline features in Tasks 1 and 3:
+
+<p>
+<b>English</b>
+<lu>
+<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files/europarl-nc.en">source training corpus</a></li>
+<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files/lm.europarl-nc.en">language model</a></li>
+<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files/nc.pos.1.en.lm">language model of POS tags</a></li>
+<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files/ngram-counts.europarl-nc.en.proc">n-gram counts</a></li>
+<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files/truecase-model.en">truecase model</a></li>
+</lu>
+
+<p><b>Spanish</b>
+<lu>
+<li>Spanish <a href="http://www.quest.dcs.shef.ac.uk/quest_files/training.es">source training corpus</a></li>
+<li>Spanish <a href="http://www.quest.dcs.shef.ac.uk/quest_files/lm.europarl-interpolated-nc.es">language model</a></li>
+<li>Spanish <a href="http://www.quest.dcs.shef.ac.uk/quest_files/pos_lm.es">language model of POS tags</a></li>
+<li>Spanish <a href="http://www.quest.dcs.shef.ac.uk/quest_files/ngram-counts.europarl-nc.es">n-gram counts</a></li>
+<li>Spanish <a href="http://www.quest.dcs.shef.ac.uk/quest_files/truecase-model.es">truecase model</a></li>
+</lu>
+
+<p><b>German</b>
+<lu>
+<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files/source_corpus.de">source training corpus</a></li>
+<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files/news.3gram.de.lm">language model</a></li>
+<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files/corpus.de.pos.lm">language model of POS tags</a></li>
+<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files/news.3gram.de.counts.proc">n-gram counts</a></li>
+<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files/truecase-model.de">truecase model</a></li>
+</lu>
+
+
+<p><b>Giza tables</b>
+<lu>
+<li>English-Spanish <a href="http://www.quest.dcs.shef.ac.uk/quest_files/lex.e2s">Lexical translation table src-tgt</a></li>
+<li>English-German <a href="http://www.quest.dcs.shef.ac.uk/quest_files/lex.de-en">Lexical translation table src-tgt</a></li>
+<li>Spanish-English <a href="http://www.quest.dcs.shef.ac.uk/quest_files/lex.s2e">Lexical translation table src-tgt</a></li>
+<li>German-English <a href="http://www.quest.dcs.shef.ac.uk/quest_files/lex.de-en">Lexical translation table src-tgt</a></li>
+</lu>
+
+-->
+
+<p><br><hr>
+
+<!-- SUBMISSION INFO -->
+
+<h3>Submission Format</h3>
+
+<h4><font color="red">Tasks 1 and 3: Sentence- and document-level</font></h4>
+
+<p> The output of your system <b>a given subtask</b> should produce scores for the translations at the <i>segment-level</i> of the relevant task (sentence or document) formatted in the following way: </p>
+<pre>&lt;METHOD NAME&gt; &lt;SEGMENT NUMBER&gt; &lt;SEGMENT SCORE&gt; &lt;SEGMENT RANK&gt;<br><br></pre>
+Where:
+<ul>
+<li><code>METHOD NAME</code> is the name of your
+quality estimation method.</li>
+<li><code>SEGMENT NUMBER</code> is the line number
+of the plain text translation file you are scoring/ranking.</li>
+<li><code>SEGMENT SCORE</code> is the predicted (HTER/METEOR) score for the
+particular segment - assign all 0's to it if you are only submitting
+ranking results. </li>
+<li><code>SEGMENT RANK</code> is the ranking of
+the particular segment - assign all 0's to it if you are only submitting
+absolute scores. </li>
+</ul>
+Each field should be delimited by a single tab character.
+
+
+<h4><font color="red">Task 2: Word-level QE</font></h4>
+
+<p> The output of your system should produce scores for the translations at the <i>word-level</i>
+formatted in the following way: </p>
+<pre>&lt;METHOD NAME&gt; &lt;SEGMENT NUMBER&gt; &lt;WORD INDEX&gt; &lt;WORD&gt; &lt;BINARY SCORE&gt; <br><br></pre>
+Where:
+<ul>
+<li><code>METHOD NAME</code> is the name of your quality estimation method.</li>
+<li><code>SEGMENT NUMBER</code> is the line number of the plain text translation file you are scoring (starting at 0).</li>
+<li><code>WORD INDEX</code> is the index of the word in the tokenized sentence, as given in the training/test sets (starting at 0).</li>
+<li><code>WORD</code> actual word.</li>
+<li><code>BINARY SCORE</code> is either 'GOOD' for no issue or 'BAD' for any issue.</li>
+</ul>
+Each field should be delimited by a single tab character.
+
+
+<h3>Submission Requirements</h3>
+
+Each participating team can submit at most 2 systems for each of the language pairs of each subtask. These should be sent
+via email to Lucia Specia <a href="mailto:lspecia@gmail.com" target="_blank">lspecia@gmail.com</a>. Please use the following pattern to name your files:
+<p>
+<code>INSTITUTION-NAME</code>_<code>TASK-NAME</code>_<code>METHOD-NAME</code>, where:
+<p> <code>INSTITUTION-NAME</code> is an acronym/short name for your institution, e.g. SHEF
+<p><code>TASK-NAME</code> is one of the following: 1, 2, 3.
+<p><code>METHOD-NAME</code> is an identifier for your method in case you have multiple methods for the same task, e.g. 2_J48, 2_SVM
+<p> For instance, a submission from team SHEF for task 2 using method "SVM" could be named SHEF_2_SVM.
+
+<p>You are invited to submit a short paper (4 to 6 pages) to WMT
+describing your QE method(s). You are not required to
+submit a paper if you do not want to. In that case, we ask you
+to give an appropriate reference describing your method(s) that we can cite
+in the WMT overview paper.</p>
+
+
+<h3>Important dates</h3>
+
+    <table>
+      <tr><td>Release of training data </td><td>January 30, 2016</td></tr>
+      <tr><td>Release of test data </td><td>April 2016</td></tr>
+      <tr><td>QE metrics results submission deadline  </td><td>April 2016</td></tr>
+      <tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr>
+      <tr><td>Notification of acceptance</td><td>June 5, 2016</td></tr>
+      <tr><td>Camera-ready deadline</td><td>June 22, 2016</td></tr>
+    </table>
+
+
+<h3>Organisers</h3>
+<br>
+Varvara Logacheva (University of Sheffield)
+<br>
+Carolina Scarton (University of Sheffield)
+<br>
+Lucia Specia (University of Sheffield)
+<br>
+
+
+<h3>Contact</h3>
+<p> For questions or comments, email Lucia
+Specia <a href="mailto:lspecia@gmail.com" target="_blank">lspecia@gmail.com</a>.
+</p>
+
+<p align="right">
+Supported by the European Commission under the
+<a href="http://expert-itn.eu/"><img align=right src="figures/expert.png" border=0 width=100 height=40></a>
+<a href="http://www.qt21.eu/"><img align=right src="figures/qt21.png" border=0 width=100 height=40></a>
+<br>projects (grant numbers 317471 and 645452) <p>
+&nbsp;
+
+</body>
 </HTML>
 

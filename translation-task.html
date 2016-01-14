@@ -118,11 +118,13 @@
       There are about 50 million words of training data per language from the
       Europarl corpus and 3 million words from the News Commentary corpus.
     </p>
-
     <p>
-      A new data resource from 2013 is the Common Crawl corpus which was collected
-      from web sources. Each parallel corpus comes with a annotation file that
-      gives the source of each sentence pair.
+      For Romanian-English and Turkish-English we have added the 
+      <a href="http://opus.lingfil.uu.se/SETIMES2.php">SETIMES2</a> corpus to the constrained data task.
+    </p>
+    <p>
+      A new data resource from 2016 is the monolingual Common Crawl corpus which was collected
+      from web sources.
     </p>
 
     <p>
@@ -320,7 +322,7 @@
         </tr>
         <tr>
           <td><A HREF="http://data.statmt.org/wmt16/translation-task/training-parallel-ep-v8.tgz">Europarl v8</A></td>
-          <td>215M</td>
+          <td>215MB</td>
           <td align=center>&nbsp;</td> <!-- cs-en -->
           <td align=center>&nbsp;</td> <!-- de-en -->
           <td align=center>&#x2713;</td> <!-- fi-en -->
@@ -342,7 +344,7 @@
         </tr>
         <tr>
           <td><A HREF="http://data.statmt.org/wmt16/translation-task/training-parallel-nc-v11.tgz">News Commentary v11</A></td>
-          <td>72M</td>
+          <td>72MB</td>
           <td align=center>&#x2713;</td> <!-- cs-en -->
           <td align=center>&#x2713;</td> <!-- de-en -->
           <td align=center>&nbsp;</td> <!-- fi-en -->
@@ -371,7 +373,7 @@
           <td align=center>&nbsp;</td> <!-- ro-en -->
           <td align=center>&#x2713;</td> <!-- ru-en -->
           <td align=center>&#x2713;</td> <!-- tr-en -->
-          <td><a href="https://translate.yandex.ru/corpus?lang=en">ru-en</a>; <a href="tbd">tr-en</a> </td>
+          <td><a href="https://translate.yandex.ru/corpus?lang=en">ru-en</a></td>
         </tr>
         <tr>
           <td><nobr><a href="../wmt15/wiki-titles.tgz">Wiki Headlines</a></nobr></td>
@@ -438,14 +440,14 @@
         </tr>
         <tr>
           <td>Common Crawl</A></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/TBD">MB</a></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/TBD">MB</a></td>
+          <td align=center><a href="http://web-language-models.s3-website-us-east-1.amazonaws.com/wmt16/deduped/cs.xz">10.5GB</a></td> <!-- cs -->
+          <td align=center><a href="http://web-language-models.s3-website-us-east-1.amazonaws.com/wmt16/deduped/de.xz">102GB</a></td> <!-- de -->
+          <td align=center><a href="TBD">TBD</a></td> <!-- en -->
+          <td align=center><a href="http://web-language-models.s3-website-us-east-1.amazonaws.com/wmt16/deduped/fi.xz">5.3GB</a></td> <!-- fi -->
+          <td align=center><a href="http://web-language-models.s3-website-us-east-1.amazonaws.com/wmt16/deduped/ro.xz">11.3GB</a></td> <!-- ro -->
+          <td align=center><a href="http://web-language-models.s3-website-us-east-1.amazonaws.com/wmt16/deduped/ru.xz">42GB</a></td> <!-- ru -->
+          <td align=center><a href="http://web-language-models.s3-website-us-east-1.amazonaws.com/wmt16/deduped/tr.xz">18GB</a></td> <!-- tr -->
           <td align=center>&nbsp;</td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/TBD">MB</a></td> <!-- fi -->
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/TBD">MB</a></td> <!-- ro -->
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/TBD">MB</a></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/TBD">MB</a></td> <!-- tr -->
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/TBD">MB</A></td>
           <td><font color="red">New for 2016</font></td>
         </tr>
 <tr>
@@ -536,7 +538,7 @@
           <td align=center><a href="../wmt15/training-monolingual-news-crawl-v2/news.2014.cs.shuffled.v2.gz">380MB</a></td>
           <td align=center><a href="../wmt15/training-monolingual-news-crawl-v2/news.2014.de.shuffled.v2.gz">2.1GB</a></td>
           <td align=center><a href="../wmt15/training-monolingual-news-crawl-v2/news.2014.en.shuffled.v2.gz">1.4GB</a></td>
-          <td align=center><a href="../wmt15/training-monolingual-news-crawl-v2/news.2014.fi.shuffled.v2.gz">52M</a></td>
+          <td align=center><a href="../wmt15/training-monolingual-news-crawl-v2/news.2014.fi.shuffled.v2.gz">52MB</a></td>
           <td align=center>&nbsp;</td> <!-- ro -->
           <td align=center><a href="../wmt15/training-monolingual-news-crawl-v2/news.2014.ru.shuffled.v2.gz">801MB</a></td>
           <td align=center>&nbsp;</td> <!-- tr -->
@@ -544,14 +546,14 @@
           </tr>
           <tr>
           <td>News Crawl: articles from 2015</td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/">TBD</a></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/">TBD</a></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/">TBD</a></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/">TBD</a></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/">TBD</a></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/">TBD</a></td>
-          <td align=center></td>
-          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/">TBD</a></td>
+          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/news.2015.cs.shuffled.gz">360MB</a></td>
+          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/news.2015.de.shuffled.gz">2.2GB</a></td>
+          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/news.2015.en.shuffled.gz">1.3GB</a></td>
+          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/news.2015.fi.shuffled.gz">203MB</a></td>
+          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/news.2015.ro.shuffled.gz">125MB</a></td>
+          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/news.2015.ru.shuffled.gz">608MB</a></td>
+          <td align=center>&nbsp;</td>
+          <td align=center><a href="http://data.statmt.org/wmt16/translation-task/training-monolingual-news-crawl.tgz">4.8G</a></td>
           </tr>
 
 

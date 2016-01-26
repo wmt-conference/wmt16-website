@@ -11,5 +11,265 @@
       <script src="menu.js"></script>
     </center>
 
-Details coming soon ...
+
+    <H3>OVERVIEW</H3>
+    <p>Pronoun translation poses a problem for current state-of-the-art SMT systems as pronoun systems do not map well across languages, e.g., due to differences in gender, number, case, formality, or humanness, and to differences in where pronouns may be used. Translation divergences typically lead to mistakes in SMT, as when translating the English "it" into French ("il", "elle", or "cela"?) or into German ("er", "sie", or "es"?). One way to model pronoun translation is to treat it as a cross-lingual pronoun prediction task.</p>
+
+    <p>We propose such a task, which asks participants to predict a target-language pronoun given a source-language pronoun in the context of a sentence. We further provide a lemmatized target-language human-authored translation of the source sentence, and automatic word alignments between the source sentence words and the target-language lemmata. In the translation, the words aligned to a subset of the source-language third-person pronouns are substituted by placeholders. The aim of the task is to predict, for each placeholder, the word that should replace it from a small, closed set of classes, using any type of information that can be extracted from the documents.</p>
+
+    <p>The cross-lingual pronoun prediction task will be similar to the task of the same name at DiscoMT 2015:</p>
+
+	<a href="http://www.idiap.ch/workshop/DiscoMT/shared-task">http://www.idiap.ch/workshop/DiscoMT/shared-task</a>
+
+    <p>Participants are invited to submit systems for the English-French and for the English-German language pairs, for both directions.</p>
+
+    <H3>GOALS</H3>
+    <p>The goals of the cross-lingual pronoun prediction task are:
+    <ul>
+        <li>To investigate and raise awareness of the problems that pronoun translation poses for SMT</li>
+        <li>To highlight and examine the specific problems posed by the translation of different source-language pronouns into a given target-language</li>
+        <li>To provide a self-contained task, which will serve as a way to introduce newcomers to the field of <i>discourse in SMT</i></li>
+    </ul>
+    </p>
+
+
+    <H3>TASK DESCRIPTION</H3>
+    <p>In the cross-lingual pronoun prediction task, you are given a source-language document with a <b>lemmatised and POS-tagged</b> human-authored translation and a set of word alignments between the two languages. In the translation, the lemmatised tokens aligned to the source-language third-person pronouns are substituted by placeholders. Your task is to predict, for each placeholder, <b>the fully inflected word token</b> that should replace the placeholder from a small, closed set of classes. I.e., to provide the fully inflected (German|French) translation of the English pronoun in the context sketched by the lemmatized/tagged target side (in the case of English-to-German|French translation). You may use any type of information that you can extract from the documents.</p>
+
+    <p><b>Lemmatised and POS-tagged</b> target-language data is provided in place of fully inflected text. The provision of lemmatised data is intended both to provide a challenging task, and to simulate a scenario that is more closely aligned with working with machine translation system output. POS tags provide additional information which may be useful in the disambiguation of lemmas (e.g. noun vs. verb, etc.) and in the detection of patterns of pronoun use.</p>
+
+    <p>The pronoun prediction task will be run for the following sub-tasks:
+    <ul>
+        <li>English-to-German</li>
+        <li>German-to-English</li>
+        <li>English-to-French</li>
+        <li>French-to-English</li>
+    </ul>
+    </p>
+
+    <p>Details of the source-language pronouns and the prediction classes that exist for each of the above sub-tasks are provided in the following section (below). The different combinations of source-language pronoun and target-language prediction classes represent some of the different problems that SMT systems face when translating pronouns for a given language pair and translation direction.</p>
+
+    <p>The task will be evaluated automatically by matching the predictions against the words found in the reference translation by computing the overall accuracy and precision, recall and F-score for each class. The primary score for the evaluation is the macro-averaged F-score over all classes. Compared to accuracy, the macro-averaged F-score favours systems that consistently perform well on all classes and penalises systems that maximise the performance on frequent classes while sacrificing infrequent ones.</p>
+
+    <p>The data supplied for the classification task consists of parallel source-target text with word alignments. In the target-language text, a subset of the words aligned to source-language occurrences of a specified set of pronouns have been replaced by placeholders of the form REPLACE_xx, where xx is the index of the source-language word the placeholder is aligned to. Your task is to predict one of the classes listed in the relevant source-target section below, for each occurrence of a placeholder.</p>
+
+    <p>The training and development data is supplied in a file format with five tab-separated columns:
+    <ul>
+        <li>the class label</li>
+        <li>the word actually removed from the text (may be different from the class label for class OTHER and in some edge cases)</li>
+        <li>the source-language segment</li>
+        <li>the target-language segment with pronoun placeholders</li>
+        <li>the word alignment (a space-separated list of alignments of the form SRC-TGT, where SRC and TGT are zero-based word indices in the source and target-language segment, respectively)</li>
+    </ul>
+    </p>
+    
+    <p>A single segment may contain more than one placeholder. In that case, columns 1 and 2 contain multiple space-separated entries in the order of placeholder occurrence. A document segmentation of the data is provided in separate files for each corpus. These files contain one line per segment, but the precise format varies depending on the type of document markup available for the different corpora. In the development and test data, the files have a single column containing the ID of the document the segment is part of.</p>
+
+    <p>Here is an example line from one of the training data files:</p>
+    <pre>elles	Elles	They arrive first .	REPLACE_0 arriver|VER en|PRP premier|NUM .|.	0-0 1-1 2-2 2-3 3-4</pre>
+
+    <p>The test set will be supplied in the same format, but with columns 1 and 2 empty, so that each line starts with two tab characters. Your submission should have the same format as column 1 above, so a correct solution would contain the class label <b>[class label to be provided]</b> in this case. Each line should contain as many space-separated class labels as there are REPLACE tags in the corresponding segment. For each segment not containing any REPLACE tags, an empty line should be emitted. Additional tab-separated columns may be present in the submission, but will be ignored. Note in particular that you are not required to predict the second column. The submitted files should be encoded in UTF-8 (like the data we provide).</p>
+
+    <p>The test and development datasets have been <b>filtered</b> to remove non-subject position pronouns. Additional filtering has also been applied to the test set to remove erroneous pronoun examples and thereby ensure the fair and accurate evaluation of system performance. No filtering has been applied to the training data, but you are welcome to replicate what has been done for the test and development data. For more information, please see the section on <b>data filtering</b> below.</p>
+
+    <p>The complete test data for the classification task, including reference translations and word alignments, will be released on <b>[date to be announced]</b>. Your submission is due on <b>[date to be announced]</b>. Detailed submission instructions can be found at the end of this page.</p>
+
+
+    <H3>SOURCE-LANGUAGE PRONOUN SETS AND TARGET-LANGUAGE PREDICTION CLASS DETAILS</H3>
+    <p>The following sections describe the set of source-language pronouns and target-language classes to be predicted, for each of the four sub-tasks. Please note that the sub-tasks are asymmetric in terms of the source-language pronouns and prediction classes. The selection of the source-language pronouns and their target-language prediction classes for each sub-task is based on the variation that is possible when translating a given source-language pronoun. For example, when translating the English pronoun "it" into French, a decision must be made as to the gender of the French pronoun, with "il" and "elle" both providing valid options. The translation of the English pronouns "he" and "she" into French, however, does not require such a decision. These may simply be mapped 1-to-1, as "il" and "elle" respectively. The translation of "he" and "she" from English into French is therefore not considered an "interesting" problem and as such, these pronouns are excluded from the source-language set for the English->French sub-task. In the opposite translation, the French pronoun "il" may be translated as "it" or "he", and "elle" as "it" or "she". As a decision must be taken as to the appropriate target-language translation of "il" and "elle", these are included in the set of source-language pronouns for the French->English sub-task.</p>
+
+    <p>You should *always* predict either a word token or "OTHER". See prediction class lists below for a list of word tokens to predict for each sub-task.</p>
+
+    <H4>English-to-French</H4>
+    <p>This sub-task will concentrate on the translation of subject position "it" and "they" from English into French. The following prediction classes exist for this sub-task:</p>
+    <table>
+      <tr><td><b>ce</b></td><td>The French pronoun ce (sometimes with elided vowel as c') as in the expression c'est "it is"</td></tr>
+      <tr><td><b>elle</b></td><td>Feminine singular subject pronoun</td></tr>
+      <tr><td><b>elles</b></td><td>Feminine plural subject pronoun</td></tr>
+      <tr><td><b>il</b></td><td>Masculine singular subject pronoun</td></tr>
+      <tr><td><b>ils</b></td><td>Masculine plural subject pronoun</td></tr>
+      <tr><td><b>ça</b></td><td>Demonstrative pronoun (including the misspelling ca and the rare elided form ç')</td></tr>
+      <tr><td><b>cela</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>on</b></td><td>Indefinite pronoun</td></tr>
+      <tr><td><b>OTHER</b></td><td>Some other word, or nothing at all, should be inserted</td></tr>
+    </table> 
+
+    <H4>French-to-English</H4>
+    <p>This sub-task will concentrate on the translation of subject position "elle", "elles", "il", and "ils" from French into English. The following prediction classes exist for this sub-task:</p>
+    <table>
+      <tr><td><b>he</b></td><td>Masculine singular subject pronoun</td></tr>
+      <tr><td><b>she</b></td><td>Feminine singular subject pronoun</td></tr>
+      <tr><td><b>it</b></td><td>Non-gendered singular subject pronoun</td></tr>
+      <tr><td><b>they</b></td><td>Non-gendered plural subject pronoun</td></tr>
+      <tr><td><b>this</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>that</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>these</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>those</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>there</b></td><td>Existential "there"</td></tr>
+      <tr><td><b>OTHER</b></td><td>Some other word, or nothing at all, should be inserted</td></tr>
+    </table> 
+
+    <H4>English-to-German</H4>
+    <p>This sub-task will concentrate on the translation of subject position "it" and "they" from English into German. The following prediction classes exist for this sub-task:</p>
+    <table>
+      <tr><td><b>er</b></td><td>Masculine singular subject pronoun</td></tr>
+      <tr><td><b>sie</b></td><td>Feminine singular subject pronoun</td></tr>
+      <tr><td><b>es</b></td><td>Neuter singular subject pronoun</td></tr>
+      <tr><td><b>man</b></td><td>Indefinite pronoun</td></tr>
+      <tr><td><b>OTHER</b></td><td>Some other word, or nothing at all, should be inserted</td></tr>
+    </table>
+
+    <H4>German-to-English</H4>
+    <p>This sub-task will concentrate on the translation of subject position "er", "sie" and "es" from German into English. The following prediction classes exist for this sub-task:</p>
+    <table>
+      <tr><td><b>he</b></td><td>Masculine singular subject pronoun</td></tr>
+      <tr><td><b>she</b></td><td>Feminine singular subject pronoun</td></tr>
+      <tr><td><b>it</b></td><td>Non-gendered singular subject pronoun</td></tr>
+      <tr><td><b>they</b></td><td>Non-gendered plural subject pronoun</td></tr>
+      <tr><td><b>you</b></td><td>Second person pronoun (with both generic or deictic uses)</td></tr>
+      <tr><td><b>this</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>that</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>these</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>those</b></td><td>Demonstrative pronoun</td></tr>
+      <tr><td><b>there</b></td><td>Existential "there"</td></tr>
+      <tr><td><b>OTHER</b></td><td>Some other word, or nothing at all, should be inserted</td></tr>
+    </table> 
+
+
+    <H3>DISCUSSION GROUP</H3>
+    <p>If you are interested in participating in the shared task, we recommend that you sign up to our discussion group to make sure you don't miss any important information. Feel free to ask any questions you may have about the shared task!</p>
+
+    <p><a href="https://groups.google.com/forum/#!forum/wmt-2016-cross-lingual-pronoun-prediction-shared-task">https://groups.google.com/forum/#!forum/wmt-2016-cross-lingual-pronoun-prediction-shared-task</a></p>
+
+
+    <H3>DATA FILTERING</H3>
+    <p>The task is to predict the translation of subject position pronouns for all sub-tasks. In order to ensure fair and accurate evaluation of system performance, <b>filtering has been applied to the source-language texts</b> of the development and test datasets, to select only those pronoun instances that are relevant to each sub-task. For example, in the case of English-to-French translation, which focusses on the translation of the English subject position pronouns "it" and "they", only subject position instances of "it" will be included in the development and test datasets.</p>
+
+    <H4>Development data</H4>
+    <p>Automatic filtering has been applied to the source-language texts of the development datasets to remove non-subject position instances of English "it" and the German pronouns "sie" and "es".</p>
+
+    <H4>Test data</H4>
+    <p>The same automatic filtering that was applied to the source-language texts of the development datasets, has also been applied to the source-language texts of the test dataset. In addition to this, manual filtering has been applied to remove additional pronoun instances from the test dataset. This includes source-language pronouns whose subject / non-subject position was incorrectly identified using the automatic filtering, and where errors in the word alignment of pronouns, sentence alignment and/or human translations would likely lead to an inaccurate assessment of system performance.</p>
+
+    <H4>Training data</H4>
+    <p>Please note that <b>the training data has not been filtered</b>. It will therefore contain both subject and non-subject position instances of pronouns of some pronoun tokens, such as "it", "sie" and "es". You may wish to consider the effect that this has on the task and look into what methods, if any, you might use to accommodate this. For example, you may wish to replicate the filtering that has been applied to the development and test data.</p>
+    
+
+    <H3>TRAINING DATA</H3>
+    <b>[To be announced]</b>
+
+
+    <H3>TOOLS</H3>
+    <p>Participants are encouraged to use any type of information that can be extracted from the source and target-language text. You may use any tool you like, but committee members have found the following ones useful:</p>
+    <ul>
+        <li><a href="http://nlp.stanford.edu/software/lex-parser.shtml">Stanford CoreNLP</a> (combines various NLP modules, including English coreference resolution) <b>[English; some support for parsing French, German]</b></li>
+        <li><a href="https://code.google.com/p/mate-tools/wiki/ParserAndModels">MATE parser</a> (with joint tagging+parsing model) <b>[English, French and German]</b></li>
+        <li><a href="https://github.com/rsennrich/parzu">Zurich Dependency Parser</a> <b>[German]</b></li>
+        <li><a href="http://alpage.inria.fr/statgram/frdep/fr_stat_dep_parsing.html">The BONSAI suite of models</a> (uses an external lexicon to improve parsing) <b>[French]</b></li>
+        <li><a href="https://code.google.com/p/nada-nonref-pronoun-detector/">NADA</a> (Non-anaphoric "it" detector) <b>[English]</b></li>
+        <li><b>[Other tools to be added?]</b></li>
+    </ul>
+
+    <p>Adventurous people could also try using Sebastian Martschat's <a href="https://github.com/smartschat/cort">CORT</a>, which has an option to perform coreference resolution on unannotated text (using the Stanford tools for preprocessing). <b>[Disclaimer: the organisers have not used CORT themselves for that purpose]</b></p>
+
+    <p>In addition to the tools listed above, classification baselines are provided for each sub-task. See section below.</p>
+
+
+    <H3>CLASSIFICATION BASELINE</H3>
+    <b>[To be announced]</b>
+
+    <!--p>We provide baseline models for each sub-task. The baseline looks only at the language model scores (using KenLM, which you can download <a href="https://github.com/kpu/kenlm">here</a>, and the language model that is used needs to be in KenLM's binary format (which is the case for the "corpus.5.trie.kenlm" included in the "baseline-all" tarball).</p>
+
+    <p>You can get predictions for the baseline model by running, e.g.:</p>
+    
+    <p><b>python discomt_baseliny.py --fmt=replace .../classification/TEDdev.data.gz</b></p>
+
+    <p>These are in the format that the scorer requires, with predictions in the first column, the word it predicted in the second column (which is <b>always</b> ignored by the scorer, so don't worry if your system doesn't predict words), etc.</p>
+    
+    <p>If you're interested in just using the marginal probabilities for each filler from the language model, you can also use:</p>
+
+    <p><b>python discomt_baseline --fmt=scores .../classification/TEDdev.data.gz</b></p>
+
+    <p>which will give you, for each input line, one with TEXT in the second column giving you the source/target text, and zero or more lines with ITEM 0, ITEM 1 etc. giving you a (partial) probability distribution over the fillers for each "REPLACE" position.</p>
+
+    <p>Other flags:
+    <ul>
+        <li>--lm LANGUAGE_MODEL: use another language model (otherwise it assumes the default name and the current directory)</li>
+        <li>--null-penalty PENALTY: use this penalty for predicting no filler at all (which counts as OTHER)</li>
+    </ul>
+    </p>
+
+    <p>Results with default options on TEDdev (same data as tst2010):<br>
+    <b>[Results to be provided]</b><br>
+    or a macro-averaged fine-grained F1 of <b>[Score to be provided]</b><br>
+    </p>
+    
+    <p>Results with "--null-penalty -2.0":<br>
+    <b>[Results to be provided]</b><br>
+    or a macro-averaged fine-grained F1 of <b>[Score to be provided]</b><br>
+    </p-->
+
+
+    <H3>EVALUATION</H3>
+    <p>The predicted pronoun class labels will be <b>automatically</b> evaluated against the gold standard translations from the test set (see the example for the classification baseline below). The current version of the scorer is available here: <a href="http://opus.lingfil.uu.se/DiscoMT2015/discoMT_scorer.pl">discoMT_scorer.pl.</a></p>
+
+    <p>Please remember that there are differences between the <b>filtered</b> development and test datasets, and the <b>unfiltered</b> training data. For more information, please see the section on <b>data filtering</b> above.</p>
+
+    <p><b>[Further details to be announced]</b></p>
+
+
+    <H3>SUBMISSION INSTRUCTIONS</H3>
+    <p>We will provide the input data in the same format as the training data, but with the first two columns empty. Your predictions should be submitted in the format recognised by the official scorer, see above for details. Please e-mail the file with the predictions, labelled with the name of your system, to <b>[email address to be announced]</b> no later than <b>[date to be announced]</b> (any time zone).</p>
+
+
+    <H3>TEST DATA</H3>
+    <b>[To be announced]</b>
+
+
+    <H3>EVALUATION RESULTS</H3>
+    <b>[To be announced]</b>
+
+
+    <H3>SYSTEM DESCRIPTION PAPERS</H3>
+    <p>All groups who participate in the shared task will be invited to submit a paper to the workshop to describe their system in detail. <b>[Details of the paper requirements and submission instructions to be announced]</b></p>
+    
+    <p>All system description papers should contain enough details to make the results reproducible. They need not provide a detailed description of the task itself and the data sets provided by the organisers. Instead, they may refer to the shared task overview paper, whose bibliographic details will be announced before the camera-ready deadline. Data sets and tools not included in the official data release should be described. We also welcome a critical discussion of the system performance and encourage including additional contrastive results. Unlike regular long and short papers, system description papers need not be anonymised. The paper submission deadline is 8th May 2016.</p>
+
+
+    <H3>IMPORTANT DATES</H3>
+    <table>
+      <tr><td>Release of training data</td><td>January 2016</td></tr>
+      <tr><td>Test data released</td><td>April 2016</td></tr>
+      <tr><td>System submission deadline</td><td>April 2016</td></tr>
+      <tr><td>Paper submission deadline</td><td>8th May 2016</td></tr>
+      <tr><td>Notification of acceptance	</td><td>5th June 2016</td></tr>
+      <tr><td>Camera-ready deadline</td><td>22nd June 2016</td></tr>
+    </table> 
+
+
+    <H3>ORGANISERS</H3>
+    Liane Guillou (University of Edinburgh)
+    <br>
+    Christian Hardmeier (Uppsala University)
+    <br>
+    Preslav Nakov (Qatar Computing Research Institute)
+    <br>
+    Andrei Popescu-Belis (Idiap Research Institute)
+    <br>
+    Sara Stymne (Uppsala University)
+    <br>
+    Jörg Tiedemann (University of Helsinki)
+    <br>
+    Yannick Versley (University of Heidelberg)
+    <br>
+    Bonnie Webber (University of Edinburgh)
+    <br>
+
+
+    <H3>ACKNOWLEDGEMENTS</H3>
+    <p>The organisation of this task has received support from the following project:</p>
+    <ul>
+        <li>Discourse-Oriented Statistical Machine Translation funded by the Swedish Research Council (2012-916)</li>
+    </ul>
+  </body>
 </HTML>

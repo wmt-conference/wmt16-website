@@ -16,13 +16,13 @@
     <H3>OVERVIEW</H3>
     <p>Pronoun translation poses a problem for current state-of-the-art SMT systems as pronoun systems do not map well across languages, e.g., due to differences in gender, number, case, formality, or humanness, and to differences in where pronouns may be used. Translation divergences typically lead to mistakes in SMT, as when translating the English "it" into French ("il", "elle", or "cela"?) or into German ("er", "sie", or "es"?). One way to model pronoun translation is to treat it as a cross-lingual pronoun prediction task.</p>
 
-    <p>We propose such a task, which asks participants to predict a target-language pronoun given a source-language pronoun in the context of a sentence. We further provide a lemmatized target-language human-authored translation of the source sentence, and automatic word alignments between the source sentence words and the target-language lemmata. In the translation, the words aligned to a subset of the source-language third-person pronouns are substituted by placeholders. The aim of the task is to predict, for each placeholder, the word that should replace it from a small, closed set of classes, using any type of information that can be extracted from the documents.</p>
+    <p>We propose such a task, which asks participants to predict a target-language pronoun given a source-language pronoun in the context of a sentence. We further provide a lemmatised target-language human-authored translation of the source sentence, and automatic word alignments between the source sentence words and the target-language lemmata. In the translation, the words aligned to a subset of the source-language third-person pronouns are substituted by placeholders. The aim of the task is to predict, for each placeholder, the word that should replace it from a small, closed set of classes, using any type of information that can be extracted from the documents.</p>
 
     <p>The cross-lingual pronoun prediction task will be similar to the task of the same name at DiscoMT 2015:</p>
 
 	<a href="http://www.idiap.ch/workshop/DiscoMT/shared-task">http://www.idiap.ch/workshop/DiscoMT/shared-task</a>
 
-    <p>Participants are invited to submit systems for the English-French and for the English-German language pairs, for both directions.</p>
+    <p>Participants are invited to submit systems for the English-French and English-German language pairs, for both directions.</p>
 
     <H3>GOALS</H3>
     <p>The goals of the cross-lingual pronoun prediction task are:
@@ -35,7 +35,7 @@
 
 
     <H3>TASK DESCRIPTION</H3>
-    <p>In the cross-lingual pronoun prediction task, you are given a source-language document with a <b>lemmatised and POS-tagged</b> human-authored translation and a set of word alignments between the two languages. In the translation, the lemmatised tokens aligned to the source-language third-person pronouns are substituted by placeholders. Your task is to predict, for each placeholder, <b>the fully inflected word token</b> that should replace the placeholder from a small, closed set of classes. I.e., to provide the fully inflected (German|French) translation of the English pronoun in the context sketched by the lemmatized/tagged target side (in the case of English-to-German|French translation). You may use any type of information that you can extract from the documents.</p>
+    <p>In the cross-lingual pronoun prediction task, you are given a source-language document with a <b>lemmatised and POS-tagged</b> human-authored translation and a set of word alignments between the two languages. In the translation, the lemmatised tokens aligned to the source-language third-person pronouns are substituted by placeholders. Your task is to predict, for each placeholder, <b>the fully inflected word token</b> that should replace the placeholder from a small, closed set of classes. I.e., to provide the fully inflected (German|French) translation of the English pronoun in the context sketched by the lemmatised/tagged target side (in the case of English-to-German|French translation). You may use any type of information that you can extract from the documents.</p>
 
     <p><b>Lemmatised and POS-tagged</b> target-language data is provided in place of fully inflected text. The provision of lemmatised data is intended both to provide a challenging task, and to simulate a scenario that is more closely aligned with working with machine translation system output. POS tags provide additional information which may be useful in the disambiguation of lemmas (e.g. noun vs. verb, etc.) and in the detection of patterns of pronoun use.</p>
 

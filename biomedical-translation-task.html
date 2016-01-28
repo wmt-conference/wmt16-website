@@ -1,7 +1,7 @@
 <HTML>
   
 <HEAD>
-<title>Translation Task - ACL 2016 First Conference  on  Machine Translation</title>
+<title>Biomedical translation Task - ACL 2016 First Conference  on  Machine Translation</title>
 <style> h3 { margin-top: 2em; } </style>
 </HEAD>
 
@@ -15,7 +15,7 @@
 
 <h3>Task description</h3>
 
-<p>This is a new task which aims to evaluate systems on the translation of scientific publications for the the biological and health domains.
+<p>This is a new task that aims to evaluate systems on the translation of scientific publications for the the biological and health domains.
 The documents were retrieved from the <a href="www.scielo.org">Scielo</a> database of scientific publications.
 The biomedical translation task will address the following language pairs:</p>
 
@@ -28,12 +28,86 @@ The biomedical translation task will address the following language pairs:</p>
 <h3>Data</h3>
 
 <p>We will make available parallel corpora for the above three language pairs, as well as monolingual corpora for each of the four languages.
-All documents were retrieved from the Scielo database for both the parallel and the monolingual corpora.
+The documents were retrieved from both the Scielo database for both the parallel and the monolingual corpora.
 The documents can be composed of either a title, the abstract or both of them, depending on their availability in the database.
 Additionally, we will also make available a parallel corpus of <a href="http://www.ncbi.nlm.nih.gov/pubmed">Medline</a> titles.</p>
 
-<p>Data will be made available in the <a href="http://bioc.sourceforge.net/">BioC format</a>, for which readers and writers are available for 
-many programming languages, as well as various natural language processing tools for biomedicine.</p>
+<p>All files are available in the <a href="https://drive.google.com/open?id=0B3UxRWA52hBja0t2azlkN3d2elk">WMT'16 biomedical task Google Drive account</a>.</p>
+
+<h4>Parallel corpora from Scielo</h4>
+
+<p>The parallel documents from the Scielo database are located in the "scielo" folder. There is no parallel dataset for the biological domain and the language pair FR/EN. Please use out-of-the domain corpora or the health and Medline datasets as training data.</p>
+
+<table border="1">
+<tr><td>Dataset</td><td>ES/EN</td><td>FR/EN</td><td>PT/EN</td></tr>
+<tr><td>Biological</td><td>es-en-training-biological.xml.gz</td><td>-</td><td>pt-en-training-biological.xml.gz</td></tr>
+<tr><td>Health</td><td>es-en-training-health.xml.gz</td><td>fr-en-training-health.xml.gz</td><td>pt-en-training-health.xml.gz</td></tr>
+</table>
+
+<p>The Scielo corpus is available in the <a href="http://bioc.sourceforge.net/">BioC XML format</a>, for which readers and writers are available for 
+many programming languages, as well as various natural language processing tools for biomedicine.
+There are specific values for the attribute "key" of the XML tag "infon" to identify the language of each document, the section (title or abstract) and the number of the sentence, as illustrated in the example below:</p>
+
+<xmp>
+<document>
+<id>S0034-77441998000200003</id>
+<passage>
+<infon key="language">EN</infon>
+<infon key="section">abstract</infon>
+<sentence>
+<infon key="sentnum">0</infon>
+<text>The gastrointestinal activity of an aqueous extract of the dry wood of Quassia amara was investigated using animal models. </text>
+</sentence>
+<sentence>
+<infon key="sentnum">1</infon><offset>-1</offset><text> Oral administration of the extract to mice produces an increase of gastrointestinal transit at doses of 
+500 and 1000 mg/kg. The antiulcerogenic activity was measured inducing ulcers on Sprague-Dowly rats with indomethacin or ethanol and by the induction of stress.</text>
+</sentence>
+<sentence>
+<infon key="sentnum">2</infon>
+<text> The experimental group was treated orally with the extract, using doses of 250, 500 and 1000 mg/kg before inducing the ulcers.</text>
+</sentence>
+...
+</passage>
+</document>
+</xmp>
+
+<h4>Aligned parallel corpora from Scielo</h4>
+
+<p>We have aligned the documents from the Scielo database with the <a href="http://nlp.cs.nyu.edu/GMA/">GMA tool</a>. 
+The files derived from this alignment are located in the "scielo-gma" folder and include the following files for each section of the document 
+(title and abstract/text):</p>
+
+<ul>
+<li>*.crp: aligned sentences</li>
+<li>*.simr: GMA's word alignment file</li>
+<li>*.align: GMA's sentence alignment file</li>
+<li>*.txt.axis: GMA's axis file, one per language</li>
+<li>*.txt: plain text file, one per language</li>
+</ul>
+
+<table border="1">
+<tr><td>Dataset</td><td>ES/EN</td><td>FR/EN</td><td>PT/EN</td></tr>
+<tr><td>Biological</td><td>es-en-gma-biological.tar.gz</td><td>-</td><td>pt-en-gma-biological.tar.gz</td></tr>
+<tr><td>Health</td><td>es-en-gma-health.tar.gz</td><td>fr-en-gma-health.tar.gz</td><td>pt-en-gma-health.tar.gz</td></tr>
+</table>
+
+<h4>Parallel corpora from Medline</h4>
+
+<p>The Medline documents are located in the "medline" folder.</p>
+
+<table border="1">
+<tr><td>Dataset</td><td>ES/EN</td><td>FR/EN</td><td>PT/EN</td></tr>
+<tr><td>Medline</td><td>pubmed_en_es.txt.zip</td><td>pubmed_en_fr.txt.zip</td><td>pubmed_en_pt.txt.zip</td></tr>
+</table>
+
+<h4>Monolingual corpora from Scielo</h4>
+
+<p>The Medline documents will be located in the "scielo-monolingual" folder.</p>
+
+<h4>Out-of-domain corpora</h4>
+
+For out-of-domain corpora, please check other machine translation tasks in the WMT'16 challenge, such as <a href="translation-task.html">news</a> and
+<a href="it-translation-task.html">IT</a>.
 
 <h3>Evaluation</h3>
 
@@ -42,9 +116,12 @@ Automatic evaluation will make use of standard machine translation metrics, such
 Native speakers in each of the languages will manually check the quality of the translation for a small sample of the submissions.
 The <a href="http://www.appraise.cf/">Appraise system</a> will be used for this purpose.
 
-<h3>Submission Format</h3>
+<h3>Submission format</h3>
 
-coming soon
+<p>The training data and the test data are available in the <a href="http://bioc.sourceforge.net/">BioC</a> format.
+More information about BioC as well as readers are writer for many programming languages can be found in the <a href="http://bioc.sourceforge.net/">BioC web site</a>.</p>
+
+<p>More details on the submission format will be available soon.</p>
 
 <h3>Submission Requirements</h3>
 
@@ -53,9 +130,9 @@ coming soon
 <h3>Important dates</h3>
 
 <table>
-<tr><td>Release of training data </td><td>tbd, 2016</td></tr>
-<tr><td>Release of test data </td><td>tbd, 2016</td></tr>
-<tr><td>Results submission deadline  </td><td>tbd, 2016</td></tr>
+<tr><td>Release of training data </td><td>end of January 2016</td></tr>
+<tr><td>Release of test data </td><td>April, 2016</td></tr>
+<tr><td>Results submission deadline  </td><td>April, 2016</td></tr>
 <tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr> <!-- fixed?-->
 <tr><td>Notification of acceptance</td><td>June 5, 2016</td></tr>  <!-- fixed?-->
 <tr><td>Camera-ready deadline</td><td>June 22, 2016</td></tr>  <!-- fixed?-->
@@ -64,13 +141,15 @@ coming soon
 <h3>Organisers</h3>
 
 Antonio Jimeno Yepes (IBM Research Australia)<br>
-Aur&eacute;lie N&eacute;v&eacute;ol (LIMSI, CNRS)<br>
-Mariana Neves (Hasso-Plattner Institute)<br>
-Karin Verspoor (University of Melbourne)<br>
+Aur&eacute;lie N&eacute;v&eacute;ol (LIMSI, CNRS, France)<br>
+Mariana Neves (Hasso-Plattner Institute, Germany)<br>
+Karin Verspoor (University of Melbourne, Australia)<br>
 
 <br/><br/>
 
-Contact email: <a href="wmtbiomedical@gmail.com">wmtbiomedical@gmail.com</a>
+Please contact us in the mail <a href="wmtbiomedical@gmail.com">wmtbiomedical@gmail.com</a>.
+Please also joing our <a href="https://groups.google.com/forum/?hl=en#!forum/wmt-biomedical-task">discussion forum</a>.
+
 <br/>
 
 </body>

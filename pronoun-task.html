@@ -71,9 +71,9 @@
 
     <p>The test set will be supplied in the same format, but with columns 1 and 2 empty, so that each line starts with two tab characters. Your submission should have the same format as column 1 above, so a correct solution would contain the class label <b>elles</b> in this case. Each line should contain as many space-separated class labels as there are REPLACE tags in the corresponding segment. For each segment not containing any REPLACE tags, an empty line should be emitted. Additional tab-separated columns may be present in the submission, but will be ignored. Note in particular that you are not required to predict the second column. The submitted files should be encoded in UTF-8 (like the data we provide).</p>
 
-    <p>The test and development datasets have been <b>filtered</b> to remove non-subject position pronouns. Additional filtering has also been applied to the test set to remove erroneous pronoun examples and thereby ensure the fair and accurate evaluation of system performance. No filtering has been applied to the training data, but you are welcome to replicate what has been done for the test and development data. For more information, please see the section on <b>data filtering</b> below.</p>
+    <p>The training, development and test datasets have been <b>filtered</b> to remove non-subject position pronouns. Additional filtering has also been applied to the test set to remove erroneous pronoun examples and thereby ensure the fair and accurate evaluation of system performance. For more information, please see the section on <b>data filtering</b> below.</p>
 
-    <p>The complete test data for the classification task, including reference translations and word alignments, will be released on <b>[date to be announced]</b>. Your submission is due on <b>[date to be announced]</b>. Detailed submission instructions can be found at the end of this page.</p>
+    <p>The complete test data for the classification task, including reference translations and word alignments, will be released on <b>4th April 2016</b>. Your submission is due on <b>11th April 2016</b>. Detailed submission instructions can be found at the end of this page.</p>
 
 
     <H3>SOURCE-LANGUAGE PRONOUN SETS AND TARGET-LANGUAGE PREDICTION CLASS DETAILS</H3>
@@ -139,20 +139,25 @@
 
 
     <H3>DATA FILTERING</H3>
-    <p>The task is to predict the translation of subject position pronouns for all sub-tasks. In order to ensure fair and accurate evaluation of system performance, <b>filtering has been applied to the source-language texts</b> of the development and test datasets, to select only those pronoun instances that are relevant to each sub-task. For example, in the case of English-to-French translation, which focusses on the translation of the English subject position pronouns "it" and "they", only subject position instances of "it" will be included in the development and test datasets.</p>
+    <p>The task is to predict the translation of subject position pronouns for all sub-tasks. In order to ensure fair and accurate evaluation of system performance, <b>filtering has been applied to the source-language texts</b> of the training, development and test datasets, to select only those pronoun instances that are relevant to each sub-task. For example, in the case of English-to-French translation, which focusses on the translation of the English subject position pronouns "it" and "they", only subject position instances of "it" will be included in the development and test datasets.</p>
 
-    <H4>Development data</H4>
+    <H4>Training and development data</H4>
     <p>Automatic filtering has been applied to the source-language texts of the development datasets to remove non-subject position instances of English "it" and the German pronouns "sie" and "es".</p>
 
     <H4>Test data</H4>
     <p>The same automatic filtering that was applied to the source-language texts of the development datasets, has also been applied to the source-language texts of the test dataset. In addition to this, manual filtering has been applied to remove additional pronoun instances from the test dataset. This includes source-language pronouns whose subject / non-subject position was incorrectly identified using the automatic filtering, and where errors in the word alignment of pronouns, sentence alignment and/or human translations would likely lead to an inaccurate assessment of system performance.</p>
-
-    <H4>Training data</H4>
-    <p>Please note that <b>the training data has not been filtered</b>. It will therefore contain both subject and non-subject position instances of pronouns of some pronoun tokens, such as "it", "sie" and "es". You may wish to consider the effect that this has on the task and look into what methods, if any, you might use to accommodate this. For example, you may wish to replicate the filtering that has been applied to the development and test data.</p>
     
 
     <H3>TRAINING DATA</H3>
-    <b>[To be announced]</b>
+    <p>The training and development datasets can be downloaded from: <b>[To be announced]</b></p>
+
+    <p>The download folder contains many files. See the list below and the README file.</p>
+
+    <p><i>Classification data files:</i> *.data.gz</p>
+    <p><i>List of prediction classes and their frequencies:</i> *.classes</p>
+    <p><i>Document ids (the document to which each sentence belongs):</i> *.doc-ids.gz</p>
+    
+    <p>Please note that the filtered training datasets for Europarl data are still being prepared. Their release will be announced soon.</p>
 
 
     <H3>TOOLS</H3>
@@ -163,7 +168,6 @@
         <li><a href="https://github.com/rsennrich/parzu">Zurich Dependency Parser</a> <b>[German]</b></li>
         <li><a href="http://alpage.inria.fr/statgram/frdep/fr_stat_dep_parsing.html">The BONSAI suite of models</a> (uses an external lexicon to improve parsing) <b>[French]</b></li>
         <li><a href="https://code.google.com/p/nada-nonref-pronoun-detector/">NADA</a> (Non-anaphoric "it" detector) <b>[English]</b></li>
-        <li><b>[Other tools to be added?]</b></li>
     </ul>
 
     <p>Adventurous people could also try using Sebastian Martschat's <a href="https://github.com/smartschat/cort">CORT</a>, which has an option to perform coreference resolution on unannotated text (using the Stanford tools for preprocessing). <b>[Disclaimer: the organisers have not used CORT themselves for that purpose]</b></p>
@@ -205,17 +209,19 @@
     or a macro-averaged fine-grained F1 of <b>[Score to be provided]</b><br>
     </p-->
 
+    
+    <H3>DISCOMT2015 RESOURCES</H3>
+    <p>You may also find the resources from the DiscoMT 2015 shared task on English-to-French cross-lingual pronoun prediction useful. These include annotations over the English source-language side of the test set, as well as raw training and development data. The data from the DiscoMT 2015 shared task can be downloaded from <a href="http://hdl.handle.net/11372/LRT-1611">LINDAT</a>. Please note that there are differences between the DiscoMT 2015 shared task and this year's task at WMT, namely the introduction of lemmatised + POS-tagged target-language data for this year's task.</p>
+    
 
     <H3>EVALUATION</H3>
-    <p>The predicted pronoun class labels will be <b>automatically</b> evaluated against the gold standard translations from the test set (see the example for the classification baseline below). The current version of the scorer is available here: <a href="http://opus.lingfil.uu.se/DiscoMT2015/discoMT_scorer.pl">discoMT_scorer.pl.</a></p>
-
-    <p>Please remember that there are differences between the <b>filtered</b> development and test datasets, and the <b>unfiltered</b> training data. For more information, please see the section on <b>data filtering</b> above.</p>
+    <p>The predicted pronoun class labels will be <b>automatically</b> evaluated against the gold standard translations from the test set (see the example for the classification baseline below). The current version of the scorer is available here: <b>[To be announced]</b></p>
 
     <p><b>[Further details to be announced]</b></p>
 
 
     <H3>SUBMISSION INSTRUCTIONS</H3>
-    <p>We will provide the input data in the same format as the training data, but with the first two columns empty. Your predictions should be submitted in the format recognised by the official scorer, see above for details. Please e-mail the file with the predictions, labelled with the name of your system, to <b>[email address to be announced]</b> no later than <b>[date to be announced]</b> (any time zone).</p>
+    <p>We will provide the input data in the same format as the training data, but with the first two columns empty. Your predictions should be submitted in the format recognised by the official scorer, see above for details. Please e-mail the file with the predictions, labelled with the name of your system, to <b>[email address to be announced]</b> no later than <b>11th April 2016</b> (any time zone).</p>
 
 
     <H3>TEST DATA</H3>
@@ -235,8 +241,8 @@
     <H3>IMPORTANT DATES</H3>
     <table>
       <tr><td>Release of training data</td><td>January 2016</td></tr>
-      <tr><td>Test data released</td><td>April 2016</td></tr>
-      <tr><td>System submission deadline</td><td>April 2016</td></tr>
+      <tr><td>Test data released</td><td>4th April 2016</td></tr>
+      <tr><td>System submission deadline</td><td>11th April 2016</td></tr>
       <tr><td>Paper submission deadline</td><td>8th May 2016</td></tr>
       <tr><td>Notification of acceptance	</td><td>5th June 2016</td></tr>
       <tr><td>Camera-ready deadline</td><td>22nd June 2016</td></tr>

@@ -116,17 +116,25 @@ For significance tests, we used the approximate randomisation method with <a hre
 
 <p>This task consists of predicting the quality of units larger than sentences. Different from WMT14, this year we consider entire documents, instead of paragraphs.
 <!--We consider as application a scenario where the reader needs to process the translation of an entire text, as opposed to individual sentences, and has no knowledge of the source language. -->
-The quality label is computed based on indirect human annotation of two types: a two-stage post-editing approach similar to the one described in <a href="https://aclweb.org/anthology/W/W15/W15-4916.pdf">(Scarton et al., 2014)<a> and reading comprehension tests. 
-<!--against references using <a href="http://www.cs.cmu.edu/~alavie/METEOR/">METEOR</a> (settings: exact match, not tokenised, case insensitive, capped to 1 - from the <a href="http://nlp.lsi.upc.edu/asiya/">Asiya toolkit</a>). Participants are encouraged to devise and explore document-wide features. -->
+The quality label is computed based on indirect human annotation of two types: a two-stage post-editing approach similar to the one described in <a href="https://aclweb.org/anthology/W/W15/W15-4916.pdf">(Scarton et al., 2014)<a>.  <!--and reading comprehension tests. --> 
+These labels attempt to capture the quality of different documents translated by various MT systems  
+<!--without penalised by the fact that similar systems can present similar results for different documents, 
+When automatic metrics are considered as quality labels (such as METEOR, used as quality label on last year document-level task).
+The two-stage post-editing method (Scarton et al., 2014) aims at --> 
+by isolating quality issues that can only be fixed when the entire document is available from other errors. 
+<!-- and give different weights for phenomena that can only be solved with document context. -->
+In a first stage, sentences are post-edited in isolation and in  random order. In a second stage, these post-edited sentences are reorganised in a document and further edited (by the same editor) given the document context. The difference in percentage of edits between the first and second stages is then used to weight final quality HTER score. 
+<!--the difference from the first post-editing and the machine translation (in both cases, TER metrics is used to compute the differences). -->
+The goal is to penalise documents that needed more editing in the second stage. 
 
 
-<!--<p>For the <i><font color="green">training</font></i> of prediction models, we provide a new dataset consisting of source documents and their machine translations (for English-German or German-English), all in the <it>news domain</it>, extracted from the test set of WMT13 and MT systems that participated in the translation shared task:
+
+<p>For the <i><font color="green">training</font></i> of prediction models, we provide a new dataset consisting of source documents and their machine translations (English-Spanish), all in the <it>news domain</it>, extracted from the test set of WMT13 and MT systems that participated in the translation shared task:
 <ul>
-<li>800 English&#8594;German source&#8594;translation documents. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_en-de_training.tar.gz">Download training data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_en-de_training.baseline17.features">Download 17 baseline feature set</a>.</li> 
-<li>800 German&#8594;English source&#8594;translation documents. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_de-en_training.tar.gz">Download training data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task3_de-en_training.baseline17.features">Download 17 baseline feature set</a>.</li> 
+<li>800 English&#8594;Spanish documents. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task3_en-de_training.tar.gz">Download training data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files/task3_en-de_training.baseline17.features">Download 17 baseline feature set</a>.</li> 
 </ul>
 
-
+<!--
 <p>As <i><font color="green">test data</font></i>, we provide a new set of translations produced by the same SMT systems used for the training data:
 
 <ul>

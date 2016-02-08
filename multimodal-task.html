@@ -30,12 +30,11 @@ This task has the following main <b>goals</b>:
 
 We will provide new training and test datasets for both variants of the task and also allow participants to use external data and resources (constrained vs unconstrained submissions). The data to be used for both tasks is an extended version of the <a href="http://shannon.cs.illinois.edu/DenotationGraph/">Flickr30K</a> dataset. The original dataset contains 31,783 images from Flickr on various topics and five crowdsourced English descriptions per image, totalling 158,915 English descriptions. This dataset was extended in different ways for each of the subtasks, as discussed below.
 
-<p><b>Image features</b> will be provided to participants, but their use is not mandatory. In particular, we will release features extracted from the VGG-19 CNN, described in <a href="http://arxiv.org/abs/1409.1556">(Simonyan and Zisserman, 2015)</a> from the FC<sub>7</sub> (relu7) and CONV<sub>5_4</sub> layers.
+<p><b>Image features</b> will be provided to participants, but their use is not mandatory. In particular, we will release features extracted from the VGG-19 CNN, described in <a href="http://arxiv.org/abs/1409.1556">(Simonyan and Zisserman, 2015)</a> from the FC<sub>7</sub> (relu7) and CONV<sub>5_4</sub> layers. Specifically, we extracted the image features using <a href="https://github.com/BVLC/caffe/releases/tag/rc2">Caffe RC2</a>.
 
-<p>Specifically, we extracted FC_7 and CONV_5,4 image features using [Caffe RC2](https://github.com/BVLC/caffe/releases/tag/rc2).</p>
 <ul>
-  <li>we modified the matlab_features_reference code in [NeuralTalk](https://github.com/karpathy/neuraltalk/tree/master/matlab_features_reference)
-  <li>The FC_7 features were extracted from the layer labelled ‘relu7’, as defined in the deploy_features.prototxt in NeuralTalk.</li>
+  <li>we modified the matlab_features_reference code in <a href="https://github.com/karpathy/neuraltalk/tree/master/matlab_features_reference">NeuralTalk</a>
+  <li>The FC_7 features were extracted from the layer labelled 'relu7', as defined in the deploy_features.prototxt in NeuralTalk.</li>
   <li>The CONV_5,4 features were extracted from the layer labelled 'conv5_4', following correspondence with Kelvin Xu.</li>
 </ul>
 

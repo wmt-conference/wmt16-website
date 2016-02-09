@@ -123,10 +123,10 @@ When automatic metrics are considered as quality labels (such as METEOR, used as
 The two-stage post-editing method (Scarton et al., 2014) aims at --> 
 by isolating quality issues that can only be fixed when the entire document is available from other errors. 
 <!-- and give different weights for phenomena that can only be solved with document context. -->
-In a first stage, sentences are post-edited in isolation and in  random order. In a second stage, these post-edited sentences are reorganised in a document and further edited (by the same editor) given the document context. The difference in percentage of edits between the first and second stages is then used to weight final quality HTER score. 
+Post-editing is done by professional translators. In a first stage, sentences are post-edited in isolation and in random order. In a second stage, these post-edited sentences are reorganised in a document and further edited (by the same editor) given the document context. The difference in percentage of edits between the first and second stages is then used to weight final quality HTER score. 
 <!--the difference from the first post-editing and the machine translation (in both cases, TER metrics is used to compute the differences). -->
 The goal is to penalise documents that needed more editing in the second stage. 
-
+The data was extracted from WMT English-Spanish translation shared task datasets from 2008 to 2013 editions. The machine translation for each source document was randomly picked from the set of all systems that participated in the task. 
 
 
 <p>For the <i><font color="green">training</font></i> of prediction models, we provide a new dataset consisting of source documents and their machine translations (English-Spanish), all in the <it>news domain</it>, extracted from the test set of WMT13 and MT systems that participated in the translation shared task:

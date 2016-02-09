@@ -114,21 +114,21 @@ For significance tests, we used the approximate randomisation method with <a hre
 <p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/results/task3.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/gold/Task3_gold.tar.gz">here<a/>  
 -->
 
-<p>This task consists of predicting the quality of units larger than sentences. Different from WMT14, this year we consider entire documents, instead of paragraphs.
+<p>This task consists in predicting the quality of units larger than sentences. Different from WMT14, this year we consider entire documents, instead of paragraphs.
 <!--We consider as application a scenario where the reader needs to process the translation of an entire text, as opposed to individual sentences, and has no knowledge of the source language. -->
-The data was extracted from WMT English-Spanish translation shared task datasets from 2008 to 2013 editions. The machine translation for each source document was randomly picked from the set of all systems that participated in the task. 
+The data was extracted from the WMT 2008-2013 English-Spanish translation shared task datasets. The machine translation for each source document was randomly picked from the set of all systems that participated in the task. 
 
-<p>The quality label is computed based on indirect human annotation of two types: a two-stage post-editing approach similar to the one described in <a href="https://aclweb.org/anthology/W/W15/W15-4916.pdf">(Scarton et al., 2014)<a>.  <!--and reading comprehension tests. --> 
+<p>The quality labels were computed based on human annotation. It is an adaptation of HTER obtained from a two-stage post-editing approach similar to the one described in <a href="https://aclweb.org/anthology/W/W15/W15-4916.pdf">(Scarton et al., 2014)<a>.  <!--and reading comprehension tests. --> 
 These labels attempt to capture the quality of different documents translated by various MT systems  
 <!--without penalised by the fact that similar systems can present similar results for different documents, 
 When automatic metrics are considered as quality labels (such as METEOR, used as quality label on last year document-level task).
 The two-stage post-editing method (Scarton et al., 2014) aims at --> 
-by isolating quality issues that can only be fixed when the entire document is available from other errors. 
+by isolating quality issues that can only be fixed when the entire document is available, from other types of errors, which can be fixed based on the sentence only. 
 <!-- and give different weights for phenomena that can only be solved with document context. -->
-Post-editing is done by professional translators. In a first stage, sentences are post-edited in isolation and in random order. In a second stage, these post-edited sentences are reorganised in a document and further edited (by the same editor) given the document context. The difference in percentage of edits between the first and second stages is then used to weight final quality HTER score. 
+In the first stage, sentences are post-edited in isolation and in random order. In the second stage, these post-edited sentences are reorganised into their original document order and further edited (by the same post-editor), now given the document as context. The difference in percentage of edits between the first and second stages is then used to weight final quality HTER score. 
 <!--the difference from the first post-editing and the machine translation (in both cases, TER metrics is used to compute the differences). -->
 The goal is to penalise documents that needed more editing in the second stage. 
-
+Post-editing was done by professional translators. 
 
 
 <p>For the <i><font color="green">training</font></i> of prediction models, we provide a new dataset consisting of source documents and their machine translations (English-Spanish), all in the <it>news domain</it>, extracted from the test set of WMT13 and MT systems that participated in the translation shared task:

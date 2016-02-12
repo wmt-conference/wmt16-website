@@ -13,6 +13,9 @@
 
 <H3>Motivation</H3>
 
+<h3>Task</h3>
+
+The task is to identify pairs of English and French documents from a given collection of documents such that one document is the translation of the other. As possible pairs we consider all pairs of documents from the same webdomain for which the source side has been identified as (mostly) English and the target side as (mostly) French.
 
 <H3>Terminology</H3>
 
@@ -641,6 +644,10 @@
 </p>
 <p>To facilitate use of the <code>.lett</code> files we provide a simple reader class in Python: <code><a href="https://github.com/christianbuck/wmt16-document-alignment-task/blob/master/lett.py">lett.py</a></code>.</p>
 
+<p>Additionally, we have identified spans of French text for which we produced <b>English translations</b> using MT. These translations are not part of the lett files but provided seperately: <a href="http://data.statmt.org/wmt16/document-alignment-task/translations.train.gz">translations.train.gz</a>. The format for the source segments and target segments is 
+<pre>URL&lt;TAB&gt;Text</pre> where the same URL might occur multiple times if several lines/spans of French text were found. The URLs can be used to identify the corresponding documents in the .lett files.
+</p>
+
 <h3>Test data</h3>
 
 <p>For testing, we will provide additional crawls of new webdomains, distinct from the ones in the training data in the same format. For these no known pairs will be provided. 
@@ -690,6 +697,7 @@ Found 1103 (67.92%) pairs from reference
       <tr><td>Notification of acceptance</td><td>June 5, 2016</td></tr>
       <tr><td>Camera-ready deadline</td><td>June 22, 2016</td></tr>
     </table>
+
 
 
 <h3>Organisers</h3>

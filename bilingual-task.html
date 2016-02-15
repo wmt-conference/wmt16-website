@@ -25,7 +25,7 @@ The task is to identify pairs of English and French documents from a given colle
 
 <p>Unfortunately, the notion of <i>domain</i> is ambiguous in NLP applications. To avoid confusion we will instead use the term <i>webdomain</i> to refer to content from a specific website, e.g, "This page is from the statmt.org webdomain". We distinguish between webdomains using their <i>Fully Qualified Domain Name</i> (<a href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">FQDN</a>). Thus, <tt>www.example.com</tt> and <tt>example.com</tt> are considered to be different webdomains.</p>
 
-<p>We will use <i>source</i> to denote English pages and <i>target</i> for French ones. This does not imply that translation was performed in that direction. In fact we cannot know if translation for one side to the other was performed at all, both sides could possibly be translations of a third language document.</p>
+<p>We will use <i>source</i> to denote English pages and <i>target</i> for French ones. This does not imply that translation was performed in that direction. In fact we cannot know if translation from one side to the other was performed at all, both sides could possibly be translations of a third language document.</p>
 
 <H3>Training data</H3>
 
@@ -648,7 +648,7 @@ The task is to identify pairs of English and French documents from a given colle
 </p>
 <p>To facilitate use of the <code>.lett</code> files we provide a simple reader class in Python: <code><a href="https://github.com/christianbuck/wmt16-document-alignment-task/blob/master/lett.py">lett.py</a></code>.</p>
 
-<p>Additionally, we have identified spans of French text for which we produced <b>English translations</b> using MT. These translations are not part of the lett files but provided seperately: <a href="http://data.statmt.org/wmt16/document-alignment-task/translations.train.gz">translations.train.gz</a>. The format for the source segments and target segments is 
+<p>Additionally, we have identified spans of French text for which we produced <b>English translations</b> using MT. These translations are not part of the lett files but provided seperately: <a href="http://data.statmt.org/wmt16/document-alignment-task/translations.train.tgz">translations.train.gz</a>. The format for the source segments and target segments is 
 <pre>URL&lt;TAB&gt;Text</pre> where the same URL might occur multiple times if several lines/spans of French text were found. The URLs can be used to identify the corresponding documents in the .lett files.
 </p>
 

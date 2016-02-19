@@ -10,5 +10,711 @@
       <p><h2>Shared Task: Bilingual Document Alignment</h2></p>
       <script src="menu.js"></script>
     </center>
-Details coming soon ...
+
+<H3>Motivation</H3>
+
+Parallel corpora are especially important for statistical machine translation, but so far the collection of such data 
+within the academic research community has been ad hoc and limited in scale. To promote this research problem within 
+we organize a shared task on aligning bilingual documents from crawled web sites.
+
+<h3>Task</h3>
+
+The task is to identify pairs of English and French documents from a given collection of documents such that one document is the translation of the other. As possible pairs we consider all pairs of documents from the same webdomain for which the source side has been identified as (mostly) English and the target side as (mostly) French.
+
+<H3>Terminology</H3>
+
+<p>Unfortunately, the notion of <i>domain</i> is ambiguous in NLP applications. To avoid confusion we will instead use the term <i>webdomain</i> to refer to content from a specific website, e.g, "This page is from the statmt.org webdomain". We distinguish between webdomains using their <i>Fully Qualified Domain Name</i> (<a href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">FQDN</a>). Thus, <tt>www.example.com</tt> and <tt>example.com</tt> are considered to be different webdomains.</p>
+
+<p>We will use <i>source</i> to denote English pages and <i>target</i> for French ones. This does not imply that translation was performed in that direction. In fact we cannot know if translation from one side to the other was performed at all, both sides could possibly be translations of a third language document.</p>
+
+<H3>Training data</H3>
+
+<p>As <a href="http://data.statmt.org/wmt16/document-alignment-task/train.pairs">training data</a> we provide a set of <b>1,624 EN-FR pairs from 49 webdomains</b>. The number of pairs per webdomain varies between 4 and over 200. All pairs are from within a single webdomain, possible matches between two different webdomains, e.g. siemens.de and siemens.com, are not considered in this task.
+</p>
+
+<p>We also provide mirrors of all the pages in the webdomains which were crawled using httrack. </p>
+
+<p>All crawls in a single file: <a href="http://data.statmt.org/wmt16/document-alignment-task/lett.train.tgz">lett.train.tgz</a> (8.7G, md5:81b99f1a95a5153009bfd902b99857ab , sha1:f05754d63ba9b3fbc1b8e82bdbb45c3c950be129)</p>
+<p>
+  <table cellpadding="5" cellspacing="0" border="1">
+  <tr><th>webdomain</th><th>source pages</th><th>target pages</th><th>possible pairings</th><th>training pairs</th></tr>
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/bugadacargnel.com.lett.gz">bugadacargnel.com.lett.gz</a></td>
+
+      <td align='right'>919</td>
+
+      <td align='right'>779</td>
+
+      <td align='right'>715,901</td>
+
+      <td align='right'>19</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/cbsc.ca.lett.gz">cbsc.ca</a></td>
+
+      <td align='right'>1,595</td>
+
+      <td align='right'>904</td>
+
+      <td align='right'>1,441,880</td>
+
+      <td align='right'>20</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/cineuropa.mobi.lett.gz">cineuropa.mobi</a></td>
+
+      <td align='right'>23,050</td>
+
+      <td align='right'>15,972</td>
+
+      <td align='right'>368,154,600</td>
+
+      <td align='right'>73</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/creationwiki.org.lett.gz">creationwiki.org</a></td>
+
+      <td align='right'>8,417</td>
+
+      <td align='right'>203</td>
+
+      <td align='right'>1,708,651</td>
+
+      <td align='right'>22</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/eu2007.de.lett.gz">eu2007.de</a></td>
+
+      <td align='right'>3,201</td>
+
+      <td align='right'>2,488</td>
+
+      <td align='right'>7,964,088</td>
+
+      <td align='right'>11</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/eu.blizzard.com.lett.gz">eu.blizzard.com</a></td>
+
+      <td align='right'>10,493</td>
+
+      <td align='right'>6,640</td>
+
+      <td align='right'>69,673,520</td>
+
+      <td align='right'>10</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/forcesavenir.qc.ca.lett.gz">forcesavenir.qc.ca</a></td>
+
+      <td align='right'>3,592</td>
+
+      <td align='right'>3,982</td>
+
+      <td align='right'>14,303,344</td>
+
+      <td align='right'>8</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/galacticchannelings.com.lett.gz">galacticchannelings.com</a></td>
+
+      <td align='right'>4,231</td>
+
+      <td align='right'>1,283</td>
+
+      <td align='right'>5,428,373</td>
+
+      <td align='right'>9</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/golftrotter.com.lett.gz">golftrotter.com</a></td>
+
+      <td align='right'>377</td>
+
+      <td align='right'>361</td>
+
+      <td align='right'>136,097</td>
+
+      <td align='right'>8</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/iiz-dvv.de.lett.gz">iiz-dvv.de</a></td>
+
+      <td align='right'>1,160</td>
+
+      <td align='right'>894</td>
+
+      <td align='right'>1,037,040</td>
+
+      <td align='right'>67</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/ironmaidencommentary.com.lett.gz">ironmaidencommentary.com</a></td>
+
+      <td align='right'>6,028</td>
+
+      <td align='right'>635</td>
+
+      <td align='right'>3,827,780</td>
+
+      <td align='right'>41</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/kicktionary.de.lett.gz">kicktionary.de</a></td>
+
+      <td align='right'>2,752</td>
+
+      <td align='right'>888</td>
+
+      <td align='right'>2,443,776</td>
+
+      <td align='right'>29</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/kustu.com.lett.gz">kustu.com</a></td>
+
+      <td align='right'>1,544</td>
+
+      <td align='right'>1,511</td>
+
+      <td align='right'>2,332,984</td>
+
+      <td align='right'>13</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/manchesterproducts.com.lett.gz">manchesterproducts.com</a></td>
+
+      <td align='right'>15,621</td>
+
+      <td align='right'>9,651</td>
+
+      <td align='right'>150,758,271</td>
+
+      <td align='right'>10</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/minelinks.com.lett.gz">minelinks.com</a></td>
+
+      <td align='right'>736</td>
+
+      <td align='right'>212</td>
+
+      <td align='right'>156,032</td>
+
+      <td align='right'>66</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/pawpeds.com.lett.gz">pawpeds.com</a></td>
+
+      <td align='right'>983</td>
+
+      <td align='right'>135</td>
+
+      <td align='right'>132,705</td>
+
+      <td align='right'>19</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/rehazenter.lu.lett.gz">rehazenter.lu</a></td>
+
+      <td align='right'>201</td>
+
+      <td align='right'>317</td>
+
+      <td align='right'>63,717</td>
+
+      <td align='right'>16</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/santabarbara-online.com.lett.gz">santabarbara-online.com</a></td>
+
+      <td align='right'>1,151</td>
+
+      <td align='right'>1,099</td>
+
+      <td align='right'>1,264,949</td>
+
+      <td align='right'>11</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/schackportalen.nu.lett.gz">schackportalen.nu</a></td>
+
+      <td align='right'>33</td>
+
+      <td align='right'>29</td>
+
+      <td align='right'>957</td>
+
+      <td align='right'>14</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/tsb.gc.ca.lett.gz">tsb.gc.ca</a></td>
+
+      <td align='right'>5,885</td>
+
+      <td align='right'>5,828</td>
+
+      <td align='right'>34,297,780</td>
+
+      <td align='right'>236</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/virtualhospice.ca.lett.gz">virtualhospice.ca</a></td>
+
+      <td align='right'>43,500</td>
+
+      <td align='right'>22,327</td>
+
+      <td align='right'>971,224,500</td>
+
+      <td align='right'>46</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.acted.org.lett.gz">www.acted.org</a></td>
+
+      <td align='right'>3,333</td>
+
+      <td align='right'>2,431</td>
+
+      <td align='right'>8,102,523</td>
+
+      <td align='right'>21</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.antennas.biz.lett.gz">www.antennas.biz</a></td>
+
+      <td align='right'>812</td>
+
+      <td align='right'>327</td>
+
+      <td align='right'>265,524</td>
+
+      <td align='right'>30</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.artsvivants.ca.lett.gz">www.artsvivants.ca</a></td>
+
+      <td align='right'>5,487</td>
+
+      <td align='right'>1,368</td>
+
+      <td align='right'>7,506,216</td>
+
+      <td align='right'>12</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.bonnke.net.lett.gz">www.bonnke.net</a></td>
+
+      <td align='right'>414</td>
+
+      <td align='right'>129</td>
+
+      <td align='right'>53,406</td>
+
+      <td align='right'>27</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.bugadacargnel.com.lett.gz">www.bugadacargnel.com</a></td>
+
+      <td align='right'>919</td>
+
+      <td align='right'>779</td>
+
+      <td align='right'>715,901</td>
+
+      <td align='right'>7</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.cgfmanet.org.lett.gz">www.cgfmanet.org</a></td>
+
+      <td align='right'>9,241</td>
+
+      <td align='right'>6,260</td>
+
+      <td align='right'>57,848,660</td>
+
+      <td align='right'>25</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.cyberspaceministry.org.lett.gz">www.cyberspaceministry.org</a></td>
+
+      <td align='right'>1,534</td>
+
+      <td align='right'>958</td>
+
+      <td align='right'>1,469,572</td>
+
+      <td align='right'>29</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.dakar.com.lett.gz">www.dakar.com</a></td>
+
+      <td align='right'>17,420</td>
+
+      <td align='right'>14,582</td>
+
+      <td align='right'>254,018,440</td>
+
+      <td align='right'>45</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.dfo-mpo.gc.ca.lett.gz">www.dfo-mpo.gc.ca</a></td>
+
+      <td align='right'>25,277</td>
+
+      <td align='right'>19,087</td>
+
+      <td align='right'>482,462,099</td>
+
+      <td align='right'>97</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.ec.gc.ca.lett.gz">www.ec.gc.ca</a></td>
+
+      <td align='right'>12,266</td>
+
+      <td align='right'>15,404</td>
+
+      <td align='right'>188,945,464</td>
+
+      <td align='right'>26</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.eohu.ca.lett.gz">www.eohu.ca</a></td>
+
+      <td align='right'>2,277</td>
+
+      <td align='right'>2,136</td>
+
+      <td align='right'>4,863,672</td>
+
+      <td align='right'>4</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.eu2005.lu.lett.gz">www.eu2005.lu</a></td>
+
+      <td align='right'>5,649</td>
+
+      <td align='right'>5,704</td>
+
+      <td align='right'>32,221,896</td>
+
+      <td align='right'>34</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.eu2007.de.lett.gz">www.eu2007.de</a></td>
+
+      <td align='right'>3,249</td>
+
+      <td align='right'>2,535</td>
+
+      <td align='right'>8,236,215</td>
+
+      <td align='right'>11</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.fao.org.lett.gz">www.fao.org</a></td>
+
+      <td align='right'>11,931</td>
+
+      <td align='right'>5,004</td>
+
+      <td align='right'>59,702,724</td>
+
+      <td align='right'>6</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.inst.at.lett.gz">www.inst.at</a></td>
+
+      <td align='right'>3,203</td>
+
+      <td align='right'>543</td>
+
+      <td align='right'>1,739,229</td>
+
+      <td align='right'>62</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.krn.org.lett.gz">www.krn.org</a></td>
+
+      <td align='right'>115</td>
+
+      <td align='right'>115</td>
+
+      <td align='right'>13,225</td>
+
+      <td align='right'>67</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.lameca.org.lett.gz">www.lameca.org</a></td>
+
+      <td align='right'>692</td>
+
+      <td align='right'>1,567</td>
+
+      <td align='right'>1,084,364</td>
+
+      <td align='right'>6</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.luontoportti.com.lett.gz">www.luontoportti.com</a></td>
+
+      <td align='right'>3,645</td>
+
+      <td align='right'>1,796</td>
+
+      <td align='right'>6,546,420</td>
+
+      <td align='right'>30</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.nato.int.lett.gz">www.nato.int</a></td>
+
+      <td align='right'>40,063</td>
+
+      <td align='right'>8,773</td>
+
+      <td align='right'>351,472,699</td>
+
+      <td align='right'>36</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.nauticnews.com.lett.gz">www.nauticnews.com</a></td>
+
+      <td align='right'>24,325</td>
+
+      <td align='right'>43,045</td>
+
+      <td align='right'>1,047,069,625</td>
+
+      <td align='right'>21</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.pawpeds.com.lett.gz">www.pawpeds.com</a></td>
+
+      <td align='right'>1,011</td>
+
+      <td align='right'>136</td>
+
+      <td align='right'>137,496</td>
+
+      <td align='right'>43</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.prohelvetia.ch.lett.gz">www.prohelvetia.ch</a></td>
+
+      <td align='right'>5,209</td>
+
+      <td align='right'>4,421</td>
+
+      <td align='right'>23,028,989</td>
+
+      <td align='right'>7</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.socialwatch.org.lett.gz">www.socialwatch.org</a></td>
+
+      <td align='right'>13,803</td>
+
+      <td align='right'>2,419</td>
+
+      <td align='right'>33,389,457</td>
+
+      <td align='right'>21</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.summerlea.ca.lett.gz">www.summerlea.ca</a></td>
+
+      <td align='right'>434</td>
+
+      <td align='right'>338</td>
+
+      <td align='right'>146,692</td>
+
+      <td align='right'>58</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.the-great-adventure.fr.lett.gz">www.the-great-adventure.fr</a></td>
+
+      <td align='right'>2,038</td>
+
+      <td align='right'>2,460</td>
+
+      <td align='right'>5,013,480</td>
+
+      <td align='right'>18</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.ushmm.org.lett.gz">www.ushmm.org</a></td>
+
+      <td align='right'>10,472</td>
+
+      <td align='right'>967</td>
+
+      <td align='right'>10,126,424</td>
+
+      <td align='right'>26</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.usw.ca.lett.gz">www.usw.ca.lett</a></td>
+
+      <td align='right'>5,006</td>
+
+      <td align='right'>2,247</td>
+
+      <td align='right'>11,248,482</td>
+
+      <td align='right'>83</td>
+    </tr>
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett/www.vinci.com.lett.gz">www.vinci.com</a></td>
+
+      <td align='right'>3,564</td>
+
+      <td align='right'>3,374</td>
+
+      <td align='right'>12,024,936</td>
+
+      <td align='right'>24</td>
+    </tr>
+  </table>
+</p>  
+<h3>Data format</h3>
+<p>The training pairs are one pair per line: <pre>Source_URL&lt;TAB&gt;Target_URL\n</pre></p>
+
+<p>For the crawled data we provide one file per webdomain in .lett format adapted from <a href="http://bitextor.sourceforge.net/">Bitextor</a>. This a plain text format with one line per page. Each line consists of 6 tab-separated values:
+
+<ul>
+<li>Language ID (e.g. <code>en</code>)</li>
+<li>Mime type (always <code>text/html</code>)</li>
+<li>Encoding (always <code>charset=utf-8</code>)</li>
+<li>URL</li>
+<li>HTML in Base64 encoding</li>
+<li>Text in Base64 encoding</li>
+</ul>
+
+</p>
+<p>We make sure that the language id is reliable, at least for the documents in the train and test pairs. We also ensure that all known pairs have been crawled and no URLs are missing from the crawls.
+</p>
+<p>Text extraction was performed using an HTML5 parser. As the original HTML pages are available, participants are welcome to implement their own text extraction, for example to remove boilerplate.
+</p>
+<p>To facilitate use of the <code>.lett</code> files we provide a simple reader class in Python: <code><a href="https://github.com/christianbuck/wmt16-document-alignment-task/blob/master/lett.py">lett.py</a></code>.</p>
+
+<p>Additionally, we have identified spans of French text for which we produced <b>English translations</b> using MT. These translations are not part of the lett files but provided seperately: <a href="http://data.statmt.org/wmt16/document-alignment-task/translations.train.tgz">translations.train.gz</a>. The format for the source segments and target segments is 
+<pre>URL&lt;TAB&gt;Text</pre> where the same URL might occur multiple times if several lines/spans of French text were found. The URLs can be used to identify the corresponding documents in the .lett files.
+</p>
+
+<h3>Test data</h3>
+
+<p>For testing, we will provide additional crawls of new webdomains, distinct from the ones in the training data in the same format. For these no known pairs will be provided. 
+Evaluation
+Because the full set of valid document pairs is unknown evaluation we be based entirely on precision. 
+</p>
+<p>Participants are expected to produce a list of possible pairings in the format of the training data. <b>Each source url may be matched with at most one target url</b> and visa-versa. Should a URL occur repeatedly, later occurrences are ignored. We provide an evaluation script to assess performance during development.
+</p>
+<h3>Baseline</h3>
+<p>We provide a simple baseline based on URL matching. Get the code from github:
+</p>
+
+<pre>git clone https://github.com/christianbuck/wmt16-document-alignment-task.git</pre>
+
+<p>The baseline iterates through all URLs and strips language identifiers such as <code>/english/</code> or <code>?lang=FR</code> from URLs and then produces pairs of URLs that have the same stripped representation. Check <a href="https://github.com/christianbuck/wmt16-document-alignment-task/blob/master/test_languagestripper.py">test_languagestripper.py</a> for some examples.
+</p>
+To run the baseline first download all .lett.gz files and adjust the path in <a href="https://github.com/christianbuck/wmt16-document-alignment-task/blob/master/baseline.sh">baseline.sh</a>. Running the script should yield the following output:
+
+<pre>$ ./baseline.sh 
+Read 222509/345106/224267 fr/en/other URLs from stdin
+Read 1624 url pairs from train.pairs
+0 urls missing from candidate URLs
+160219/229406 stripped source/target urls
+Found 8144 stripped source + unmodified target pairs (total: 8144) covering 107 pairs from devset
+Found 9119 stripped target + unmodified source pairs (total: 17263) covering 121 pairs from devset
+Found 126588 stripped source + stripped target pairs (total: 143851) covering 1131 pairs from devset
+Total: 143851 candidate pairs
+Keeping 119979 pairs after enforcing 1-1 rule
+1103 pairs from devset
+
+Running eval
+
+Read 1624 reference pairs from train.pairs
+Read 119979 predicted pairs from predicted.pairs
+Keeping 119979 pairs after enforcing 1-1 rule
+Found 1103 (67.92%) pairs from reference
+</pre>
+
+
+<h3>Important dates</h3>
+
+    <table>
+      <tr><td>Release of training data </td><td>February 12, 2016</td></tr>
+      <tr><td>Release of test data </td><td>tdb</td></tr>
+      <tr><td>Results submission deadline  </td><td>May 2, 2016</td></tr>
+      <tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr>
+      <tr><td>Notification of acceptance</td><td>June 5, 2016</td></tr>
+      <tr><td>Camera-ready deadline</td><td>June 22, 2016</td></tr>
+    </table>
+
+
+
+<h3>Organisers</h3>
+<a href="mailto:cbuck@lantis.de" target="_top">Christian Buck</a> (University of Edinburgh)
+<br>
+<a href="mailto:phi@jhu.edu" target="_top">Philipp Koehn</a> (Johns Hopkins University)
+
+
+<h3>Sponsor</h3>
+This shared task is partially supported by a 
+<a href="http://research.google.com/research-outreach.html#/research-outreach/faculty-engagement/faculty-research-awards">Google
+Faculty Research Award</a>.
+
+
+
 </HTML>

@@ -40,6 +40,8 @@ We will provide new training and test datasets for both variants of the task and
 
 <p><b><font color="red">New</font></b>: The code for the <b>main baseline system</b> for both tasks is available <a href="https://github.com/elliottd/GroundedTranslation">here</a>, following the approach described in <a href="http://arxiv.org/abs/1510.04709">(Elliott et al. 2015)</a>, in particular, the MLM&#10141;MLM model. A secondary baseline for both tasks will be a Moses phrase-based statistical machine translation system trained using only the textual training data provided, following the pipeline described <a href="http://www.statmt.org/moses/?n=moses.baseline">here</a>.
 
+<p><b><font color="red">Update</font></b>: We have received several questions about what participants may do with existing English test set images and descriptions. You <b>may not</b> do anything with them for either Constrained or Unconstrained submissions.</p>
+
 <p><br><hr>
 
 <!-- MULTIMODAL MT-->
@@ -90,7 +92,11 @@ We will also provide a baseline system.
 Any English-German pair of descriptions for a given image could be considered a comparable translation pair.  We will provide most of the images and associated descriptions for training, while smaller portions will be used for development and test. 
 </p>
 
-<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide approximately 28,000 and 1,000 images, each with 5 descriptions in English and 5 descriptions in German, i.e., 28,000 tuples containing an image and 10 descriptions, 5 in each language. 
+<p><b><font color="red">New</font></b>: <a href="http://staff.fnwi.uva.nl/d.elliott/wmt16/mmt_task2-early.zip">Download an <b>early</b> release of the training and validation data</a>. This early release contains 14,000 <i><font color="green">training</font></i> tuples of German described 
+images and 1,014 <i><font color="green">development</font></i> tuples of German described images. A tuple contains an image paired with five (5) crowdsourced descriptions. Note, the entire English training and development datasets are included in this download. (The final German training and
+development datasets will be available by March 1st.)</p>
+
+<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide 29,000 and 1,014 images, each with 5 descriptions in English and 5 descriptions in German, i.e., 29,014 tuples containing an image and 10 descriptions, 5 in each language. 
 <!--<a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_dev.tar.gz">Download development data (and baseline features)</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_training.tar.gz">Download training data (and baseline features)</a>. 
 <!--Download 17 baseline feature set for the <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_training.baseline17.features">traning</a> and <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_dev.baseline17.features">dev</a> sets.-->
 </li>

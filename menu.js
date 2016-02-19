@@ -7,7 +7,7 @@ TRANSLATION TASKS: \
   [<A HREF="multimodal-task.html">MULTIMODAL</A>] \
   [<A HREF="pronoun-task.html">PRONOUN</A>] \
 <br> EVALUATION TASKS: \
-  [<A HREF="metrics-task.html">METRICS</A>] \
+  [<A HREF="metrics-task">METRICS</A>] \
   [<A HREF="quality-estimation-task.html">QUALITY ESTIMATION</A>]   \
   [<A HREF="tuning-task.html">TUNING</A>] \
 <br> OTHER TASKS: \

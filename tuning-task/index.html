@@ -1,0 +1,294 @@
+<html>
+  <head>
+    <title>ACL 2016 First Conference  on  Machine Translation (WMT16)</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style> h3 { margin-top: 2em; } </style>
+  </head>
+  <body>
+
+    <center>
+      <script src="http://www.statmt.org/wmt16/title.js"></script>
+      <p><h2>Home</h2></p>
+      <script src="http://www.statmt.org/wmt16/menu.js"></script>
+    </center>
+
+    <h3>Tuning Task Important Dates</h3>
+
+    <table>
+      <tr><td>Release of the MT system to tune</td><td>February 20, 2016</td></tr>
+      <!-- <tr><td>Registration for complimentary manual evaluation</td><td>February 22, 2016</td></tr>-->
+      <tr><td>Submission deadline for tuning task</td><td>April 17, 2016</td></tr>
+      <tr><td>Start of manual evaluation period</td><td>May 2, 2016</td></tr>
+      <tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr>
+      <tr><td>End of manual evaluation</td><td>May 22, 2016</td></tr>
+      <!-- <tr><td>Notification of acceptance</td><td>July TBD, 2016</td></tr> -->
+      <!-- <tr><td>Camera-ready deadline</td><td>August TBD, 2016</td></tr> -->
+      <!-- <tr><td>Papers available online</td><td>TBA</td></tr> -->
+    </table>
+
+<h3>Tuning Task Overview</h3>
+
+    <p>
+
+The WMT16 tuning task is similar to <a href="http://www.statmt.org/wmt15/tuning-task/">the last year tuning task</a>. We provide the participants with a complete
+SMT model for English-to-Czech and
+Czech-to-English translation (i.e. one
+<code>moses.ini</code>
+file with all the model
+files for each translation direction) and a devset. A designated moses github revision
+will be used to run this model.
+</p>
+
+<p>
+The participants are expected to incorporate their evaluation metric into
+the moses scorer, apply whichever moses optimizer they like or use any other tuning tricks to come up
+with their weight settings.
+</p>
+
+<p>
+A submission to tuning task consists of an updated version of the
+<code>moses.ini</code>
+file, an optional weights file for sparse features (and your outputs on the official test set as an optional
+sanity check).
+</p>
+
+<p>
+We will run the designated moses revision using your
+<code>moses.ini</code>
+file to
+obtain your MT outputs. (Note that the evaluation metric or tricks you used in the tuning are not needed and not used for the run.) The outputs will be manually ranked using the same
+scheme as the main translation task.
+</p>
+
+<H3>Other Requirements</H3>
+
+<p>
+For each run submitted to this evaluation, the team promises to join the
+WMT manual evaluation and annotate at least 100 HITs (ie. 300 5-way
+comparisons). This contribution to the manual evaluation can be done in
+whichever language
+pair you can evaluate and is needed most.
+</p>
+
+<!--<p>No registration is needed for the participation in the tuning task, unless you would like to make use of our manual judgements of Czech, see <a href="#maneval">Complimentary Manual Evaluation</a> below.</p>-->
+
+<p>You are invited to submit a short paper (4 to 6 pages) describing your
+tuning technique. You are not required to submit a paper if you do
+not want to. If you don't, we ask that you give an appropriate description (a few paragraphs) or an appropriate reference
+describing your method to include or cite in the overview paper.</p>
+
+
+<h3>The System to Tune</h3>
+
+<p>This section contains the complete package of models to download.</p>
+
+Soon...
+
+<!--
+<table border='1'>
+  <tr num='1'>
+    <th num='1'>English-&gt;Czech</th>
+    <th num='2'>Czech-&gt;English</th>
+  </tr>
+  <tr num='2'>
+    <td num='1'><a href="en2cs-moses.ini.txt">moses.ini preview</a></td>
+    <td num='2'><a href="cs2en-moses.ini.txt">moses.ini preview</a></td>
+  </tr>
+  <tr num='3'>
+    <td num='1'><a href="en2cs_model.tgz">en2cs_model.tgz</a> (1.2GB)</td>
+    <td num='2'><a href="cs2en_model.tgz">cs2en_model.tgz</a> (1.2GB)</td>
+  </tr>
+  <tr>
+  <td colspan="2" align="center"><a href="tuning-task-dev-v2.tgz">Devset</a> (newstest2014 from translation task)
+  </td>
+  </tr>
+  <tr>
+  <th colspan="2" align="center">Original Corpora, Alignments (optional)</th>
+  </tr>
+  <tr>
+  </tr>
+  <td><a href="en2cs_original_data.tgz">en2cs_original_data.tgz</a></td>
+  <td><a href="cs2en_original_data.tgz">cs2en_original_data.tgz</a></td>
+</table>
+
+<p>The models are prepared for <b>lowercase</b> input tokenized with the
+<b>standard Moses tokenizer</b>
+(<code>moses/scripts/tokenizer/tokenizer.perl</code>).</p>
+
+<p>For completeness and training of some of the standard sparse features, we also provide the full corpora and alignments.</p>
+
+
+<p>When evaluating your submission, we will use 
+<b>Moses Release 3.0</b>, i.e. the 
+github commit <a href="https://github.com/moses-smt/mosesdecoder/tree/5244a7b6075cc7b292e475c43d23c68797e8e9c0">5244a7b607</a>. This can be obtained also as pre-compiled binaries on the <a href="http://www.statmt.org/moses/?n=Moses.Releases">Moses Releases page</a>.</p>
+
+<p>
+Note that we plan to ignore any subsequent commits to the RELEASE-3.0 branch (unless prohibitive bugs are spotted). So to obtain the right sources, use:
+
+<pre>
+git clone https://github.com/moses-smt/mosesdecoder.git moses
+cd moses
+git checkout 5244a7b607 -b tuning-task-2016
+## and *NOT*: git checkout RELEASE-3.0, which could be a newer version
+</pre>
+</p>
+
+<p>Prior to manual evaluation, we will run only the Moses standard
+detokenizer (<code>moses/scripts/tokenizer/detokenizer.perl</code>), upcasing
+sentence beginnings. This will result in names not uppercased but in less
+random effects due to the recaser. Talk to us if you think this is a bad
+decision.</p>
+-->
+
+
+<h3>Tuning Task Tracks</h3>
+
+<p>There are two tracks of the tuning task:
+
+<ul>
+<li>
+<b>
+Constrained:
+</b>
+You may use only the official WMT16 dev set, i.e. WMT15 test set to tune the system.</li>
+<li>
+<b>
+Unconstrained:
+</b>
+You may include any other data for the tuning, for instance older WMT test sets, additional reference translations etc.</li>
+</ul>
+</p>
+
+<p>When submitting your <code>moses.ini</code>, please indicate, if your
+submission is constrained or non-constrained.</p>
+
+<p>You are allowed to modify the <code>moses.ini</code> in any way. You may
+delete or add features (but you cannot supply additional model files). You may
+also change the search algorithm or increase whatever limits, under the
+reasonable assumption that we will be able to actually run the translation with
+these settings on our machines.</p>
+
+<p>Based on the changes you make in the <code>moses.ini</code>, we will mark your submission with these flags (within both tracks):
+
+<ul>
+<li>
+<b>Basic:</b> No sparse features added, no custom settings or limits.
+</li>
+<li>
+<b>Sparse:</b> Some sparse features added, no custom settings or limits.
+</li>
+<li>
+<b>Customized Basic:</b> Other changes to the configuration made but no sparse features added.
+</li>
+<li>
+<b>Customized Sparse:</b> Other changes to the configuration made, including some sparse features.
+</li>
+</ul>
+
+</p>
+
+<h4>How to add Sparse Features</h4>
+
+<p>
+Please follow
+<a href=http://www.statmt.org/moses/?n=Moses.SparseFeatures>Moses documentation</a> for instructions on adding sparse features to your
+<code>moses.ini</code>. If you add
+sparse features then you will probably have to use kbmira or PRO for the tuning
+of their weights.
+</p>
+
+<p>
+For example, you can add sparse features for target word insertion by adding the following line to your moses.ini:
+<br/>
+<pre>[feature]
+SourceWordDeletionFeature factor=0
+</pre>
+</p>
+
+<p>
+When you use sparse features, the weights are not stored in
+<code>moses.ini</code> but in an
+additional weights file. Make sure to include this weights file with your
+submission of <code>moses.ini</code>.
+</p>
+
+
+<!--
+<a name="maneval"></a>
+<h3>Complimentary Manual Evaluation of Translations into Czech</h3>
+
+<p>
+To allow a broader participation in the English-to-Czech direction, each
+registered participant of the tuning task will be given a 'credit'
+of manual pairwise sentence comparisons by our Czech native speakers. The
+exact number of judgments we can provide will be determined from the number
+of registered participants, but we expect no less than a few hundred sentence pair comparisons.
+Obviously, manual judging takes time and there can be a peak of demand as
+the submission deadline approaches, so remember to get in touch early.
+</p>
+
+<p>
+To register for this English-to-Czech complimentary  manual pre-evaluation,
+please send an e-mail to
+  <a href="mailto:bojar@ufal.mff.cuni.cz">Ondřej Bojar</a>.
+</p>
+
+<h4>Submitting Sentence Pairs for Czech Manual Evaluation</h4>
+
+<p>To make use of some of your 'credit', simply send the following plain text files to 
+  <a href="mailto:bojar@ufal.mff.cuni.cz">Ondřej Bojar</a>:
+
+  <ul>
+  <li>The source English sentence.</li>
+  <li>The reference translation (if available).</li>
+  <li>System A output</li>
+  <li>System B output</li>
+  </ul>
+
+  Each sentence should be on a separate line, so all the three or four files must have exactly the same number of lines.
+</p>
+
+<p>
+Our annotators will see the source, optionally the reference, and the two outputs. The outputs will be shuffled so that the system cannot be determined from the order of the hypotheses. The order of the sentences will not be shuffled, so do this yourself if you want to.
+</p>
+
+<p>
+For each sentence, the annotator will mark one of the following:
+<ul>
+<li>Exactly one candidate translation as being the better one.</li>
+<li>Both candidates as being equally good, acceptable translations.</li>
+<li>Both candidates as being equally bad, inacceptable translations.</li>
+</ul>
+</p>
+-->
+
+<H4>How to submit</H4>
+<p>
+Submissions should be posted on  <a href="https://groups.google.com/forum/#!forum/wmt-tuning-submissions">the google group dedicated to the tuning task.</a>
+</p>
+
+
+<h3>Tuning Task Organizers</h3>
+Milo&#353; Stanojevi&#263; (University of Amsterdam, ILLC)<br>
+Bushra Jawaid (University of Amsterdam, ILLC)<br>
+Amir Kamran (University of Amsterdam, ILLC)<br>
+Ond&#345;ej Bojar (Charles University in Prague)<br>
+
+
+<!-- 
+    <h3>CONTACT</h3>
+
+    <p>
+      For general questions, comments, etc. please send email
+      to <a href="mailto:bhaddow@inf.ed.ac.uk">bhaddow@inf.ed.ac.uk</a>.<br>
+      For task-specific questions, please contact the relevant organisers.
+    </p>
+     -->
+
+<p align="right">
+Supported by the European Commision<br> under the
+<a href="http://www.mosescore.eu"><img align=right src="http://www.statmt.org/mosescore/pub/img/mosescore-logo-transp.png" border=0 width=100 height=20></a> <!-- <a href="http://www.mosescore.eu/">MosesCore</a> project --><br>project (grant number 288487) <p>
+&nbsp;
+
+  </body>
+</html>

@@ -1,21 +1,21 @@
 document.write('\
-[<A HREF="index.html">HOME</A>] <br>\
+[<A HREF="/wmt16/index.html">HOME</A>] <br>\
 TRANSLATION TASKS: \
-  [<A HREF="translation-task.html">NEWS</A>] \
-  [<A HREF="it-translation-task.html">IT-DOMAIN</A>] \
-  [<A HREF="biomedical-translation-task.html">BIOMEDICAL</A>] \
-  [<A HREF="multimodal-task.html">MULTIMODAL</A>] \
-  [<A HREF="pronoun-task.html">PRONOUN</A>] \
+  [<A HREF="/wmt16/translation-task.html">NEWS</A>] \
+  [<A HREF="/wmt16/it-translation-task.html">IT-DOMAIN</A>] \
+  [<A HREF="/wmt16/biomedical-translation-task.html">BIOMEDICAL</A>] \
+  [<A HREF="/wmt16/multimodal-task.html">MULTIMODAL</A>] \
+  [<A HREF="/wmt16/pronoun-task.html">PRONOUN</A>] \
 <br> EVALUATION TASKS: \
-  [<A HREF="metrics-task">METRICS</A>] \
-  [<A HREF="quality-estimation-task.html">QUALITY ESTIMATION</A>]   \
-  [<A HREF="tuning-task.html">TUNING</A>] \
+  [<A HREF="/wmt16/metrics-task">METRICS</A>] \
+  [<A HREF="/wmt16/quality-estimation-task.html">QUALITY ESTIMATION</A>]   \
+  [<A HREF="/wmt16/tuning-task.html">TUNING</A>] \
 <br> OTHER TASKS: \
-  [<A HREF="ape-task.html">AUTOMATIC POST-EDITING</A>] \
-  [<A HREF="bilingual-task.html">BILINGUAL DOCUMENT ALIGNMENT</A>] \
+  [<A HREF="/wmt16/ape-task.html">AUTOMATIC POST-EDITING</A>] \
+  [<A HREF="/wmt16/bilingual-task.html">BILINGUAL DOCUMENT ALIGNMENT</A>] \
 ');
-/*| [<A HREF="program.html">SCHEDULE</A>]  \
-| [<A HREF="papers.html">PAPERS</A>]  \
-| [<A HREF="authors.html">AUTHORS</A>] \
-| [<A HREF="results.html">RESULTS</A>]\ */
+/*| [<A HREF="/wmt16/program.html">SCHEDULE</A>]  \
+| [<A HREF="/wmt16/papers.html">PAPERS</A>]  \
+| [<A HREF="/wmt16/authors.html">AUTHORS</A>] \
+| [<A HREF="/wmt16/results.html">RESULTS</A>]\ */
 

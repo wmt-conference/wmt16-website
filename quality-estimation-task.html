@@ -80,17 +80,18 @@ The usual <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox
 
 <!-- BEGIN WORD-LEVEL-->
 
-<h3><font color="blue">Task 2: Word-level QE</font></h3>
+<h3><font color="blue">Task 2: Word and phrase-level QE</font></h3>
 
 <!--
 <p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/results/task2.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/gold/Task2_gold.tar.gz">here<a/>  
 -->
 
-<p>The goal of this task is to study the prediction of word-level errors in MT output. Often, the overall quality of a translated segment is significantly lowered by specific errors in a a small subset of words in that segment. For practical reasons, we frame the problem as the binary task of distinguishing between 'OK' and 'BAD' tokens.</p>
-<p>The data for this task is the same as provided in Task 1, with English-German machine translations. All segments are automatically annotated for errors with binary word-level labels by using the alignments provided by the  <a href="http://www.cs.umd.edu/~snover/tercom/">TER</a> tool (settings: tokenised, case insensitive, exact matching only, disabling shifts by using the `-d 0` option) between machine translations and their post-edited versions. Shifts (word order errors) were not annotated as such (but rather as deletions + insertions) to avoid introducing noise in the annotation.</p> 
+<p>The goal of this task is to study the prediction of word and phrase-level errors in MT output. For practical reasons, we frame the problem as the binary task of distinguishing between 'OK' and 'BAD' tokens. The data for this task is the same as provided in Task 1, with English-German machine translations.</p> 
+
+<p>For the word-level variant, as in previous years, all segments are automatically annotated for errors with binary word-level labels by using the alignments provided by the  <a href="http://www.cs.umd.edu/~snover/tercom/">TER</a> tool (settings: tokenised, case insensitive, exact matching only, disabling shifts by using the `-d 0` option) between machine translations and their post-edited versions. Shifts (word order errors) were not annotated as such (but rather as deletions + insertions) to avoid introducing noise in the annotation.</p> 
 
 As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with tokens annotated with  <i>OK</i> or <i>BAD</i> labels. 
-<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data <!--(and baseline features)--></a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
+<b><font color="red">New</font></b> <a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data <!--(and baseline features)--></a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
 
 <!--
 <p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
@@ -110,8 +111,7 @@ For significance tests, we used the approximate randomisation method with <a hre
 <p>The data to be used is exactly the same as for task 1 and the word-level task. The labelling of this data was adapted from word-level labelling by assigning the 'BAD' tag to any phrase that contains at least one 'BAD' word.</p>
 
 <p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with phrase segmentation for both source and machine-translated sentences. We also provide target-source phrase alignments and phrase-level labels in separate files.
-<a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_dev.tar.gz">Download development data <!--(and baseline features)--></a>. 
-<a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_training.tar.gz">Download training data <!--(and baseline features)--></a>. </p>
+<b><font color="red">New</font></b> <a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data <!--(and baseline features)--></a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
 </li> 
 
 <!--

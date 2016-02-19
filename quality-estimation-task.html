@@ -11,15 +11,15 @@
       <script src="menu.js"></script>
     </center>
 
-<p>This shared task will build on its previous four editions to further examine automatic&nbsp;methods for estimating the quality of machine translation output at run-time, without relying on reference translations. We include <b>word-level</b>, <b>sentence-level</b> and <b>document-level</b> estimation. The sentence and word-level tasks will explore a large dataset produced from post-editions by professional translators (as opposed to crowdsourced translations as in the previous year). For the first time, the data will be domain-specific (IT domain). The document-level task will use, for the first time, entire documents, which have been human annotated for quality indirectly in two ways: through reading comprehension tests and through a two-stage post-editing exercise. Our tasks have the following <b>goals</b>:
+<p>This shared task will build on its previous four editions to further examine automatic&nbsp;methods for estimating the quality of machine translation output at run-time, without relying on reference translations. We include <b>word-level</b> (and a variant at phrase-level), <b>sentence-level</b> and <b>document-level</b> estimation. The sentence, phrase and word-level tasks will explore a large dataset produced from post-editions by professional translators (as opposed to crowdsourced translations as in the previous year). For the first time, the data will be domain-specific (IT domain). The document-level task will use, for the first time, entire documents, which have been human annotated for quality indirectly in two ways: through reading comprehension tests and through a two-stage post-editing exercise. Our tasks have the following <b>goals</b>:
 
 <ul>
 <li>To advance work on sentence and word-level quality estimation by providing domain-specific, larger and professionally annotated datasets.</li>
 <li>To study the utility of detailed information logged during post-editing (time, keystrokes, actual edits) for different levels of prediction.</li>
 <li>To analyse the effectiveness of different types of quality labels provided by humans for longer texts in document-level prediction. </li>
-<!--<li>To investigate quality estimation at a new level of granularity: phrases. </li>
+<li>To investigate quality estimation at a new level of granularity: phrases. </li>
 
-
+<!--
 <li>To explore differences between sentence-level and document-level
 prediction.</li>
 <li>To analyse the effect of training data sizes and quality for sentence and word-level prediction, particularly the use of annotations obtained from crowdsourced post-editing. </li>
@@ -47,10 +47,11 @@ This year's shared task provides new training and test datasets for all tasks, a
 <p> This task consists in scoring (and ranking) sentences according to post-editing effort. Multiple labels will be made available, including the percentage of edits need to be fixed (HTER), post-editing time, and keystrokes. Prediction according to each label will be evaluated independently, and any of these can outputs (or their combination) can be used to produce a ranking of translations. The data consists of 15,000 segments on the IT domain translated by an in-house phrase-based SMT system and post-edited by professional translators. The  <a =href="https://github.com/ghpaetzold/PET">PET</a> tool was used to collect these various types of information during post-editing. HTER labels are computed using <a href="http://www.umiacs.umd.edu/~snover/terp/">TER</a> (default settings: tokenised, case insensitive, exact matching only, but with scores capped to 1).
 </p>
 
-<!--
-<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide English-German datasets with <b>13,000</b> and <b>1,000</b>  source sentences, their machine translations, their post-editions (translations) and various post-editing effort scores. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_dev.tar.gz">Download development data (and baseline features)</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_training.tar.gz">Download training data (and baseline features)</a>. </li>
 
-<p>As <i><font color="green">test data</font></i>, we provide a new set of <b>1,817</b> English-Spanish translations produced by the same SMT system used for the training data. <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_test.tar.gz">Download test data (and baseline features)</a>. 
+<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide English-German datasets with <b>12,000</b> and <b>1,000</b>  source sentences, their machine translations, their post-editions (translations) and HTER as post-editing effort scores (other scores, such as post-editing time can be provided on request). <a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data <!--(and baseline features)--></a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li>
+
+<!--
+<p>As <i><font color="green">test data</font></i>, we provide a new set of <b>2,000</b> English-German translations produced by the same SMT system used for the training data. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
 </li>
 -->
 
@@ -85,25 +86,44 @@ The usual <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox
 <p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/results/task2.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/gold/Task2_gold.tar.gz">here<a/>  
 -->
 
-<p>The goal of this task is to study the prediction of word-level errors in MT output. Often, the overall quality of a translated segment is significantly lowered by specific errors in a a small subset of words in that segment. For practical reasons, we frame the problem as the binary task of distinguishing between 'GOOD' and 'BAD' tokens.</p>
-<p>The data for this task is the same as provided in Task 1, with English-German machine translations. All segments are automatically annotated for errors with binary word-level labels by using the alignments provided by the  <a href="http://www.cs.umd.edu/~snover/tercom/">TER</a> tool.
-<!-- (settings: tokenised, case insensitive, exact matching only, disabling shifts by using the `-d 0` option) between machine translations and their post-edited versions. The edit operations considered as errors are: replacements, insertions and deletions. Shifts (word order errors) were not annotated as such (but rather as deletions+insertions) to avoid introducing noise in the annotation.</p>
+<p>The goal of this task is to study the prediction of word-level errors in MT output. Often, the overall quality of a translated segment is significantly lowered by specific errors in a a small subset of words in that segment. For practical reasons, we frame the problem as the binary task of distinguishing between 'OK' and 'BAD' tokens.</p>
+<p>The data for this task is the same as provided in Task 1, with English-German machine translations. All segments are automatically annotated for errors with binary word-level labels by using the alignments provided by the  <a href="http://www.cs.umd.edu/~snover/tercom/">TER</a> tool (settings: tokenised, case insensitive, exact matching only, disabling shifts by using the `-d 0` option) between machine translations and their post-edited versions. Shifts (word order errors) were not annotated as such (but rather as deletions + insertions) to avoid introducing noise in the annotation.</p> 
 
-As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenized translation outputs with tokens annotated with  <i>good</i> or <i>bad</i> labels. 
-<a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task2_en-es_dev.tar.gz">Download development data (and baseline features)</a>. 
-<a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task2_en-es_training.tar.gz">Download training data (and baseline features)</a>. 
-</li> 
+As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with tokens annotated with  <i>OK</i> or <i>BAD</i> labels. 
+<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data <!--(and baseline features)--></a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
 
-<p>As <i><font color="green">test data</font></i>, we provide tokens from additional 1,817 English-Spanish sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task2_en-es_test.tar.gz">Download test data (and baseline features)</a>. 
+<!--
+<p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
 </li> 
 
 -->
 
-<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance (precision, recall, F-1) against the original labels. The main evaluation metric is the average F1 for the 'BAD' class. <a href="http://www.quest.dcs.shef.ac.uk/wmt14_files/evaluate_task2_WMT2014.py">Evaluation script.</a> 
+<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance (precision, recall, F-1) against the original labels. The main evaluation metric is the average F1 for the 'BAD' class. <a href="https://gist.github.com/varvara-l/028e4439fb992d089935">Evaluation script.</a> 
 <!--We also provide an <a href=" https://gist.github.com/chrishokamp/e2b5bcc07d1006026c48">alternative evaluation script </a>that takes as input labels in the exact same format as the labels distributed for training and dev sets, i.e.: one line per sentence, one tag per word, whitespace separated, with tags in the set {'OK', 'BAD'}. -->
 For significance tests, we used the approximate randomisation method with <a href="http://www.nlpado.de/~sebastian/software/sigf.shtml">this code</a>.
 
 <p>As <b>baseline system</b> for this task we use the baseline features provided above to train a binary classifier using a standard logistic regression algorithm (available for example in the scikit-learn toolkit).</p>
+
+
+<p><b><font color="red">New</font></b>: As an extension of the word-level task, we introduce a new task: <font color="red">phrase-level prediction</font></b>. For this task, given a "phrase" (segmentation as given by the SMT decoder), participants are asked to label it as 'OK' or 'BAD'. Errors made by MT engines are interdependent and one incorrectly chosen word can cause more errors, especially in its local context. Phrases as produced by SMT decoders can be seen as a representation of this local context and in this task we ask participants to consider them as atomic units, using phrase-specific information to improve upon the results of the word-level task.</p>
+
+<p>The data to be used is exactly the same as for task 1 and the word-level task. The labelling of this data was adapted from word-level labelling by assigning the 'BAD' tag to any phrase that contains at least one 'BAD' word.</p>
+
+<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with phrase segmentation for both source and machine-translated sentences. We also provide target-source phrase alignments and phrase-level labels in separate files.
+<a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_dev.tar.gz">Download development data <!--(and baseline features)--></a>. 
+<a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_training.tar.gz">Download training data <!--(and baseline features)--></a>. </p>
+</li> 
+
+<!--
+<p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
+</li> 
+
+-->
+
+<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance (precision, recall, F-1) against the original <b>word-level</b> labels. 
+
+<p>As <b>baseline system</b> for this task we use the baseline features provided above to train a CRF model with a CRF++ tool. </p>
+
 
 <!-- BEGIN DOCUMENT-LEVEL-->
 <p><br><hr>
@@ -254,9 +274,9 @@ Where:
 <ul>
 <li><code>METHOD NAME</code> is the name of your quality estimation method.</li>
 <li><code>SEGMENT NUMBER</code> is the line number of the plain text translation file you are scoring (starting at 0).</li>
-<li><code>WORD INDEX</code> is the index of the word in the tokenized sentence, as given in the training/test sets (starting at 0).</li>
+<li><code>WORD INDEX</code> is the index of the word in the tokenised sentence, as given in the training/test sets (starting at 0).</li>
 <li><code>WORD</code> actual word.</li>
-<li><code>BINARY SCORE</code> is either 'GOOD' for no issue or 'BAD' for any issue.</li>
+<li><code>BINARY SCORE</code> is either 'OK' for no issue or 'BAD' for any issue.</li>
 </ul>
 Each field should be delimited by a single tab character.
 

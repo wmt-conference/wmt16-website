@@ -9,7 +9,7 @@ TRANSLATION TASKS: \
 <br> EVALUATION TASKS: \
   [<A HREF="/wmt16/metrics-task">METRICS</A>] \
   [<A HREF="/wmt16/quality-estimation-task.html">QUALITY ESTIMATION</A>]   \
-  [<A HREF="/wmt16/tuning-task.html">TUNING</A>] \
+  [<A HREF="/wmt16/tuning-task">TUNING</A>] \
 <br> OTHER TASKS: \
   [<A HREF="/wmt16/ape-task.html">AUTOMATIC POST-EDITING</A>] \
   [<A HREF="/wmt16/bilingual-task.html">BILINGUAL DOCUMENT ALIGNMENT</A>] \

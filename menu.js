@@ -1,5 +1,5 @@
 document.write('\
-[ <A HREF="index.html">HOME</A>] <br>\
+[<A HREF="index.html">HOME</A>] <br>\
 TRANSLATION TASKS: \
   [<A HREF="translation-task.html">NEWS</A>] \
   [<A HREF="it-translation-task.html">IT-DOMAIN</A>] \

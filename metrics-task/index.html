@@ -1,0 +1,216 @@
+<html>
+  <head>
+    <title>ACL 2016 First Conference  on  Machine Translation (WMT16)</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style> h3 { margin-top: 2em; } </style>
+  </head>
+  <body>
+
+    <center>
+      <script src="http://www.statmt.org/wmt16/title.js"></script>
+      <p><h2>WMT16 Metrics Task</h2></p>
+      <script src="http://www.statmt.org/wmt16/menu.js"></script>
+    </center>
+
+
+<h3>Metrics Task Important Dates</h3>
+
+<table>
+<tr><td>System outputs ready to download</td><td> May 1, 2016</td></tr>
+<tr><td>Submission deadline for metrics task</td><td>May 22, 2016</td></tr>
+<tr><td>Start of manual evaluation period</td><td>May 2, 2016</td></tr>
+<tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr>
+<tr><td>End of manual evaluation</td><td>May 22, 2016</td></tr>
+      <tr><td>Notification of acceptance</td><td>June 5, 2016</td></tr>
+      <tr><td>Camera-ready deadline</td><td>June 22, 2016</td></tr>
+</table>
+
+<h3>Metrics Task Overview</h3>
+
+<p> This shared task will examine automatic evaluation metrics for machine
+translation. We will provide you with all of the translations produced in the
+<a href="../translation-task.html">translation task</a> along with the reference
+human translations. You will return your automatic metric scores for each of
+the translations at the system-level and/or at the sentence-level. We will
+calculate the system-level and sentence-level correlations of your rankings
+with WMT15 human judgements once the manual evaluation has been completed.
+</p>
+
+
+<H3>Goals</H3>
+
+<p>
+The goals of the shared metrics task are:
+<UL>
+<LI>To achieve the strongest correlation with human judgments of translation quality,</LI>
+<LI>To illustrate the suitability of an automatic evaluation metric as a surrogate for human evaluations,</LI>
+<LI>To address the problems associated with comparing against a single reference translation,</LI>
+<LI>To move automatic evaluation beyond system-level ranking to finer-grained sentence-level ranking.</LI>
+</UL>
+</p>
+
+<!-- 
+<H3>Changes This Year</H3> 
+
+<p>This year we will use Pearson's correlation coefficient (instead of Spearman's)
+to evaluate system-level metrics</p>
+     -->
+
+<H3>Task Description</H3>
+
+<p>We will provide you with the output of machine translation systems for five
+different language pairs (French&lt;-&gt;English, Romanian&lt;-&gt;English, German&lt;-&gt;English,
+Czech&lt;-&gt;English, Russian&lt;-&gt;English), and will give you the reference translations
+in each of those languages. You will compute scores for each of the outputs at
+the system-level and the sentence-level. If your automatic metric does not
+produce  sentence-level scores, you can participate in just the system-level
+ranking.  If your automatic metric uses linguistic annotation and supports only some language pairs, 
+you are free to assign
+scores only where you can.</p> 
+
+
+<p>We will measure the goodness of automatic evaluation metrics in the
+  following ways:</p> 
+
+<UL>
+    <li> 
+
+        <p><b>System-level correlation:</b> We will use Pearson's correlation
+        coefficient to measure the correlation of the automatic metrics' scores
+        with the official human scores as computed in the translation task.
+        </p>
+
+    </li>
+    <li>
+
+        <p><b>Sentence-level correlation:</b> We will use Kendall's tau to
+        measure metrics' correlation with human judgments at the
+        sentence-level.  For every pairwise comparison of two systems' output
+        for a single sentence, we will count the automatic metric as being
+        concordant with the human judgment if it orders the systems' output the
+        same way (i.e. the metric assigned a higher score to the higher ranked
+        system).  We will exclude pairs that the human annotators ranked as
+        ties. </p>
+
+    </li>
+</UL>
+
+<H3>Other Requirements</H3>
+
+<p>If you participate in the metrics task, we ask you to commit about
+8 hours of time to do the manual evaluation. The evaluation will be done with
+an online tool.</p>
+
+<p>You are invited to submit a short paper (4 to 6 pages) describing your
+automatic evaluation metric.  You are not required to submit a paper if you do
+not want to. If you don't, we ask that you give an appropriate reference
+describing your metric that we can cite in the overview paper.</p>
+
+
+
+<H3>Download</H3>
+<p>Once we receive the system outputs from the translation task we will post
+all of the system outputs for you to score with your metric.  The translations
+will be distributed as plain text files with one translation per line.  </p>
+
+<!--
+<p>All WMT16 translation task submissions, including systems from the tuning task are available here:
+</p>
+
+<ul>
+<li><a href="wmt16-metrics-task.tar.gz">WMT15 system outputs incl. sources and references (29 MB)</a></li>
+</ul>
+     -->
+
+<H3>Submission Format</H3>
+
+
+
+<p> The output of your software should produce scores for the translations
+either at the <i>system-level</i> or the <i>segment-level</i> (or preferably
+both).</p>
+
+
+<H4>Output file format for system-level rankings</H4>
+
+<p>
+The output files for system-level rankings should be formatted in the following way:
+<pre>
+&lt;METRIC NAME&gt;   &lt;LANG-PAIR&gt;   &lt;TEST SET&gt;   &lt;SYSTEM&gt;   &lt;SYSTEM LEVEL SCORE&gt;
+</pre>
+
+Where:
+<ul>
+<li><code>METRIC NAME</code> is the name of your automatic evaluation metric.</li>
+<li><code>LANG-PAIR</code> is the language pair using two letter abbreviations for the languages (<code>de-en</code> for German-English, for example).  
+<li><code>TEST SET</code> is the ID of the test set (given by the directory structure in the plain text files, <code>newstest2015</code> for example).</li>
+<li><code>SYSTEM</code> is the ID of system being scored (given by the part of the filename for the plain text file, <code>uedin-syntax.3866</code> for example).</li>
+<li><code>SYSTEM LEVEL SCORE</code> is the overall system level score that your metric is predicting.
+</ul>
+Each field should be delimited by a single tab character.
+</p>
+
+<H4>Output file format for segment-level rankings</H4>
+
+<p>
+The output files for segment-level rankings should be formatted in the following way:
+<pre>
+&lt;METRIC NAME&gt;   &lt;LANG-PAIR&gt;   &lt;TEST SET&gt;   &lt;SYSTEM&gt;   &lt;SEGMENT NUMBER&gt;   &lt;SEGMENT SCORE&gt;
+</pre>
+Where:
+<ul>
+<li><code>METRIC NAME</code> is the name of your automatic evaluation metric.</li>
+<li><code>LANG-PAIR</code> is the language pair using two letter abbreviations for the languages (<code>de-en</code> for German-English, for example).  
+<li><code>TEST SET</code> is the ID of the test set (given by the directory structure in the plain text files, <code>newstest2015</code> for example).</li>
+<li><code>SYSTEM</code> is the ID of system being scored (given by the part of the filename for the plain text file, <code>uedin-syntax.3866</code> for example).</li>
+<li><code>SEGMENT NUMBER</code> is the line number starting from 1 of the plain text input files.</li>
+<li><code>SEGMENT SCORE</code> is the score your metric predicts for the particular segment.</li>
+</ul>
+Each field should be delimited by a single tab character.
+</p>
+
+<H4>How to submit</H4>
+<p>
+Submissions should be posted on  <a href="https://groups.google.com/forum/#!forum/wmt-metrics-submissions">the google group dedicated to the metrics task.</a>
+</p>
+
+<H3>Past Years' Data</H3>
+
+<p>The system outputs and human judgments from the previous workshops
+are available for download from the following links:</p>
+
+<ul>
+<li>WMT08: <a href="http://www.statmt.org/wmt08/results.html">http://www.statmt.org/wmt08/results.html</a></li>
+<li>WMT09: <a href="http://www.statmt.org/wmt09/results.html">http://www.statmt.org/wmt09/results.html</a></li>
+<li>WMT10: <a href="http://www.statmt.org/wmt10/results.html">http://www.statmt.org/wmt10/results.html</a></li>
+<li>WMT11: <a href="http://www.statmt.org/wmt11/results.html">http://www.statmt.org/wmt11/results.html</a></li>
+<li>WMT12: <a href="http://www.statmt.org/wmt12/results.html">http://www.statmt.org/wmt12/results.html</a></li>
+<li>WMT13: <a href="http://www.statmt.org/wmt13/results.html">http://www.statmt.org/wmt13/results.html</a></li>
+<li>WMT14: <a href="http://www.statmt.org/wmt14/results.html">http://www.statmt.org/wmt14/results.html</a></li>
+<li>WMT15: <a href="http://www.statmt.org/wmt15/results.html">http://www.statmt.org/wmt15/results.html</a></li>
+</ul>
+
+<p>You can use them to tune your metric's free parameters if it has any.  If you
+want to report results in your paper, you can use this data to compare the
+performance of your metric against the published results from past years.</p>
+
+<p>Last year's data contains all of the system's translations, the source
+documents and reference human translations and the human judgments of the
+translation quality. </p>
+
+
+<h3>Metrics Task Organizers</h3>
+Milo&#353; Stanojevi&#263; (University of Amsterdam, ILLC)<br>
+Amir Kamran (University of Amsterdam, ILLC)<br>
+Ond&#345;ej Bojar (Charles University in Prague)<br>
+
+
+
+<p align="right">
+Supported by the European Commision<br> under the
+<a href="http://www.qt21.eu/"><img src="qt21-quality-translation-cropped.png" border=0 width=105 height=45 alt="QT 21"></a> <!-- <a href="http://www.mosescore.eu/">MosesCore</a> project --><br>project (grant number 645452) <p>
+&nbsp;
+
+  
+  </body>
+</html>

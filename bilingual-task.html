@@ -14,7 +14,7 @@
 <H3>Motivation</H3>
 
 Parallel corpora are especially important for statistical machine translation, but so far the collection of such data 
-within the academic research community has been ad hoc and limited in scale. To promote this research problem within 
+within the academic research community has been ad hoc and limited in scale. To promote this research problem  
 we organize a shared task on aligning bilingual documents from crawled web sites.
 
 <h3>Task</h3>
@@ -630,7 +630,7 @@ The task is to identify pairs of English and French documents from a given colle
 <h3>Data format</h3>
 <p>The training pairs are one pair per line: <pre>Source_URL&lt;TAB&gt;Target_URL\n</pre></p>
 
-<p>For the crawled data we provide one file per webdomain in .lett format adapted from <a href="http://bitextor.sourceforge.net/">Bitextor</a>. This a plain text format with one line per page. Each line consists of 6 tab-separated values:
+<p>For the crawled data we provide one file per webdomain in .lett format adapted from <a href="http://bitextor.sourceforge.net/">Bitextor</a>. This is a plain text format with one line per page. Each line consists of 6 tab-separated values:
 
 <ul>
 <li>Language ID (e.g. <code>en</code>)</li>
@@ -656,10 +656,16 @@ The task is to identify pairs of English and French documents from a given colle
 
 <p>For testing, we will provide additional crawls of new webdomains, distinct from the ones in the training data in the same format. For these no known pairs will be provided. 
 Evaluation
-Because the full set of valid document pairs is unknown evaluation we be based entirely on precision. 
+Because the full set of valid document pairs is unknown evaluation will be based entirely on <del>precision</del>recall. 
 </p>
-<p>Participants are expected to produce a list of possible pairings in the format of the training data. <b>Each source url may be matched with at most one target url</b> and visa-versa. Should a URL occur repeatedly, later occurrences are ignored. We provide an evaluation script to assess performance during development.
+<p>Participants are expected to produce a list of possible pairings in the format of the training data. <b>Each source url may be matched with at most one target url</b> and vice-versa. Should a URL occur repeatedly, later occurrences are ignored. We provide an evaluation script to assess performance during development.
 </p>
+
+
+<h3>Evaluation (new)</h3>
+Our main metric is recall on the test set, i.e. what percentage of the test-set pairs is found in a submission after enforcing the 1-1 rule above.
+
+
 <h3>Baseline</h3>
 <p>We provide a simple baseline based on URL matching. Get the code from github:
 </p>

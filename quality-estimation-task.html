@@ -190,7 +190,33 @@ QuEst++ <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox_b
 
 <h3>Additional resources</h3>
 
-<p>We suggest the following <b><font color="green">interesting resources</font></b> that can be used as additional data for training (notice the difference in language pairs and/or text domains and/or MT systems):
+<p>These are the resources we have used to extract the baseline features in Tasks 1:
+
+<p>
+<b>English</b>
+<lu>
+<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files_16/lm.tok.en.tar.gz">language model</a></li>
+<!--<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files_16/nc.pos.1.en.lm">language model of POS tags</a></li>-->
+<li>English <a href="http://www.quest.dcs.shef.ac.uk/quest_files_16/ngram-count.tok.en.out.clean.tar.gz">n-gram counts</a></li>
+</lu>
+
+<p><b>German</b>
+<lu>
+<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files_16/lm.tok.de.tar.gz">language model</a></li>
+<!--<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files_16/corpus.de.pos.lm">language model of POS tags</a></li>-->
+<li>German <a href="http://www.quest.dcs.shef.ac.uk/quest_files_16/ngram-count.tok.de.out.clean.tar.gz">n-gram counts</a></li>
+</lu>
+
+<p><b>Giza tables</b>
+<lu>
+<li>English-German (and v.v.) <a href="http://www.quest.dcs.shef.ac.uk/quest_files_16/EN-DE.lex.tar.gz">lexical translation table</a></li>
+</lu>
+
+
+<p>Tasks 3 uses multiple MT systems on WMT data, so the usual <a href="http://www.statmt.org/wmt16/translation-task.html">news translation task</a> data resources can be used:
+
+
+<p>We also suggest the following <b><font color="green">interesting resources</font></b> that can be used as additional data for training (notice the difference in language pairs and/or text domains and/or MT systems):
 <ul>
 <li><a href="http://www.statmt.org/wmt15/quality-estimation-task.html">WMT15</a>, <a href="http://www.statmt.org/wmt14/quality-estimation-task.html">WMT14</a>, <a href="http://www.statmt.org/wmt13/quality-estimation-task.html">WMT13</a>, <a href="http://www.statmt.org/wmt12/quality-estimation-task.html">WMT12</a> Quality Estimation shared-task datasets.</li></li>
 <li><a href="http://www-clips.imag.fr/geod/User/marion.potet/index.php?page=download">LIG corpus</a> of 10,881 French-English SMT translations and their human post-editions (HTER scores can be easily derived). <a href="http://www.lrec-conf.org/proceedings/lrec2012/pdf/506_Paper.pdf">Description</a>.</li></li>

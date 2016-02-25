@@ -162,7 +162,11 @@
     <p><i>List of prediction classes and their frequencies:</i> *.classes</p>
     <p><i>Document ids (the document to which each sentence belongs):</i> *.doc-ids.gz</p>
 
-    <p>Please note that for the French-to-English task, filtered training data is not provided. This is because the French pronouns selected for the task ("elle", "elles", "il", and "ils") may only be used as subject-position pronouns.</p>
+    <p>Please note that:</p>
+	<ul>
+		<li>For the French-to-English task, filtered training data is not provided. This is because the French pronouns selected for the task ("elle", "elles", "il", and "ils") may only be used as subject-position pronouns.</li>
+		<li>A single doc-ids file exists for each language pair. The same file should be used for both translation directions. For example, the file TEDdev.de-en.doc-ids.gz should be used for both the German-to-English and English-to-German sub-tasks.</li>
+	</ul>
 
 
     <H3>TOOLS</H3>

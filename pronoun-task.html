@@ -13,6 +13,10 @@
     </center>
 
 
+	<H3><font color="red">IMPORTANT UPDATE - FILTERED TRAINING DATA ALIGNMENT ISSUE</font></H3>
+	<p>An alignment issue was reported for the filtered data. This has now been resolved. If you downloaded the training data prior to 17:00 CET on 25th February, please re-download the latest filtered data files.</p>
+
+
     <H3>OVERVIEW</H3>
     <p>Pronoun translation poses a problem for current state-of-the-art SMT systems as pronoun systems do not map well across languages, e.g., due to differences in gender, number, case, formality, or humanness, and to differences in where pronouns may be used. Translation divergences typically lead to mistakes in SMT, as when translating the English "it" into French ("il", "elle", or "cela"?) or into German ("er", "sie", or "es"?). One way to model pronoun translation is to treat it as a cross-lingual pronoun prediction task.</p>
 
@@ -152,8 +156,8 @@
     <p>The training and development datasets can be downloaded from the following locations:</p>
     <p><a href="http://data.statmt.org/wmt16/pronoun-task/"\
 >http://data.statmt.org/wmt16/pronoun-task/</a></p>
-    <p>Download alternative 1: <a href="http://stp.lingfil.uu.se/~joerg/DiscoMT2016/">http://stp.lingfil.uu.se/~joerg/DiscoMT2016/</a></p>
-    <p>Download alternative 2: <a href="http://opus.lingfil.uu.se/DiscoMT2016/">http://opus.lingfil.uu.se/DiscoMT2016/</a></p>
+    <!--p>Download alternative 1: <a href="http://stp.lingfil.uu.se/~joerg/DiscoMT2016/">http://stp.lingfil.uu.se/~joerg/DiscoMT2016/</a></p>
+    <p>Download alternative 2: <a href="http://opus.lingfil.uu.se/DiscoMT2016/">http://opus.lingfil.uu.se/DiscoMT2016/</a></p-->
 
     <p>The download folder contains many files. See the list below:</p>
 
@@ -164,6 +168,7 @@
 
     <p>Please note that:</p>
 	<ul>
+		<li>An alignment issue was reported for the filtered data. This has now been resolved. If you downloaded the training data prior to 17:00 CET on 25th February, please re-download the latest filtered data files.</li>
 		<li>For the French-to-English task, filtered training data is not provided. This is because the French pronouns selected for the task ("elle", "elles", "il", and "ils") may only be used as subject-position pronouns.</li>
 		<li>A single doc-ids file exists for each language pair. The same file should be used for both translation directions. For example, the file TEDdev.de-en.doc-ids.gz should be used for both the German-to-English and English-to-German sub-tasks.</li>
 	</ul>

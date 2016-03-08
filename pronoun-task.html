@@ -192,46 +192,15 @@
     <H3>CLASSIFICATION BASELINE</H3>
     <b>[To be announced]</b>
 
-    <!--p>We provide baseline models for each sub-task. The baseline looks only at the language model scores (using KenLM, which you can download <a href="https://github.com/kpu/kenlm">here</a>, and the language model that is used needs to be in KenLM's binary format (which is the case for the "corpus.5.trie.kenlm" included in the "baseline-all" tarball).</p>
-
-    <p>You can get predictions for the baseline model by running, e.g.:</p>
-    
-    <p><b>python discomt_baseliny.py --fmt=replace .../classification/TEDdev.data.gz</b></p>
-
-    <p>These are in the format that the scorer requires, with predictions in the first column, the word it predicted in the second column (which is <b>always</b> ignored by the scorer, so don't worry if your system doesn't predict words), etc.</p>
-    
-    <p>If you're interested in just using the marginal probabilities for each filler from the language model, you can also use:</p>
-
-    <p><b>python discomt_baseline --fmt=scores .../classification/TEDdev.data.gz</b></p>
-
-    <p>which will give you, for each input line, one with TEXT in the second column giving you the source/target text, and zero or more lines with ITEM 0, ITEM 1 etc. giving you a (partial) probability distribution over the fillers for each "REPLACE" position.</p>
-
-    <p>Other flags:
-    <ul>
-        <li>--lm LANGUAGE_MODEL: use another language model (otherwise it assumes the default name and the current directory)</li>
-        <li>--null-penalty PENALTY: use this penalty for predicting no filler at all (which counts as OTHER)</li>
-    </ul>
-    </p>
-
-    <p>Results with default options on TEDdev (same data as tst2010):<br>
-    <b>[Results to be provided]</b><br>
-    or a macro-averaged fine-grained F1 of <b>[Score to be provided]</b><br>
-    </p>
-    
-    <p>Results with "--null-penalty -2.0":<br>
-    <b>[Results to be provided]</b><br>
-    or a macro-averaged fine-grained F1 of <b>[Score to be provided]</b><br>
-    </p-->
-
     
     <H3>DISCOMT 2015 RESOURCES</H3>
     <p>You may also find the resources from the DiscoMT 2015 shared task on English-to-French cross-lingual pronoun prediction useful. These include annotations over the English source-language side of the test set, as well as raw training and development data. The data from the DiscoMT 2015 shared task can be downloaded from <a href="http://hdl.handle.net/11372/LRT-1611">LINDAT</a>. Please note that there are differences between the DiscoMT 2015 shared task and this year's task at WMT, namely the introduction of lemmatised + POS-tagged target-language data for this year's task.</p>
     
 
-    <H3>EVALUATION</H3>
-    <p>The predicted pronoun class labels will be <b>automatically</b> evaluated against the gold standard translations from the test set (see the example for the classification baseline below). The current version of the scorer is available here: <b>[To be announced]</b></p>
+	<H3>EVALUATION</H3>
+    <p>The predicted pronoun class labels will be <b>automatically</b> evaluated against the gold standard translations from the test set (see the example for the classification baseline below). The current version of the scorer is available here: <a href="">WMT16_CLPP_scorer.pl</a></p>
 
-    <p><b>[Further details to be announced]</b></p>
+    <p>The <b>WMT16_CLPP_scorer.pl</b> script contains instructions detailing how it should be used.</p>
 
 
     <H3>SUBMISSION INSTRUCTIONS</H3>

@@ -207,6 +207,8 @@
 
     <p>The <b>WMT16_CLPP_scorer.pl</b> script contains instructions detailing how it should be used.</p>
 
+    <p>The script computes macro-averaged R scores. This is in contrast to the evaluation script for the pronoun prediction task at DiscoMT 2015, which computed macro-averaged F1. The justification for computing macro-averaged R, is that unlike with macro-averaged F1, each error is counted only once. With macro-averaged F1, the same error will be counted twice: once for precision and once again for recall, given that it averages over all prediction classes.</p>
+
 
     <H3>SUBMISSION INSTRUCTIONS</H3>
     <p>We will provide the input data in the same format as the training data, but with the first two columns empty. Your predictions should be submitted in the format recognised by the official scorer, see above for details. Please e-mail the file with the predictions, labelled with the name of your system, to <b>[email address to be announced]</b> no later than <b>11th April 2016</b> (any time zone).</p>

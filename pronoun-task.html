@@ -16,6 +16,7 @@
 	<H3>NEWS</H3>
 	<p>
 	  <ul>
+		<li>14th March: Baseline models are now available for all sub-tasks.
 	    <li>8th March: The scorer script is now available. See Evaluation section below for details.</li>
 	    <li>25th February: An alignment issue was reported for the filtered data. This has now been resolved. If you downloaded the training data prior to 17:00 CET on 25th February, please re-download the latest filtered data files.</li>
 	  </ul>
@@ -195,7 +196,50 @@
 
 
     <H3>CLASSIFICATION BASELINE</H3>
-    <b>[To be announced]</b>
+    <p>We provide baseline models for each sub-task. Each baseline looks only at the language model scores from the relevant language model.</p>
+
+	<p>To use the baselines you will need to:
+	<ul>
+		<li>Download the <b>discomt_baseline.py</b> python script and <b>YAML</b> files from <a href="https://bitbucket.org/yannick/discomt_baseline/src">here</a></li>
+		<li>Download the relevant KenLM binary format file (<b>mono+para.5.xx.lemma.trie.kenlm</b>) from the <a href="http://data.statmt.org/wmt16/pronoun-task/">training data location</a></li>
+		<li>Install <a href="https://github.com/kpu/kenlm">KenLM</a></li>
+		<li>Install the KenLM python module</li>
+	</ul>
+
+	<p>Installing the KenLM python module: If you have pip installed, run <b>pip install https://github.com/kpu/kenlm/archive/master.zip</b>. Alternatively, after downloading KenLM, run <b>python setup.py install</b></p>
+
+    <p>You can get predictions for the baseline model by running, e.g.:</p>
+    
+    <p><b>python discomt_baseline.py --fmt=replace --removepos --conf en-fr.yml TEDdev.data.en-fr.gz</b></p>
+
+    <p>These are in the format that the scorer requires, with predictions in the first column, the word it predicted in the second column (which is <b>always</b> ignored by the scorer, so don't worry if your system doesn't predict words), etc.</p>
+    
+    <p>If you're interested in just using the marginal probabilities for each filler from the language model, you can also use:</p>
+
+    <p><b>python discomt_baseline --fmt=scores --removepos --conf en-fr.yml TEDdev.data.en-fr.gz</b></p>
+
+    <p>which will give you, for each input line, one with TEXT in the second column giving you the source/target text, and zero or more lines with ITEM 0, ITEM 1 etc. giving you a (partial) probability distribution over the fillers for each "REPLACE" position.</p>
+
+    <p>Other flags:
+    <ul>
+        <li>--lm LANGUAGE_MODEL: use another language model (otherwise it assumes the default name and the current directory)</li>
+        <li>--null-penalty PENALTY: use this penalty for predicting no filler at all (which counts as OTHER)</li>
+    </ul>
+    </p>
+
+    <p>Sample results with <b>default options on en-fr TEDdev</b> (same data as tst2010):<br>
+	<pre>
+       ce  :    P =   150/  233 =  64.38%     R =   150/  155 =  96.77%     F1 =  77.32%
+     elle  :    P =    21/   38 =  55.26%     R =    21/   30 =  70.00%     F1 =  61.76%
+     elles :    P =     0/    0 =   0.00%     R =     0/   15 =   0.00%     F1 =   0.00%
+       il  :    P =    53/  185 =  28.65%     R =    53/   61 =  86.89%     F1 =  43.09%
+      ils  :    P =     0/    0 =   0.00%     R =     0/  141 =   0.00%     F1 =   0.00%
+     cela  :    P =    52/   56 =  92.86%     R =    52/   71 =  73.24%     F1 =  81.89%
+       on  :    P =     5/   18 =  27.78%     R =     5/   10 =  50.00%     F1 =  35.71%
+     OTHER :    P =   205/  218 =  94.04%     R =   205/  265 =  77.36%     F1 =  84.89%
+	</pre>
+    or a macro-averaged R of <b>56.78%</b>
+    </p>
 
     
     <H3>DISCOMT 2015 RESOURCES</H3>

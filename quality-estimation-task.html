@@ -100,9 +100,15 @@ As <i><font color="green">training</font></i> and <i><font color="green">develop
 
 -->
 
-<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance (precision, recall, F-1) against the original labels. The main evaluation metric is the average F1 for the 'BAD' class. <a href="https://gist.github.com/varvara-l/028e4439fb992d089935">Evaluation script.</a> 
-<!--We also provide an <a href=" https://gist.github.com/chrishokamp/e2b5bcc07d1006026c48">alternative evaluation script </a>that takes as input labels in the exact same format as the labels distributed for training and dev sets, i.e.: one line per sentence, one tag per word, whitespace separated, with tags in the set {'OK', 'BAD'}. -->
-For significance tests, we used the approximate randomisation method with <a href="http://www.nlpado.de/~sebastian/software/sigf.shtml">this code</a>.
+<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance via the multiplication of F1-scores for the 'OK' and 'BAD' classes against the original labels. 
+F1-score for the 'BAD' class, which has been used as a primary metric in previous years, is biased towards 'pessimistic' labellings. In other words, it favours systems which tend to label more words as 'BAD'.
+In contrast, the multiplication of F1-OK and F1-BAD has two components which penalise different labellings and balance each other. 'Unfair' labellings (ones where either F1-OK or F1-BAD are close to zero) will have a score close to zero, and the overall score is never greater than any of its components.
+We will also report the F1-BAD score.
+<a href="https://gist.github.com/varvara-l/028e4439fb992d089935">Evaluation script.</a> 
+<!--We also provide an <a href=" https://gist.github.com/chrishokamp/e2b5bcc07d1006026c48">alternative evaluation script </a>that takes as input labels in the exact same format as the labels distributed for training and dev sets, i.e.: one line per sentence, one tag per word, whitespace separated, with tags in the set {'OK', 'BAD'}.
+For significance tests, we used the approximate randomisation method with <a href="http://www.nlpado.de/~sebastian/software/sigf.shtml">this code</a>. -->
+
+
 
 <p>As <b>baseline system</b> for this task we use the baseline features provided above to train a binary classifier using a standard logistic regression algorithm (available for example in the scikit-learn toolkit).</p>
 
@@ -121,7 +127,10 @@ For significance tests, we used the approximate randomisation method with <a hre
 
 -->
 
-<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance (precision, recall, F-1) against the original <b>word-level</b> labels. 
+<p>The phrase-level submissions are <i><font color="green">evaluated</font></i> are evaluated at the <b>word level</b> using the multiplication of F1-OK and F1-BAD as a primary metric. 
+<!--
+We use word-level scores here because the main goal of the phrase-level QE task is to check whether subsentence-level QE can be improved by using phrase-level features. Therefore, the word-level and phrase-level systems need to be directly comparable
+-->
 
 <p>As <b>baseline system</b> for this task we use the baseline features provided above to train a CRF model with a CRF++ tool. </p>
 
@@ -190,7 +199,7 @@ QuEst++ <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox_b
 
 <h3>Additional resources</h3>
 
-<p>These are the resources we have used to extract the baseline features in Tasks 1:
+<p>These are the resources we have used to extract the baseline features in Task 1, which can also be useful for Task 2. If you require other resources/info from the MT system, let us know:
 
 <p>
 <b>English</b>
@@ -330,8 +339,8 @@ in the WMT overview paper.</p>
 
     <table>
       <tr><td>Release of training data </td><td>January 30, 2016</td></tr>
-      <tr><td>Release of test data </td><td>April 2016</td></tr>
-      <tr><td>QE metrics results submission deadline  </td><td>April 2016</td></tr>
+      <tr><td>Release of test data </td><td>April 10 2016</td></tr>
+      <tr><td>QE metrics results submission deadline  </td><td>April 30 2016</td></tr>
       <tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr>
       <tr><td>Notification of acceptance</td><td>June 5, 2016</td></tr>
       <tr><td>Camera-ready deadline</td><td>June 22, 2016</td></tr>

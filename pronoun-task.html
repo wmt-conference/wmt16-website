@@ -16,7 +16,8 @@
 	<H3>NEWS</H3>
 	<p>
 	  <ul>
-		<li>14th March: Baseline models are now available for all sub-tasks.
+		<li>28th March: An issue was reported for the baseline LM data, whereby the TEDdev data was included in the data used to train the LMs. This has now been resolved. If you downloaded the <b>mono+para.5.xx.lemma.trie.kenlm</b> files prior to 20:00 CET on 28th March, please re-download the latest files.</li>
+		<li>14th March: Baseline models are now available for all sub-tasks.</li>
 	    <li>8th March: The scorer script is now available. See Evaluation section below for details.</li>
 	    <li>25th February: An alignment issue was reported for the filtered data. This has now been resolved. If you downloaded the training data prior to 17:00 CET on 25th February, please re-download the latest filtered data files.</li>
 	  </ul>
@@ -229,16 +230,16 @@
 
     <p>Sample results with <b>default options on *filtered* en-fr TEDdev</b> (same data as tst2010):<br>
 	<pre>
-       ce  :    P =   146/  188 =  77.66%     R =   146/  151 =  96.69%     F1 =  86.14%
-     elle  :    P =    18/   34 =  52.94%     R =    18/   25 =  72.00%     F1 =  61.02%
+       ce  :    P =   129/  182 =  70.88%     R =   129/  151 =  85.43%     F1 =  77.48%
+     elle  :    P =     6/   27 =  22.22%     R =     6/   25 =  24.00%     F1 =  23.08%
      elles :    P =     0/    0 =   0.00%     R =     0/   15 =   0.00%     F1 =   0.00%
-       il  :    P =    51/  179 =  28.49%     R =    51/   57 =  89.47%     F1 =  43.22%
+       il  :    P =    38/  138 =  27.54%     R =    38/   57 =  66.67%     F1 =  38.97%
       ils  :    P =     0/    0 =   0.00%     R =     0/  140 =   0.00%     F1 =   0.00%
-     cela  :    P =    49/   54 =  90.74%     R =    49/   63 =  77.78%     F1 =  83.76%
-       on  :    P =     5/   18 =  27.78%     R =     5/   10 =  50.00%     F1 =  35.71%
-     OTHER :    P =    80/   90 =  88.89%     R =    80/  102 =  78.43%     F1 =  83.33%
+     cela  :    P =    28/   40 =  70.00%     R =    28/   63 =  44.44%     F1 =  54.37%
+       on  :    P =     3/   37 =   8.11%     R =     3/   10 =  30.00%     F1 =  12.77%
+     OTHER :    P =    76/  139 =  54.68%     R =    76/  102 =  74.51%     F1 =  63.07%
 	</pre>
-    or a macro-averaged R of <b>58.05%</b>
+    or a macro-averaged R of <b>40.63%</b>
     </p>
 
     

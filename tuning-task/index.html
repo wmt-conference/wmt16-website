@@ -15,8 +15,7 @@
     <h3>Tuning Task Important Dates</h3>
 
     <table>
-      <tr><td>Release of the MT system to tune</td><td>February, 2016</td></tr>
-      <tr><td>Latest registration for complimentary manual evaluation</td><td>March 20, 2016</td></tr>
+      <tr><td>Release of the MT system to tune</td><td><strike>February</strike>March 30, 2016</td></tr>
       <tr><td>Submission deadline for tuning task</td><td>April 17, 2016</td></tr>
       <tr><td>Start of manual evaluation period</td><td>May 2, 2016</td></tr>
       <tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr>
@@ -80,9 +79,33 @@ describing your method to include or cite in the overview paper.</p>
 
 <h3>The System to Tune</h3>
 
-<p>This section contains the complete package of models to download.</p>
+<p>
+	You can download the models to tune from the following locations:
+</p>
+<div style="border: 1px solid #CCC; padding: 10px; display: inline-block">
+<p>
+	<b>English -> Czech</b>
+	<br>
+	<a href="https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-1672">https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-1672</a>
+</p>
+<p>
+	<b>Czech -> English</b>
+	<br>
+	<a href="https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-1671">https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-1671</a>
+</p>
+</div>
 
-Coming soon...
+<h4>Description of the Models</h4>
+<p>
+<a href="http://ufal.mff.cuni.cz/czeng/czeng16pre">CzEng 1.6pre</a> corpus is used for the training of the translation models. The data is tokenized (using Moses tokenizer), lowercased and sentences longer than 60 words and shorter than 4 words are removed before training. Alignment is done using <a href="https://github.com/clab/fast_align">fast_align</a> and the standard Moses pipeline is used for training.
+</p>
+
+<p>
+You are supposed to optimize the weights for these standard dense features: word penalty feature, phrase penalty feature, 4 features for a translation table (inverse phrase translation probability, inverse lexical weighting, direct phrase translation probability, direct lexical weighting), 2 features for 2 language models, distortion feature for distance-based reordering model, 6 features for each reordering model (bidirectional features for monotone, swap and discontinuous phrase translation probability).
+</p>
+
+<p>You may or may not want to add sparse features, see below.</p>
+
 
 <!--
 <table border='1'>

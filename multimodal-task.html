@@ -30,7 +30,8 @@ This task has the following main <b>goals</b>:
 
 We will provide new training and test datasets for both variants of the task and also allow participants to use external data and resources (constrained vs unconstrained submissions). The data to be used for both tasks is an extended version of the <a href="http://shannon.cs.illinois.edu/DenotationGraph/">Flickr30K</a> dataset. The original dataset contains 31,783 images from Flickr on various topics and five crowdsourced English descriptions per image, totalling 158,915 English descriptions. This dataset was extended in different ways for each of the subtasks, as discussed below.
 
-<p><b><font color="red">New</font></b>: <b>Image features</b> will be provided to participants, but their use is not mandatory. In particular, we will release features extracted from the VGG-19 CNN, described in <a href="http://arxiv.org/abs/1409.1556">(Simonyan and Zisserman, 2015)</a> from the FC<sub>7</sub> (relu7) and CONV<sub>5_4</sub> layers. Specifically, we extracted the image features using <a href="https://github.com/BVLC/caffe/releases/tag/rc2">Caffe RC2</a>.
+<!--<p><b><font color="red">New</font></b>: --> 
+<p><b>Image features</b> will be provided to participants, but their use is not mandatory. In particular, we will release features extracted from the VGG-19 CNN, described in <a href="http://arxiv.org/abs/1409.1556">(Simonyan and Zisserman, 2015)</a> from the FC<sub>7</sub> (relu7) and CONV<sub>5_4</sub> layers. Specifically, we extracted the image features using <a href="https://github.com/BVLC/caffe/releases/tag/rc2">Caffe RC2</a>.
 
 <ul>
   <li>we used the matlab_features_reference code in <a href="https://github.com/karpathy/neuraltalk/tree/master/matlab_features_reference">NeuralTalk</a>
@@ -41,9 +42,12 @@ We will provide new training and test datasets for both variants of the task and
   <li>Please check the all_images.txt file for the order of the images in the features file.</li>
 </ul>
 
-<p><b><font color="red">New</font></b>: The code for the <b>main baseline system</b> for both tasks is available <a href="https://github.com/elliottd/GroundedTranslation">here</a>, following the approach described in <a href="http://arxiv.org/abs/1510.04709">(Elliott et al. 2015)</a>, in particular, the MLM&#10141;MLM model. A secondary baseline for both tasks will be a Moses phrase-based statistical machine translation system trained using only the textual training data provided, following the pipeline described <a href="http://www.statmt.org/moses/?n=moses.baseline">here</a>.
+<!-- <p><b><font color="red">New</font></b>: -->
+The code for the <b>main baseline system</b> for both tasks is available <a href="https://github.com/elliottd/GroundedTranslation">here</a>, following the approach described in <a href="http://arxiv.org/abs/1510.04709">(Elliott et al. 2015)</a>, in particular, the MLM&#10141;MLM model. A secondary baseline for both tasks will be a Moses phrase-based statistical machine translation system trained using only the textual training data provided, following the pipeline described <a href="http://www.statmt.org/moses/?n=moses.baseline">here</a>.
+<p>
+<b><font color="red">New note on evaluation</font></b>: We are aware that our second baseline performs very well. The goal of this task is to investigate approaches that incorporate a multimodal element at modelling time. This is not to discourage approaches that attempt to further improve on the Moses baseline using textual information only, or using visual information as pre/post-processing. However, we will evaluate these two types of approaches separately.
 
-<p><b><font color="red">Update</font></b>: We have received several questions about what participants may do with existing English test set images and descriptions. You <b>may not</b> do anything with them for either Constrained or Unconstrained submissions.</p>
+<p><b><font color="red">Language direction</font></b>: We have received several questions about what participants may do with existing English test set images and descriptions. You <b>may not</b> do anything with them for either Constrained or Unconstrained submissions.</p>
 
 <p><br><hr>
 
@@ -59,7 +63,8 @@ We will provide most of the resulting parallel data and corresponding images for
 </p>
 
 <p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide 29,000 and 1,014 triples respectively, each containing an English source sentence, its German human translation and corresponding image. 
-<b><font color="red">New</font></b>: <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/validation.tar.gz">Download development (text) data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/training.tar.gz">Download training (text) data</a>.     
+<!-- <b><font color="red">New</font></b>: -->
+<a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/validation.tar.gz">Download development (text) data</a>. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/training.tar.gz">Download training (text) data</a>.     
 <!--Download 17 baseline feature set for the <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_training.baseline17.features">traning</a> and <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_dev.baseline17.features">dev</a> sets.-->
 </li>
 
@@ -76,7 +81,13 @@ We will also provide a baseline system.
 -->
 
 
-<p><i><font color="green">Evaluation</font></i> will be performed against the German human translation on the test set using standard MT evaluation metrics, such as BLEU and METEOR with lowercased text (with punctuation), both tokenised and detokenised versions.  We may also include manual evaluation.
+<p><i><font color="green">Evaluation</font></i> will be performed against the German human translation on the test set using standard MT evaluation metrics, with METEOR as the primary metric (lowercased text (with punctuation), both tokenised and detokenised versions).  We may also include manual evaluation.
+<p><b><font color="red">New</font></b>: The METEOR command is the following (e.g. for en-de, using <a href="https://github.com/jhclark/multeval">multeval implementation</a>): 
+<p>
+<font face="Courier New" size="2">
+./multeval.sh eval --refs wmt2016/de_test/reference.ref --hyps-baseline baseline_model/de/generated --hyps-sys1 my_great_model/de_generated --meteor.language de
+</font>
+
 
 <p>For those interested in translating in the inverse direction, i.e., German into English, we can release a test set for that direction. The training and development sets will remain the same, their translation direction can simply be flipped. 
 
@@ -95,7 +106,8 @@ We will also provide a baseline system.
 Any English-German pair of descriptions for a given image could be considered a comparable translation pair.  We will provide most of the images and associated descriptions for training, while smaller portions will be used for development and test. 
 </p>
 
-<p><b><font color="red">Update</font></b>: <a href="http://staff.fnwi.uva.nl/d.elliott/wmt16/mmt_task2.zip">Download the complete release of the training and validation data</a>. This release contains 29,000 <i><font color="green">training</font></i> tuples of German described 
+<!-- <p><b><font color="red">Update</font></b>: -->
+<a href="http://staff.fnwi.uva.nl/d.elliott/wmt16/mmt_task2.zip">Download the complete release of the training and validation data</a>. This release contains 29,000 <i><font color="green">training</font></i> tuples of German described 
 images and 1,014 <i><font color="green">development</font></i> tuples of German described images. A tuple contains an image paired with five (5) crowdsourced descriptions. Note, the entire English training and development datasets are included in this download. </p>
 
 <p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide 29,000 and 1,014 images, each with 5 descriptions in English and 5 descriptions in German, i.e., 29,014 tuples containing an image and 10 descriptions, 5 in each language. 
@@ -115,7 +127,15 @@ We will also provide a baseline system.
 <br>
 -->
 
-<p><i><font color="green">Evaluation</font></i> will be performed against five German descriptions collected as reference on the test set using METEOR. We may also include manual evaluation. <b><font color="red">Update</font></b>: the evaluation will be performed against references with lowercased text and without punctuation.
+<p><i><font color="green">Evaluation</font></i> will be performed against five German descriptions collected as reference on the test set, with lowercased text and without punctuation, using METEOR. We may also include manual evaluation. 
+<p>
+<b><font color="red">New</font></b>: The METEOR command is the following (e.g. for en-de, using <a href="https://github.com/jhclark/multeval">multeval implementation</a>): 
+<p>
+<font face="Courier New" size="2">
+./multeval.sh eval --refs wmt2016/de_test/reference.ref* --hyps-baseline baseline_model/de/generated --hyps-sys1 my_great_model/de_generated --meteor.language de
+</font>
+
+
 
 
 <p><br><hr>

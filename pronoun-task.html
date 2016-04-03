@@ -83,7 +83,7 @@
 
     <p>The test set will be supplied in the same format, but with columns 1 and 2 empty, so that each line starts with two tab characters. Your submission should have the same format as column 1 above, so a correct solution would contain the class label <b>elles</b> in this case. Each line should contain as many space-separated class labels as there are REPLACE tags in the corresponding segment. For each segment not containing any REPLACE tags, an empty line should be emitted. Additional tab-separated columns may be present in the submission, but will be ignored. Note in particular that you are not required to predict the second column. The submitted files should be encoded in UTF-8 (like the data we provide).</p>
 
-    <p>The training, development and test datasets have been <b>filtered</b> to remove non-subject position pronouns. Additional filtering has also been applied to the test set to remove erroneous pronoun examples and thereby ensure the fair and accurate evaluation of system performance. For more information, please see the section on <b>data filtering</b> below.</p>
+    <p>The training, development and test datasets have been <b>filtered</b> to remove non-subject position pronouns. The filtering for the test set will be manually checked to ensure that no non-subject position pronouns remain. For more information, please see the section on <b>data filtering</b> below.</p>
 
     <p>The complete test data for the classification task, including reference translations and word alignments, will be released on <b>4th April 2016</b>. Your submission is due on <b>11th April 2016</b>. Detailed submission instructions can be found at the end of this page.</p>
 
@@ -157,7 +157,7 @@
     <p>Automatic filtering has been applied to the source-language texts of the development datasets to remove non-subject position instances of English "it" and the German pronouns "sie" and "es".</p>
 
     <H4>Test data</H4>
-    <p>The same automatic filtering that was applied to the source-language texts of the development datasets, has also been applied to the source-language texts of the test dataset. In addition to this, manual filtering has been applied to remove additional pronoun instances from the test dataset. This includes source-language pronouns whose subject / non-subject position was incorrectly identified using the automatic filtering, and where errors in the word alignment of pronouns, sentence alignment and/or human translations would likely lead to an inaccurate assessment of system performance.</p>
+    <p>The test data files have been sentence aligned automatically, and the alignments have been checked manually. The same automatic filtering of non-subject position pronouns that was applied to the source-language texts of the development datasets, has also been applied to the source-language texts of the test dataset. In addition to this, manual checks have been made to ensure that no non-subject position pronouns remain following the automatic filtering. We had originally proposed manually checking those word-alignments that affected pronouns, however, this will not ne carried out. After considerable discussion we believe that this task is extremely difficult due to the presence of many borderline cases. We therefor believe that it would be difficult to apply manual corrections or exclusions of incorrectly aligned pronoun instances in a consistent manner.</p>
     
 
     <H3>TRAINING DATA</H3>
@@ -257,7 +257,7 @@
 
 
     <H3>SUBMISSION INSTRUCTIONS</H3>
-    <p>We will provide the input data in the same format as the training data, but with the first two columns empty. Your predictions should be submitted in the format recognised by the official scorer, see above for details. Please e-mail the file with the predictions, labelled with the name of your system, to <b>[email address to be announced]</b> no later than <b>22nd April 2016</b> (any time zone).</p>
+    <p>We will provide the input data in the same format as the training data, but with the first two columns empty. Your predictions should be submitted in the format recognised by the official scorer, see above for details. Please e-mail the file with the predictions, labelled with the name of your system, to <b>L [dot] K [dot] Guillou [at] sms.ed.ac.uk</b> no later than <b>22nd April 2016</b> (any time zone).</p>
 
 
     <H3>TEST DATA</H3>

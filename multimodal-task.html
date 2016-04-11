@@ -49,6 +49,8 @@ The code for the <b>main baseline system</b> for both tasks is available <a href
 
 <p><b><font color="red">Language direction</font></b>: We have received several questions about what participants may do with existing English test set images and descriptions. You <b>may not</b> do anything with them for either Constrained or Unconstrained submissions.</p>
 
+
+
 <p><br><hr>
 
 <!-- MULTIMODAL MT-->
@@ -71,6 +73,7 @@ We will provide most of the resulting parallel data and corresponding images for
 <p>As <i><font color="green">test data</font></i>, we provide a new set of 1,000 tuples containing an English description and its corresponding image. 
 <!--<a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_test.tar.gz">Download test data (and baseline features)</a>. 
 <!--Download 17 baseline feature set for the <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_test.baseline17.features">test</a> set.-->
+<b><font color="red">New: The test set is available. Please send an email to lspecia@gmail.com to receive it (we would like to have an idea of how many people are interested in the task).</font></b>
 </li>
 
 
@@ -82,7 +85,7 @@ We will also provide a baseline system.
 
 
 <p><i><font color="green">Evaluation</font></i> will be performed against the German human translation on the test set using standard MT evaluation metrics, with METEOR as the primary metric (lowercased text (with punctuation), both tokenised and detokenised versions).  We may also include manual evaluation.
-<p><b><font color="red">New</font></b>: The METEOR command is the following (e.g. for en-de, using <a href="https://github.com/jhclark/multeval">multeval implementation</a>): 
+<!--<p><b><font color="red">New</font></b>: The METEOR command is the following (e.g. for en-de, using <a href="https://github.com/jhclark/multeval">multeval implementation</a>): 
 <p>
 <font face="Courier New" size="2">
 ./multeval.sh eval --refs wmt2016/de_test/reference.ref --hyps-baseline baseline_model/de/generated --hyps-sys1 my_great_model/de_generated --meteor.language de
@@ -90,7 +93,7 @@ We will also provide a baseline system.
 
 
 <p>For those interested in translating in the inverse direction, i.e., German into English, we can release a test set for that direction. The training and development sets will remain the same, their translation direction can simply be flipped. 
-
+-->
 
 <p><br><hr>
 
@@ -118,7 +121,7 @@ images and 1,014 <i><font color="green">development</font></i> tuples of German 
 <p>As <i><font color="green">test data</font></i>, we provide a new set of approximately 1,000 tuples containing an image and 5 English descriptions. 
 <!--<a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_test.tar.gz">Download test data (and baseline features)</a>. 
 <!--Download 17 baseline feature set for the <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/task1_en-es_test.baseline17.features">test</a> set.-->
-</li>
+<b><font color="red">New: The test set is available. Please send an email to lspecia@gmail.com to receive it (we would like to have an idea of how many people are interested in the task).</font></b></li>
 
 
 <!--<p><p>
@@ -128,7 +131,6 @@ We will also provide a baseline system.
 -->
 
 <p><i><font color="green">Evaluation</font></i> will be performed against five German descriptions collected as reference on the test set, with lowercased text and without punctuation, using METEOR. We may also include manual evaluation. 
-<p>
 <b><font color="red">New</font></b>: The METEOR command is the following (e.g. for en-de, using <a href="https://github.com/jhclark/multeval">multeval implementation</a>): 
 <p>
 <font face="Courier New" size="2">

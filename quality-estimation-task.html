@@ -51,10 +51,9 @@ This year's shared task provides new training and test datasets for all tasks, a
 <p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide English-German datasets with <b>12,000</b> and <b>1,000</b>  source sentences, their machine translations, their post-editions (translations) and HTER as post-editing effort scores (other scores, such as post-editing time can be provided on request). 
 <b><font color="red">New</font></b>: <a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes. Download the baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_training.baseline17.features">training</a> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_dev.baseline17.features">development</a> sets.</li>
 
-<!--
-<p>As <i><font color="green">test data</font></i>, we provide a new set of <b>2,000</b> English-German translations produced by the same SMT system used for the training data. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
+
+<p>As <i><font color="green">test data</font></i>, we provide a new set of <b>2,000</b> English-German translations produced by the same SMT system used for the training data. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_test.tar.gz">Download test data</a> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_test.baseline17.features"> the baseline features</a>. 
 </li>
--->
 
 <p><p>
 The usual <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox_baseline_17">17 features</a> used in WMT12-15 is considered for the <b>baseline system</b>. This system uses SVM regression with an RBF kernel, as well as grid search algorithm for the optimisation of relevant parameters. <a href="http://www.quest.dcs.shef.ac.uk/">QuEst++</a> is used to build prediction models.
@@ -92,13 +91,11 @@ The usual <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox
 <p>For the word-level variant, as in previous years, all segments are automatically annotated for errors with binary word-level labels by using the alignments provided by the  <a href="http://www.cs.umd.edu/~snover/tercom/">TER</a> tool (settings: tokenised, case insensitive, exact matching only, disabling shifts by using the `-d 0` option) between machine translations and their post-edited versions. Shifts (word order errors) were not annotated as such (but rather as deletions + insertions) to avoid introducing noise in the annotation.</p> 
 
 As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with tokens annotated with  'OK' or 'BAD' labels. 
-<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-es_training.features">training<a/> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-es_dev.features">development</a> sets from here (updated 4/4/16)</b></font>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
+<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_training.features">training<a/> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_dev.features">development</a> sets from here (updated 4/4/16)</b></font>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
 
-<!--
 <p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
 </li> 
 
--->
 
 <p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance via the multiplication of F1-scores for the 'OK' and 'BAD' classes against the original labels. 
 F1-score for the 'BAD' class, which has been used as a primary metric in previous years, is biased towards 'pessimistic' labellings. In other words, it favours systems which tend to label more words as 'BAD'.
@@ -118,14 +115,12 @@ For significance tests, we used the approximate randomisation method with <a hre
 <p>The data to be used is exactly the same as for task 1 and the word-level task. The labelling of this data was adapted from word-level labelling by assigning the 'BAD' tag to any phrase that contains at least one 'BAD' word.</p>
 
 <p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with phrase segmentation for both source and machine-translated sentences. We also provide target-source phrase alignments and phrase-level labels in separate files.
-<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-es_training.features">training<a/> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-es_dev.features">development</a> sets from here (updated 4/4/16)</b></font>.  The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
+<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_training.features">training<a/> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_dev.features">development</a> sets from here (updated 4/4/16)</b></font>.  The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
 </li> 
 
-<!--
 <p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
 </li> 
 
--->
 
 <p>The phrase-level submissions are <i><font color="green">evaluated</font></i> are evaluated at the <b>word level</b> using the multiplication of F1-OK and F1-BAD as a primary metric. 
 <!--

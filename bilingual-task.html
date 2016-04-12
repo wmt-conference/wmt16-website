@@ -654,17 +654,1661 @@ The task is to identify pairs of English and French documents from a given colle
 
 <h3>Test data</h3>
 
-<p>For testing, we will provide additional crawls of new webdomains, distinct from the ones in the training data in the same format. For these no known pairs will be provided. 
-Evaluation
-Because the full set of valid document pairs is unknown evaluation will be based entirely on <del>precision</del>recall. 
+<p>For testing, we will provide 203 additional crawls of new webdomains, distinct from the ones in the training data in the same format. For these no known pairs will be provided. 
 </p>
+<p>
+All test lett files in one file: <a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test.tgz">lett.test.tgz</a> ((16G, md5:a16f7afdcf7de3c4bc992f0451ef89a3 , sha1:6b978ee34c8803876e0dad5b760eccc3957e3a5e)
+<br>
+As for the train data we provide translations of all French text spans: <a href="http://data.statmt.org/wmt16/document-alignment-task/translations.test.tgz">translations.test.tgz</a>
+</p>
+
+<p>
+Test set statistics:
+</p>
+<table cellpadding="5" cellspacing="0" border="1">
+    <tr>
+        <th>webdomain</th>
+        <th>source pages</th>
+        <th>target pages</th>
+        <th>possible pairings</th>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.domainepechlaurier.com.lett.gz">www.domainepechlaurier.com</a></td>
+      <td align='right'>24</td>
+      <td align='right'>26</td>
+      <td align='right'>624</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.desmarais-robitaille.com.lett.gz">www.desmarais-robitaille.com</a></td>
+      <td align='right'>9,496</td>
+      <td align='right'>10,621</td>
+      <td align='right'>100,857,016</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/italiasullarete.it.lett.gz">italiasullarete.it</a></td>
+      <td align='right'>3,630</td>
+      <td align='right'>2,959</td>
+      <td align='right'>10,741,170</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/egodesign.ca.lett.gz">egodesign.ca</a></td>
+      <td align='right'>11,376</td>
+      <td align='right'>7,384</td>
+      <td align='right'>84,000,384</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.gameonly.com.lett.gz">www.gameonly.com</a></td>
+      <td align='right'>1,552</td>
+      <td align='right'>9,953</td>
+      <td align='right'>15,447,056</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.ledindon.com.lett.gz">www.ledindon.com</a></td>
+      <td align='right'>1,995</td>
+      <td align='right'>2,019</td>
+      <td align='right'>4,027,905</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/ww-corp.com.lett.gz">ww-corp.com</a></td>
+      <td align='right'>53</td>
+      <td align='right'>34</td>
+      <td align='right'>1,802</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.specialimmo.com.lett.gz">www.specialimmo.com</a></td>
+      <td align='right'>92</td>
+      <td align='right'>92</td>
+      <td align='right'>8,464</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.festivalstoria.it.lett.gz">www.festivalstoria.it</a></td>
+      <td align='right'>8</td>
+      <td align='right'>4</td>
+      <td align='right'>32</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/conancompletist.com.lett.gz">conancompletist.com</a></td>
+      <td align='right'>163</td>
+      <td align='right'>107</td>
+      <td align='right'>17,441</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.fsm-group.de.lett.gz">www.fsm-group.de</a></td>
+      <td align='right'>128</td>
+      <td align='right'>77</td>
+      <td align='right'>9,856</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.dvv-international.de.lett.gz">www.dvv-international.de</a></td>
+      <td align='right'>1,449</td>
+      <td align='right'>1,131</td>
+      <td align='right'>1,638,819</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.cornwall.ca.lett.gz">www.cornwall.ca</a></td>
+      <td align='right'>610</td>
+      <td align='right'>458</td>
+      <td align='right'>279,380</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.actualites-electroniques.com.lett.gz">www.actualites-electroniques.com</a></td>
+      <td align='right'>60,906</td>
+      <td align='right'>834</td>
+      <td align='right'>50,795,604</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.epilepsiemuseum.org.lett.gz">www.epilepsiemuseum.org</a></td>
+      <td align='right'>214</td>
+      <td align='right'>178</td>
+      <td align='right'>38,092</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lalettrediplomatique.fr.lett.gz">www.lalettrediplomatique.fr</a></td>
+      <td align='right'>239</td>
+      <td align='right'>4,300</td>
+      <td align='right'>1,027,700</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.laprairie.ch.lett.gz">www.laprairie.ch</a></td>
+      <td align='right'>245</td>
+      <td align='right'>242</td>
+      <td align='right'>59,290</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/aucoeurduvin.com.lett.gz">aucoeurduvin.com</a></td>
+      <td align='right'>19</td>
+      <td align='right'>50</td>
+      <td align='right'>950</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/bateaux-de-saint-malo.com.lett.gz">bateaux-de-saint-malo.com</a></td>
+      <td align='right'>336</td>
+      <td align='right'>323</td>
+      <td align='right'>108,528</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.eaglebrand.ca.lett.gz">www.eaglebrand.ca</a></td>
+      <td align='right'>291</td>
+      <td align='right'>289</td>
+      <td align='right'>84,099</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.casaholidaysilvia.com.lett.gz">www.casaholidaysilvia.com</a></td>
+      <td align='right'>27</td>
+      <td align='right'>20</td>
+      <td align='right'>540</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/aeht.org.lett.gz">aeht.org</a></td>
+      <td align='right'>840</td>
+      <td align='right'>687</td>
+      <td align='right'>577,080</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/harmonie.cz.lett.gz">harmonie.cz</a></td>
+      <td align='right'>9</td>
+      <td align='right'>3</td>
+      <td align='right'>27</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lifegrid.fr.lett.gz">www.lifegrid.fr</a></td>
+      <td align='right'>211</td>
+      <td align='right'>276</td>
+      <td align='right'>58,236</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.dcc-cdc.gc.ca.lett.gz">www.dcc-cdc.gc.ca</a></td>
+      <td align='right'>669</td>
+      <td align='right'>668</td>
+      <td align='right'>446,892</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/selecta-tech.de.lett.gz">selecta-tech.de</a></td>
+      <td align='right'>891</td>
+      <td align='right'>788</td>
+      <td align='right'>702,108</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.nserc-crsng.gc.ca.lett.gz">www.nserc-crsng.gc.ca</a></td>
+      <td align='right'>7,237</td>
+      <td align='right'>5,283</td>
+      <td align='right'>38,233,071</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/myriad-online.com.lett.gz">myriad-online.com</a></td>
+      <td align='right'>5,923</td>
+      <td align='right'>4,258</td>
+      <td align='right'>25,220,134</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.international.icomos.org.lett.gz">www.international.icomos.org</a></td>
+      <td align='right'>8,064</td>
+      <td align='right'>6,797</td>
+      <td align='right'>54,811,008</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.ottawariver.org.lett.gz">www.ottawariver.org</a></td>
+      <td align='right'>48</td>
+      <td align='right'>34</td>
+      <td align='right'>1,632</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.sirc-csars.gc.ca.lett.gz">www.sirc-csars.gc.ca</a></td>
+      <td align='right'>569</td>
+      <td align='right'>546</td>
+      <td align='right'>310,674</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/communaute-dame.qc.ca.lett.gz">communaute-dame.qc.ca</a></td>
+      <td align='right'>360</td>
+      <td align='right'>239</td>
+      <td align='right'>86,040</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.verderber.org.lett.gz">www.verderber.org</a></td>
+      <td align='right'>23</td>
+      <td align='right'>23</td>
+      <td align='right'>529</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/buehrle.ch.lett.gz">buehrle.ch</a></td>
+      <td align='right'>531</td>
+      <td align='right'>472</td>
+      <td align='right'>250,632</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.oacc.info.lett.gz">www.oacc.info</a></td>
+      <td align='right'>2,807</td>
+      <td align='right'>1,504</td>
+      <td align='right'>4,221,728</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.info-turk.be.lett.gz">www.info-turk.be</a></td>
+      <td align='right'>186</td>
+      <td align='right'>242</td>
+      <td align='right'>45,012</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lopera.be.lett.gz">www.lopera.be</a></td>
+      <td align='right'>8</td>
+      <td align='right'>5</td>
+      <td align='right'>40</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/busaroundglobe.com.lett.gz">busaroundglobe.com</a></td>
+      <td align='right'>851</td>
+      <td align='right'>633</td>
+      <td align='right'>538,683</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.consulfrance-atlanta.org.lett.gz">www.consulfrance-atlanta.org</a></td>
+      <td align='right'>2,502</td>
+      <td align='right'>2,240</td>
+      <td align='right'>5,604,480</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.eurozine.com.lett.gz">www.eurozine.com</a></td>
+      <td align='right'>18,096</td>
+      <td align='right'>168</td>
+      <td align='right'>3,040,128</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/artfactories.net.lett.gz">artfactories.net</a></td>
+      <td align='right'>2,847</td>
+      <td align='right'>91,451</td>
+      <td align='right'>260,360,997</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.musee-mccord.qc.ca.lett.gz">www.musee-mccord.qc.ca</a></td>
+      <td align='right'>4,265</td>
+      <td align='right'>9,774</td>
+      <td align='right'>41,686,110</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/vade-retro.fr.lett.gz">vade-retro.fr</a></td>
+      <td align='right'>6</td>
+      <td align='right'>10</td>
+      <td align='right'>60</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/bjnewlife.org.lett.gz">bjnewlife.org</a></td>
+      <td align='right'>12,869</td>
+      <td align='right'>1,129</td>
+      <td align='right'>14,529,101</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/panhuasca.org.br.lett.gz">panhuasca.org.br</a></td>
+      <td align='right'>121</td>
+      <td align='right'>116</td>
+      <td align='right'>14,036</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.hydrel.ch.lett.gz">www.hydrel.ch</a></td>
+      <td align='right'>3,421</td>
+      <td align='right'>1,480</td>
+      <td align='right'>5,063,080</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/mammusique.com.lett.gz">mammusique.com</a></td>
+      <td align='right'>39</td>
+      <td align='right'>34</td>
+      <td align='right'>1,326</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.iaapa.de.lett.gz">www.iaapa.de</a></td>
+      <td align='right'>40</td>
+      <td align='right'>1</td>
+      <td align='right'>40</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/sustainability.suncor.com.lett.gz">sustainability.suncor.com</a></td>
+      <td align='right'>771</td>
+      <td align='right'>768</td>
+      <td align='right'>592,128</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.haro.com.lett.gz">www.haro.com</a></td>
+      <td align='right'>2,125</td>
+      <td align='right'>1,022</td>
+      <td align='right'>2,171,750</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.swtor.com.lett.gz">www.swtor.com</a></td>
+      <td align='right'>2,773</td>
+      <td align='right'>644</td>
+      <td align='right'>1,785,812</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.genievres.com.lett.gz">www.genievres.com</a></td>
+      <td align='right'>90</td>
+      <td align='right'>113</td>
+      <td align='right'>10,170</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lupusae.com.lett.gz">www.lupusae.com</a></td>
+      <td align='right'>2,187</td>
+      <td align='right'>451</td>
+      <td align='right'>986,337</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.portboulogne.com.lett.gz">www.portboulogne.com</a></td>
+      <td align='right'>105</td>
+      <td align='right'>135</td>
+      <td align='right'>14,175</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.palaminy.com.lett.gz">www.palaminy.com</a></td>
+      <td align='right'>8</td>
+      <td align='right'>10</td>
+      <td align='right'>80</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/hrcouncil.ca.lett.gz">hrcouncil.ca</a></td>
+      <td align='right'>381</td>
+      <td align='right'>389</td>
+      <td align='right'>148,209</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.axa.com.lett.gz">www.axa.com</a></td>
+      <td align='right'>3,541</td>
+      <td align='right'>3,930</td>
+      <td align='right'>13,916,130</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/plongeecavalaire.com.lett.gz">plongeecavalaire.com</a></td>
+      <td align='right'>13</td>
+      <td align='right'>14</td>
+      <td align='right'>182</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.presepiovenegono.it.lett.gz">www.presepiovenegono.it</a></td>
+      <td align='right'>399</td>
+      <td align='right'>372</td>
+      <td align='right'>148,428</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.fasska.com.lett.gz">www.fasska.com</a></td>
+      <td align='right'>49</td>
+      <td align='right'>50</td>
+      <td align='right'>2,450</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.rcmp-grc.gc.ca.lett.gz">www.rcmp-grc.gc.ca</a></td>
+      <td align='right'>10,952</td>
+      <td align='right'>10,914</td>
+      <td align='right'>119,530,128</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lecanville.com.lett.gz">www.lecanville.com</a></td>
+      <td align='right'>29</td>
+      <td align='right'>24</td>
+      <td align='right'>696</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/harasdesfrettes.com.lett.gz">harasdesfrettes.com</a></td>
+      <td align='right'>110</td>
+      <td align='right'>114</td>
+      <td align='right'>12,540</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.mecanelec.com.lett.gz">www.mecanelec.com</a></td>
+      <td align='right'>147</td>
+      <td align='right'>137</td>
+      <td align='right'>20,139</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/projectavalon.net.lett.gz">projectavalon.net</a></td>
+      <td align='right'>5,475</td>
+      <td align='right'>271</td>
+      <td align='right'>1,483,725</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.carus-verlag.com.lett.gz">www.carus-verlag.com</a></td>
+      <td align='right'>1,912</td>
+      <td align='right'>4,191</td>
+      <td align='right'>8,013,192</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.parischoralsociety.org.lett.gz">www.parischoralsociety.org</a></td>
+      <td align='right'>27</td>
+      <td align='right'>24</td>
+      <td align='right'>648</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.world-governance.org.lett.gz">www.world-governance.org</a></td>
+      <td align='right'>2,840</td>
+      <td align='right'>2,481</td>
+      <td align='right'>7,046,040</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.eurovia.org.lett.gz">www.eurovia.org</a></td>
+      <td align='right'>1,862</td>
+      <td align='right'>1,994</td>
+      <td align='right'>3,712,828</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/la-coulonniere.fr.lett.gz">la-coulonniere.fr</a></td>
+      <td align='right'>21</td>
+      <td align='right'>19</td>
+      <td align='right'>399</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.jerome-alquie.com.lett.gz">www.jerome-alquie.com</a></td>
+      <td align='right'>90</td>
+      <td align='right'>71</td>
+      <td align='right'>6,390</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.confrontations.info.lett.gz">www.confrontations.info</a></td>
+      <td align='right'>99</td>
+      <td align='right'>2,680</td>
+      <td align='right'>265,320</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.zigiz.com.lett.gz">www.zigiz.com</a></td>
+      <td align='right'>502</td>
+      <td align='right'>162</td>
+      <td align='right'>81,324</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lvbeethoven.com.lett.gz">www.lvbeethoven.com</a></td>
+      <td align='right'>341</td>
+      <td align='right'>275</td>
+      <td align='right'>93,775</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.coe.int.lett.gz">www.coe.int</a></td>
+      <td align='right'>9,568</td>
+      <td align='right'>1,852</td>
+      <td align='right'>17,719,936</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/bopsecrets.org.lett.gz">bopsecrets.org</a></td>
+      <td align='right'>563</td>
+      <td align='right'>95</td>
+      <td align='right'>53,485</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.kazior5.com.lett.gz">www.kazior5.com</a></td>
+      <td align='right'>7</td>
+      <td align='right'>5</td>
+      <td align='right'>35</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.elenacaffe1863.com.lett.gz">www.elenacaffe1863.com</a></td>
+      <td align='right'>3</td>
+      <td align='right'>4</td>
+      <td align='right'>12</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.pc.gc.ca.lett.gz">www.pc.gc.ca</a></td>
+      <td align='right'>5,728</td>
+      <td align='right'>8,645</td>
+      <td align='right'>49,518,560</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.santegidio.org.lett.gz">www.santegidio.org</a></td>
+      <td align='right'>4,198</td>
+      <td align='right'>2,051</td>
+      <td align='right'>8,610,098</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/wise.net.lett.gz">wise.net</a></td>
+      <td align='right'>98</td>
+      <td align='right'>91</td>
+      <td align='right'>8,918</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.antebiel.com.lett.gz">www.antebiel.com</a></td>
+      <td align='right'>91</td>
+      <td align='right'>252</td>
+      <td align='right'>22,932</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.cra-arc.gc.ca.lett.gz">www.cra-arc.gc.ca</a></td>
+      <td align='right'>14,000</td>
+      <td align='right'>9,351</td>
+      <td align='right'>130,914,000</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/fourdirectionsteachings.com.lett.gz">fourdirectionsteachings.com</a></td>
+      <td align='right'>38</td>
+      <td align='right'>34</td>
+      <td align='right'>1,292</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.aertssen.com.lett.gz">www.aertssen.com</a></td>
+      <td align='right'>158</td>
+      <td align='right'>79</td>
+      <td align='right'>12,482</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.plume-noire.com.lett.gz">www.plume-noire.com</a></td>
+      <td align='right'>1,568</td>
+      <td align='right'>1,057</td>
+      <td align='right'>1,657,376</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/ottawaheart.ca.lett.gz">ottawaheart.ca</a></td>
+      <td align='right'>953</td>
+      <td align='right'>792</td>
+      <td align='right'>754,776</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.redciencia.cu.lett.gz">www.redciencia.cu</a></td>
+      <td align='right'>297</td>
+      <td align='right'>273</td>
+      <td align='right'>81,081</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.technip.com.lett.gz">www.technip.com</a></td>
+      <td align='right'>1,231</td>
+      <td align='right'>1,022</td>
+      <td align='right'>1,258,082</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.mayafiles.com.lett.gz">www.mayafiles.com</a></td>
+      <td align='right'>83</td>
+      <td align='right'>60</td>
+      <td align='right'>4,980</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/chablis-geoffroy.com.lett.gz">chablis-geoffroy.com</a></td>
+      <td align='right'>69</td>
+      <td align='right'>70</td>
+      <td align='right'>4,830</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/shorterworkweek.com.lett.gz">shorterworkweek.com</a></td>
+      <td align='right'>58</td>
+      <td align='right'>50</td>
+      <td align='right'>2,900</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.directkite.com.lett.gz">www.directkite.com</a></td>
+      <td align='right'>170</td>
+      <td align='right'>81</td>
+      <td align='right'>13,770</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.tatin.org.lett.gz">www.tatin.org</a></td>
+      <td align='right'>104</td>
+      <td align='right'>137</td>
+      <td align='right'>14,248</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/poubille.fr.lett.gz">poubille.fr</a></td>
+      <td align='right'>7</td>
+      <td align='right'>122</td>
+      <td align='right'>854</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.good-will.ch.lett.gz">www.good-will.ch</a></td>
+      <td align='right'>150</td>
+      <td align='right'>145</td>
+      <td align='right'>21,750</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.provencegiteventoux.fr.lett.gz">www.provencegiteventoux.fr</a></td>
+      <td align='right'>17</td>
+      <td align='right'>16</td>
+      <td align='right'>272</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/belnois.com.lett.gz">belnois.com</a></td>
+      <td align='right'>56</td>
+      <td align='right'>63</td>
+      <td align='right'>3,528</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/histalu.org.lett.gz">histalu.org</a></td>
+      <td align='right'>9,909</td>
+      <td align='right'>9,265</td>
+      <td align='right'>91,806,885</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.eufic.org.lett.gz">www.eufic.org</a></td>
+      <td align='right'>11,349</td>
+      <td align='right'>4,823</td>
+      <td align='right'>54,736,227</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/peregrinoslh.com.lett.gz">peregrinoslh.com</a></td>
+      <td align='right'>7</td>
+      <td align='right'>2</td>
+      <td align='right'>14</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.planet-diversity.org.lett.gz">www.planet-diversity.org</a></td>
+      <td align='right'>573</td>
+      <td align='right'>73</td>
+      <td align='right'>41,829</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.toucherdubois.ca.lett.gz">www.toucherdubois.ca</a></td>
+      <td align='right'>3,148</td>
+      <td align='right'>3,249</td>
+      <td align='right'>10,227,852</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.dan42.com.lett.gz">www.dan42.com</a></td>
+      <td align='right'>112</td>
+      <td align='right'>90</td>
+      <td align='right'>10,080</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/cmhg-phmc.gc.ca.lett.gz">cmhg-phmc.gc.ca</a></td>
+      <td align='right'>3,016</td>
+      <td align='right'>1,728</td>
+      <td align='right'>5,211,648</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/sciences.amatheurs.fr.lett.gz">sciences.amatheurs.fr</a></td>
+      <td align='right'>91</td>
+      <td align='right'>118</td>
+      <td align='right'>10,738</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/sebsauvage.net.lett.gz">sebsauvage.net</a></td>
+      <td align='right'>25,995</td>
+      <td align='right'>29,194</td>
+      <td align='right'>758,898,030</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/jointhealth.org.lett.gz">jointhealth.org</a></td>
+      <td align='right'>783</td>
+      <td align='right'>492</td>
+      <td align='right'>385,236</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.undefine.ca.lett.gz">www.undefine.ca</a></td>
+      <td align='right'>69</td>
+      <td align='right'>13</td>
+      <td align='right'>897</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/cinedoc.org.lett.gz">cinedoc.org</a></td>
+      <td align='right'>49,672</td>
+      <td align='right'>49,215</td>
+      <td align='right'>2,444,607,480</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.ccpsa.ca.lett.gz">www.ccpsa.ca</a></td>
+      <td align='right'>127</td>
+      <td align='right'>107</td>
+      <td align='right'>13,589</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/gadal-catharisme.org.lett.gz">gadal-catharisme.org</a></td>
+      <td align='right'>132</td>
+      <td align='right'>129</td>
+      <td align='right'>17,028</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.tsb-bst.gc.ca.lett.gz">www.tsb-bst.gc.ca</a></td>
+      <td align='right'>5,311</td>
+      <td align='right'>5,230</td>
+      <td align='right'>27,776,530</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.redcross.int.lett.gz">www.redcross.int</a></td>
+      <td align='right'>1,229</td>
+      <td align='right'>1,176</td>
+      <td align='right'>1,445,304</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.dural.de.lett.gz">www.dural.de</a></td>
+      <td align='right'>229</td>
+      <td align='right'>184</td>
+      <td align='right'>42,136</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.garoo.net.lett.gz">www.garoo.net</a></td>
+      <td align='right'>16,984</td>
+      <td align='right'>9,939</td>
+      <td align='right'>168,803,976</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.raab-gruppe.de.lett.gz">www.raab-gruppe.de</a></td>
+      <td align='right'>55</td>
+      <td align='right'>62</td>
+      <td align='right'>3,410</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.nostalgic-images.co.uk.lett.gz">www.nostalgic-images.co.uk</a></td>
+      <td align='right'>6,933</td>
+      <td align='right'>2,694</td>
+      <td align='right'>18,677,502</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.generalhieu.com.lett.gz">www.generalhieu.com</a></td>
+      <td align='right'>494</td>
+      <td align='right'>346</td>
+      <td align='right'>170,924</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/massviolence.org.lett.gz">massviolence.org</a></td>
+      <td align='right'>1,489</td>
+      <td align='right'>497</td>
+      <td align='right'>740,033</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/julieguenette.com.lett.gz">julieguenette.com</a></td>
+      <td align='right'>50</td>
+      <td align='right'>16</td>
+      <td align='right'>800</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/arabpressnetwork.org.lett.gz">arabpressnetwork.org</a></td>
+      <td align='right'>2,011</td>
+      <td align='right'>654</td>
+      <td align='right'>1,315,194</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.rfimusique.com.lett.gz">www.rfimusique.com</a></td>
+      <td align='right'>659</td>
+      <td align='right'>11,891</td>
+      <td align='right'>7,836,169</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.pjo.ca.lett.gz">www.pjo.ca</a></td>
+      <td align='right'>26</td>
+      <td align='right'>18</td>
+      <td align='right'>468</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/fmnews.com.lett.gz">fmnews.com</a></td>
+      <td align='right'>82</td>
+      <td align='right'>82</td>
+      <td align='right'>6,724</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.phytoclick.com.lett.gz">www.phytoclick.com</a></td>
+      <td align='right'>678</td>
+      <td align='right'>568</td>
+      <td align='right'>385,104</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/varengeville-sur-mer.fr.lett.gz">varengeville-sur-mer.fr</a></td>
+      <td align='right'>13</td>
+      <td align='right'>84</td>
+      <td align='right'>1,092</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.wipo.int.lett.gz">www.wipo.int</a></td>
+      <td align='right'>23,763</td>
+      <td align='right'>1,068</td>
+      <td align='right'>25,378,884</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.arabhumanrights.org.lett.gz">www.arabhumanrights.org</a></td>
+      <td align='right'>165</td>
+      <td align='right'>11</td>
+      <td align='right'>1,815</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.oras.com.lett.gz">www.oras.com</a></td>
+      <td align='right'>4,040</td>
+      <td align='right'>1,518</td>
+      <td align='right'>6,132,720</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.educweb.org.lett.gz">www.educweb.org</a></td>
+      <td align='right'>1,609</td>
+      <td align='right'>4,482</td>
+      <td align='right'>7,211,538</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.conidia.fr.lett.gz">www.conidia.fr</a></td>
+      <td align='right'>78</td>
+      <td align='right'>92</td>
+      <td align='right'>7,176</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.oag-bvg.gc.ca.lett.gz">www.oag-bvg.gc.ca</a></td>
+      <td align='right'>10,872</td>
+      <td align='right'>10,865</td>
+      <td align='right'>118,124,280</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.kinnarps.com.lett.gz">www.kinnarps.com</a></td>
+      <td align='right'>11,547</td>
+      <td align='right'>3,118</td>
+      <td align='right'>36,003,546</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.iisd.ca.lett.gz">www.iisd.ca</a></td>
+      <td align='right'>16,856</td>
+      <td align='right'>3,989</td>
+      <td align='right'>67,238,584</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/technologeeko.com.lett.gz">technologeeko.com</a></td>
+      <td align='right'>4,715</td>
+      <td align='right'>1,593</td>
+      <td align='right'>7,510,995</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.phares-balises.fr.lett.gz">www.phares-balises.fr</a></td>
+      <td align='right'>996</td>
+      <td align='right'>572</td>
+      <td align='right'>569,712</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.metisse-music.com.lett.gz">www.metisse-music.com</a></td>
+      <td align='right'>667</td>
+      <td align='right'>634</td>
+      <td align='right'>422,878</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.bergerfoundation.ch.lett.gz">www.bergerfoundation.ch</a></td>
+      <td align='right'>9,843</td>
+      <td align='right'>2,135</td>
+      <td align='right'>21,014,805</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.ipu.org.lett.gz">www.ipu.org</a></td>
+      <td align='right'>7,898</td>
+      <td align='right'>7,800</td>
+      <td align='right'>61,604,400</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/raken.com.lett.gz">raken.com</a></td>
+      <td align='right'>5,518</td>
+      <td align='right'>3,435</td>
+      <td align='right'>18,954,330</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.afdb.org.lett.gz">www.afdb.org</a></td>
+      <td align='right'>29,445</td>
+      <td align='right'>28,209</td>
+      <td align='right'>830,614,005</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.gunt.de.lett.gz">www.gunt.de</a></td>
+      <td align='right'>9,771</td>
+      <td align='right'>4,784</td>
+      <td align='right'>46,744,464</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/lautsprecherversand.de.lett.gz">lautsprecherversand.de</a></td>
+      <td align='right'>3,020</td>
+      <td align='right'>734</td>
+      <td align='right'>2,216,680</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/animalaidepontiac.ca.lett.gz">animalaidepontiac.ca</a></td>
+      <td align='right'>46</td>
+      <td align='right'>46</td>
+      <td align='right'>2,116</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.unv.org.lett.gz">www.unv.org</a></td>
+      <td align='right'>16,150</td>
+      <td align='right'>6,390</td>
+      <td align='right'>103,198,500</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lacliniqueducoureur.ca.lett.gz">www.lacliniqueducoureur.ca</a></td>
+      <td align='right'>416</td>
+      <td align='right'>428</td>
+      <td align='right'>178,048</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lagardere.com.lett.gz">www.lagardere.com</a></td>
+      <td align='right'>4,587</td>
+      <td align='right'>6,247</td>
+      <td align='right'>28,654,989</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/justin-time.com.lett.gz">justin-time.com</a></td>
+      <td align='right'>2,267</td>
+      <td align='right'>310</td>
+      <td align='right'>702,770</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/brettspielwelt.de.lett.gz">brettspielwelt.de</a></td>
+      <td align='right'>5,810</td>
+      <td align='right'>323</td>
+      <td align='right'>1,876,630</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.bespoke.co.uk.lett.gz">www.bespoke.co.uk</a></td>
+      <td align='right'>2,724</td>
+      <td align='right'>512</td>
+      <td align='right'>1,394,688</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.multisailing.com.lett.gz">www.multisailing.com</a></td>
+      <td align='right'>158</td>
+      <td align='right'>158</td>
+      <td align='right'>24,964</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/milltowndowntown.com.lett.gz">milltowndowntown.com</a></td>
+      <td align='right'>3,871</td>
+      <td align='right'>748</td>
+      <td align='right'>2,895,508</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/classicalguitarmidi.com.lett.gz">classicalguitarmidi.com</a></td>
+      <td align='right'>22</td>
+      <td align='right'>13</td>
+      <td align='right'>286</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.rustywords.net.lett.gz">www.rustywords.net</a></td>
+      <td align='right'>183</td>
+      <td align='right'>142</td>
+      <td align='right'>25,986</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.tsunamichain.org.lett.gz">www.tsunamichain.org</a></td>
+      <td align='right'>144</td>
+      <td align='right'>25</td>
+      <td align='right'>3,600</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/maurelles.com.lett.gz">maurelles.com</a></td>
+      <td align='right'>17</td>
+      <td align='right'>15</td>
+      <td align='right'>255</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.maitresserokeuse.com.lett.gz">www.maitresserokeuse.com</a></td>
+      <td align='right'>14</td>
+      <td align='right'>13</td>
+      <td align='right'>182</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.juratourisme.ch.lett.gz">www.juratourisme.ch</a></td>
+      <td align='right'>510</td>
+      <td align='right'>525</td>
+      <td align='right'>267,750</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/1d-aquitaine.com.lett.gz">1d-aquitaine.com</a></td>
+      <td align='right'>7,228</td>
+      <td align='right'>6,971</td>
+      <td align='right'>50,386,388</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.momento-films.com.lett.gz">www.momento-films.com</a></td>
+      <td align='right'>69</td>
+      <td align='right'>72</td>
+      <td align='right'>4,968</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.le-cheval-bleu.com.lett.gz">www.le-cheval-bleu.com</a></td>
+      <td align='right'>847</td>
+      <td align='right'>1,146</td>
+      <td align='right'>970,662</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.sagaplanet.com.lett.gz">www.sagaplanet.com</a></td>
+      <td align='right'>2,465</td>
+      <td align='right'>1,618</td>
+      <td align='right'>3,988,370</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/equilibrium-economicum.net.lett.gz">equilibrium-economicum.net</a></td>
+      <td align='right'>76</td>
+      <td align='right'>57</td>
+      <td align='right'>4,332</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/monalisa-prod.com.lett.gz">monalisa-prod.com</a></td>
+      <td align='right'>205</td>
+      <td align='right'>185</td>
+      <td align='right'>37,925</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.nametauinnu.ca.lett.gz">www.nametauinnu.ca</a></td>
+      <td align='right'>510</td>
+      <td align='right'>511</td>
+      <td align='right'>260,610</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.chermette.fr.lett.gz">www.chermette.fr</a></td>
+      <td align='right'>41</td>
+      <td align='right'>54</td>
+      <td align='right'>2,214</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.tanbou.com.lett.gz">www.tanbou.com</a></td>
+      <td align='right'>171</td>
+      <td align='right'>210</td>
+      <td align='right'>35,910</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.documentamusica.de.lett.gz">www.documentamusica.de</a></td>
+      <td align='right'>76</td>
+      <td align='right'>15</td>
+      <td align='right'>1,140</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/rollproductions.com.lett.gz">rollproductions.com</a></td>
+      <td align='right'>331</td>
+      <td align='right'>299</td>
+      <td align='right'>98,969</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/raison-publique.fr.lett.gz">raison-publique.fr</a></td>
+      <td align='right'>144</td>
+      <td align='right'>13,437</td>
+      <td align='right'>1,934,928</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.publictendering.com.lett.gz">www.publictendering.com</a></td>
+      <td align='right'>7,848</td>
+      <td align='right'>1,653</td>
+      <td align='right'>12,972,744</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/academiedesprez.org.lett.gz">academiedesprez.org</a></td>
+      <td align='right'>263</td>
+      <td align='right'>334</td>
+      <td align='right'>87,842</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/daisukebike.be.lett.gz">daisukebike.be</a></td>
+      <td align='right'>450</td>
+      <td align='right'>17</td>
+      <td align='right'>7,650</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.aeht.eu.lett.gz">www.aeht.eu</a></td>
+      <td align='right'>845</td>
+      <td align='right'>687</td>
+      <td align='right'>580,515</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lesgaleriesdanjou.ca.lett.gz">www.lesgaleriesdanjou.ca</a></td>
+      <td align='right'>412</td>
+      <td align='right'>459</td>
+      <td align='right'>189,108</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.taize.fr.lett.gz">www.taize.fr</a></td>
+      <td align='right'>7,808</td>
+      <td align='right'>2,502</td>
+      <td align='right'>19,535,616</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.wir-sind-kirche.de.lett.gz">www.wir-sind-kirche.de</a></td>
+      <td align='right'>334</td>
+      <td align='right'>34</td>
+      <td align='right'>11,356</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.waters-of-life.net.lett.gz">www.waters-of-life.net</a></td>
+      <td align='right'>1,584</td>
+      <td align='right'>661</td>
+      <td align='right'>1,047,024</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.latexale.com.lett.gz">www.latexale.com</a></td>
+      <td align='right'>80</td>
+      <td align='right'>24</td>
+      <td align='right'>1,920</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.vaslui-turism.ro.lett.gz">www.vaslui-turism.ro</a></td>
+      <td align='right'>78</td>
+      <td align='right'>110</td>
+      <td align='right'>8,580</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/meatballwiki.org.lett.gz">meatballwiki.org</a></td>
+      <td align='right'>18,617</td>
+      <td align='right'>847</td>
+      <td align='right'>15,768,599</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/tulliana.eu.lett.gz">tulliana.eu</a></td>
+      <td align='right'>345</td>
+      <td align='right'>222</td>
+      <td align='right'>76,590</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/txt.ca.lett.gz">txt.ca</a></td>
+      <td align='right'>25</td>
+      <td align='right'>21</td>
+      <td align='right'>525</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.onphi.net.lett.gz">www.onphi.net</a></td>
+      <td align='right'>15</td>
+      <td align='right'>202</td>
+      <td align='right'>3,030</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.millauenjazz.org.lett.gz">www.millauenjazz.org</a></td>
+      <td align='right'>346</td>
+      <td align='right'>316</td>
+      <td align='right'>109,336</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.burkiclinic.com.lett.gz">www.burkiclinic.com</a></td>
+      <td align='right'>77</td>
+      <td align='right'>68</td>
+      <td align='right'>5,236</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/aloe.socioeco.org.lett.gz">aloe.socioeco.org</a></td>
+      <td align='right'>287</td>
+      <td align='right'>397</td>
+      <td align='right'>113,939</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/maismemoria.org.lett.gz">maismemoria.org</a></td>
+      <td align='right'>3</td>
+      <td align='right'>2</td>
+      <td align='right'>6</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.atlantiqueberlines.com.lett.gz">www.atlantiqueberlines.com</a></td>
+      <td align='right'>101</td>
+      <td align='right'>82</td>
+      <td align='right'>8,282</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.ofm.org.lett.gz">www.ofm.org</a></td>
+      <td align='right'>7,120</td>
+      <td align='right'>111</td>
+      <td align='right'>790,320</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/passioncompassion1418.com.lett.gz">passioncompassion1418.com</a></td>
+      <td align='right'>1,120</td>
+      <td align='right'>1,685</td>
+      <td align='right'>1,887,200</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.molior.ca.lett.gz">www.molior.ca</a></td>
+      <td align='right'>126</td>
+      <td align='right'>121</td>
+      <td align='right'>15,246</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.cirad.fr.lett.gz">www.cirad.fr</a></td>
+      <td align='right'>2,075</td>
+      <td align='right'>2,787</td>
+      <td align='right'>5,783,025</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/caamp.org.lett.gz">caamp.org</a></td>
+      <td align='right'>13,958</td>
+      <td align='right'>9,174</td>
+      <td align='right'>128,050,692</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.transatbtob.com.lett.gz">www.transatbtob.com</a></td>
+      <td align='right'>1,497</td>
+      <td align='right'>255</td>
+      <td align='right'>381,735</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.fasken.com.lett.gz">www.fasken.com</a></td>
+      <td align='right'>23,860</td>
+      <td align='right'>13,143</td>
+      <td align='right'>313,591,980</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.luding.ru.lett.gz">www.luding.ru</a></td>
+      <td align='right'>1,996</td>
+      <td align='right'>1,204</td>
+      <td align='right'>2,403,184</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.lucistrust.org.lett.gz">www.lucistrust.org</a></td>
+      <td align='right'>13,794</td>
+      <td align='right'>4,335</td>
+      <td align='right'>59,796,990</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/palmerasyjardines.com.lett.gz">palmerasyjardines.com</a></td>
+      <td align='right'>2,496</td>
+      <td align='right'>2,442</td>
+      <td align='right'>6,095,232</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/bushmeat.net.lett.gz">bushmeat.net</a></td>
+      <td align='right'>60</td>
+      <td align='right'>2</td>
+      <td align='right'>120</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/hagalleria.com.lett.gz">hagalleria.com</a></td>
+      <td align='right'>60</td>
+      <td align='right'>36</td>
+      <td align='right'>2,160</td>
+    </tr>
+
+
+    <tr>
+      <td><a href="http://data.statmt.org/wmt16/document-alignment-task/lett.test/www.musee-orsay.fr.lett.gz">www.musee-orsay.fr</a></td>
+      <td align='right'>470</td>
+      <td align='right'>3,686</td>
+      <td align='right'>1,732,420</td>
+    </tr>
+
+
+  </table>
+
+
+</p>
+<h3>Evaluation</h3>
+<p>
+Our main metric is recall on the test set, i.e. what percentage of the test-set pairs is found in a submission after enforcing the 1-1 rule above.
+</p>
+
 <p>Participants are expected to produce a list of possible pairings in the format of the training data. <b>Each source url may be matched with at most one target url</b> and vice-versa. Should a URL occur repeatedly, later occurrences are ignored. We provide an evaluation script to assess performance during development.
 </p>
-
-
-<h3>Evaluation (new)</h3>
-Our main metric is recall on the test set, i.e. what percentage of the test-set pairs is found in a submission after enforcing the 1-1 rule above.
-
 
 <h3>Baseline</h3>
 <p>We provide a simple baseline based on URL matching. Get the code from github:

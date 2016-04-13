@@ -121,11 +121,96 @@ The <a href="http://www.appraise.cf/">Appraise system</a> will be used for this 
 <p>The training data and the test data are available in the <a href="http://bioc.sourceforge.net/">BioC</a> format.
 More information about BioC as well as readers are writer for many programming languages can be found in the <a href="http://bioc.sourceforge.net/">BioC web site</a>.</p>
 
-<p>More details on the submission format will be available soon.</p>
+<p>An example of the test set format is shown below for the English to Spanish (en2es) language pair:</p>
+
+<xmp>
+<document>
+<id>S123456789</id>
+<passage>
+<infon key="language">EN</infon>
+<infon key="section">title</infon>
+<offset>-1</offset>
+<sentence>
+<infon key="sentnum">0</infon>
+<offset>-1</offset>
+<text>title sentence</text>
+</sentence>
+</passage>
+<passage>
+<infon key="language">EN</infon>
+<infon key="section">abstract</infon>
+<offset>-1</offset>
+<sentence>
+<infon key="sentnum">0</infon>
+<offset>-1</offset>
+<text>sentence 0</text>
+</sentence>
+<sentence>
+<infon key="sentnum">1</infon>
+<offset>-1</offset>
+<text>sentence 1</text>
+</sentence>
+...
+</passage>
+</document>
+</xmp>
+
+<p>An example of the submission format is shown below for the above en2es language pair:</p>
+
+<xmp>
+<document>
+<id>S123456789</id>
+<passage>
+<infon key="language">ES</infon>
+<infon key="section">title</infon>
+<offset>-1</offset>
+<sentence>
+<infon key="sentnum">0</infon>
+<offset>-1</offset>
+<text>translation of title sentence</text>
+</sentence>
+</passage>
+<passage>
+<infon key="language">ES</infon>
+<infon key="section">abstract</infon>
+<offset>-1</offset>
+<sentence>
+<infon key="sentnum">0</infon>
+<offset>-1</offset>
+<text>translation of sentence 0</text>
+</sentence>
+<sentence>
+<infon key="sentnum">1</infon>
+<offset>-1</offset>
+<text>translation of sentence 1</text>
+</sentence>
+...
+</passage>
+</document>
+</xmp>
+
+<p>
+Please identify each sentence with the corresponding "sentnum" specified in the test file.
+The submission file has the same format of the test file, except for the "language" attribute, which should contain the target language instead of the source language,
+and the "text" tag, which should contain the translation of the text to the target language.
+</p>
 
 <h3>Submission Requirements</h3>
 
-coming soon
+<p>Please register your team using this <a href="https://script.google.com/macros/s/AKfycbwXS8N3aS3m7kc4O4xGfCkR1d0zqN-5Eq0rLS9j-5JCQsoCkNn_/exec">form</a>.
+You will receive a mail with the confirmation of your registration. The link for submission is informed in this mail. 
+</p>
+
+<p>The test files are available in the "testset" folder in the <a href="https://drive.google.com/open?id=0B3UxRWA52hBja0t2azlkN3d2elk">WMT'16 biomedical task Google Drive account</a>
+and their file names are according to the dataset (biological or health) and language pairs (e.g., en2es or es2en).
+For instance, the test file for the biological dataset for English to Spanish is called "biological_en2es.xml".<p>
+
+<p>The format for the submission files should included the original test file name preceded by the team identifier (as registered in the form above) and the run number, 
+following this example:
+the submission file for run 1 of the "HPI" team for the biological dataset for English to Spanish should be called "HPI_run1_biological_en2es.xml".<p>
+
+<p>Each team is allowed to submit up to 3 runs per test file, i.e., 3 runs for the "biological_en2es.xml" test file, 3 runs for the "biological_es2en.xml", etc.
+<b>There is no biological test set for neither "fr2en" nor "en2fr" language pairs.</b></p>
 
 <h3>Important dates</h3>
 

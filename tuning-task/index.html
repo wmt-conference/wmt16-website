@@ -16,7 +16,7 @@
 
     <table>
       <tr><td>Release of the MT system to tune</td><td><strike>February</strike>March 30, 2016</td></tr>
-      <tr><td>Submission deadline for tuning task</td><td>April 17, 2016</td></tr>
+      <tr><td>Submission deadline for tuning task</td><td><strike>April 17</strike> <b>April 24, 2016</b></td></tr>
       <tr><td>Start of manual evaluation period</td><td>May 2, 2016</td></tr>
       <tr><td>Paper submission deadline</td><td>May 8, 2016</td></tr>
       <tr><td>End of manual evaluation</td><td>May 22, 2016</td></tr>
@@ -94,6 +94,57 @@ describing your method to include or cite in the overview paper.</p>
 	<a href="https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-1671">https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-1671</a>
 </p>
 </div>
+
+<p>To run your optimized configurations, we will use Moses GitHub revision <a href="https://github.com/moses-smt/mosesdecoder/tree/2d6f6164801d6b61d96b7565ea2f5bc823092025">2d6f616</a> unless we run into some unexpected bug.</p>
+
+<p>Details you may want to compare with your setup:</p>
+
+<p>
+<table border=1 cellspacing=0>
+<tr>
+<td></td>
+<td></td>
+<th>English -> Czech</th>
+<th>Czech -> English</th>
+</tr>
+<tr><td colspan="4"/></tr>
+<tr>
+<th>Tuning set (newstest2015)</th>
+<td>source</td>
+<td><a href="newstest2015.tok.en.gz">newstest2015.tok.en.gz</a></td>
+<td><a href="newstest2015.tok.cs.gz">newstest2015.tok.cs.gz</a></td>
+</tr>
+<tr>
+<td align=center>(prepared as the models)</td>
+<td>reference</td>
+<td><a href="newstest2015.tok.cs.gz">newstest2015.tok.cs.gz</a></td>
+<td><a href="newstest2015.tok.en.gz">newstest2015.tok.en.gz</a></td>
+</tr>
+
+<tr><td colspan="4"/></tr>
+<tr>
+<th>Sanity Check set (newstest2014)</th>
+<td>source</td>
+<td><a href="newstest2014.tok.en.gz">newstest2014.tok.en.gz</a></td>
+<td><a href="newstest2014.tok.cs.gz">newstest2014.tok.cs.gz</a></td>
+</tr>
+<tr>
+<td align=center>(prepared as the models)</td>
+<td>reference</td>
+<td><a href="newstest2014.tok.cs.gz">newstest2014.tok.cs.gz</a></td>
+<td><a href="newstest2014.tok.en.gz">newstest2014.tok.en.gz</a></td>
+</tr>
+<tr>
+<td></td>
+<td>BLEU</td>
+<!-- <td colspan=2 align=center>BLEU of our baseline tuning for reference</td> -->
+<td>22.26</td>
+<td>30.40</td>
+</tr>
+</table></p>
+
+<p>The BLEU score reported on the Sanity Check set is based on the lowercased tokenized form.</p>
+
 
 <h4>Description of the Models</h4>
 <p>
@@ -287,6 +338,8 @@ For each sentence, the annotator will mark one of the following:
 <p>
 Submissions should be sent as an e-mail to <a href="wmt-tuning-submissions@googlegroups.com">wmt-tuning-submissions@googlegroups.com</a>.
 </p>
+
+<p>In case the above e-mail doesn't work for you (Google seems to prevent non-member postings despite we set it so), please contact us directly.</p>
 
 
 <h3>Tuning Task Organizers</h3>

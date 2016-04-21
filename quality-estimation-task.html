@@ -86,48 +86,101 @@ The usual <a href="http://www.quest.dcs.shef.ac.uk/quest_files/features_blackbox
 <p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/results/task2.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt15_files/gold/Task2_gold.tar.gz">here<a/>  
 -->
 
-<p>The goal of this task is to study the prediction of word and phrase-level errors in MT output. For practical reasons, we frame the problem as the binary task of distinguishing between 'OK' and 'BAD' tokens. The data for this task is the same as provided in Task 1, with English-German machine translations.</p> 
 
-<p>For the word-level variant, as in previous years, all segments are automatically annotated for errors with binary word-level labels by using the alignments provided by the  <a href="http://www.cs.umd.edu/~snover/tercom/">TER</a> tool (settings: tokenised, case insensitive, exact matching only, disabling shifts by using the `-d 0` option) between machine translations and their post-edited versions. Shifts (word order errors) were not annotated as such (but rather as deletions + insertions) to avoid introducing noise in the annotation.</p> 
+<p>The goal of this task is to study the prediction of word and 
+phrase-level errors in MT output. For practical reasons, we frame the 
+problem as the binary task of distinguishing between 'OK' and 'BAD' 
+tokens. The data for this task is the same as provided in Task 1, with 
+English-German machine translations.</p> 
+
+<p>For the word-level variant, as in previous years, all segments are 
+automatically annotated for errors with binary word-level labels by 
+using the alignments provided by the  <a href="http://www.cs.umd.edu/%7Esnover/tercom/" target="_blank">TER</a>
+ tool (settings: tokenised, case insensitive, exact matching only, 
+disabling shifts by using the `-d 0` option) between machine 
+translations and their post-edited versions. Shifts (word order errors) 
+were not annotated as such (but rather as deletions + insertions) to 
+avoid introducing noise in the annotation.</p> 
 
 As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with tokens annotated with  'OK' or 'BAD' labels. 
-<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_training.features">training<a/> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_dev.features">development</a> sets from here (updated 4/4/16)</b></font>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
+<a href="http://hdl.handle.net/11372/LRT-1631" target="_blank">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_training.features" target="_blank">training</a><a> and </a><a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_dev.features" target="_blank">development</a> sets from here (updated 4/4/16)</b></font>.
+ The data is publicly available but since it has been provided by our 
+industry partners it is subject to specific terms and conditions. 
+However, these have no practical implications on the use of this data 
+for research purposes. 
 
-<p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
-</li> 
+<p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_test.tar.gz" target="_blank">Download test data (and baseline features)</a>. 
+ 
 
 
-<p>Submissions are <i><font color="green">evaluated</font></i> in terms of classification performance via the multiplication of F1-scores for the 'OK' and 'BAD' classes against the original labels. 
-F1-score for the 'BAD' class, which has been used as a primary metric in previous years, is biased towards 'pessimistic' labellings. In other words, it favours systems which tend to label more words as 'BAD'.
-In contrast, the multiplication of F1-OK and F1-BAD has two components which penalise different labellings and balance each other. 'Unfair' labellings (ones where either F1-OK or F1-BAD are close to zero) will have a score close to zero, and the overall score is never greater than any of its components.
+</p><p>Submissions are <i><font color="green">evaluated</font></i> in 
+terms of classification performance via the multiplication of F1-scores 
+for the 'OK' and 'BAD' classes against the original labels. 
+F1-score for the 'BAD' class, which has been used as a primary metric in
+ previous years, is biased towards 'pessimistic' labellings. In other 
+words, it favours systems which tend to label more words as 'BAD'.
+In contrast, the multiplication of F1-OK and F1-BAD has two components 
+which penalise different labellings and balance each other. 'Unfair' 
+labellings (ones where either F1-OK or F1-BAD are close to zero) will 
+have a score close to zero, and the overall score is never greater than 
+any of its components.
 We will also report the F1-BAD score.
-<a href="https://gist.github.com/varvara-l/028e4439fb992d089935">Evaluation script.</a> 
+<a href="https://gist.github.com/varvara-l/028e4439fb992d089935" target="_blank">Evaluation script.</a> 
 <!--We also provide an <a href=" https://gist.github.com/chrishokamp/e2b5bcc07d1006026c48">alternative evaluation script </a>that takes as input labels in the exact same format as the labels distributed for training and dev sets, i.e.: one line per sentence, one tag per word, whitespace separated, with tags in the set {'OK', 'BAD'}.
 For significance tests, we used the approximate randomisation method with <a href="http://www.nlpado.de/~sebastian/software/sigf.shtml">this code</a>. -->
 
 
 
-<p>As <b>baseline system</b> for this task we use the baseline features provided above to train a binary classifier using a standard logistic regression algorithm (available for example in the scikit-learn toolkit).</p>
+
+</p><p>As <b>baseline system</b> for this task we use the baseline features provided above to train a CRF model with CRFSuite tool.</p>
 
 
-<p>As an extension of the word-level task, we introduce a new task: <font color="blue">phrase-level prediction</font></b>. For this task, given a "phrase" (segmentation as given by the SMT decoder), participants are asked to label it as 'OK' or 'BAD'. Errors made by MT engines are interdependent and one incorrectly chosen word can cause more errors, especially in its local context. Phrases as produced by SMT decoders can be seen as a representation of this local context and in this task we ask participants to consider them as atomic units, using phrase-specific information to improve upon the results of the word-level task.</p>
+<p>As an extension of the word-level task, we introduce a new task: <font color="blue">phrase-level prediction</font>.
+ For this task, given a "phrase" (segmentation as given by the SMT 
+decoder), participants are asked to label it as 'OK' or 'BAD'. Errors 
+made by MT engines are interdependent and one incorrectly chosen word 
+can cause more errors, especially in its local context. Phrases as 
+produced by SMT decoders can be seen as a representation of this local 
+context and in this task we ask participants to consider them as atomic 
+units, using phrase-specific information to improve upon the results of 
+the word-level task.</p>
 
-<p>The data to be used is exactly the same as for task 1 and the word-level task. The labelling of this data was adapted from word-level labelling by assigning the 'BAD' tag to any phrase that contains at least one 'BAD' word.</p>
+<p>The data to be used is exactly the same as for task 1 and the 
+word-level task. The labelling of this data was adapted from word-level 
+labelling by assigning the 'BAD' tag to any phrase that contains at 
+least one 'BAD' word.</p>
 
-<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with phrase segmentation for both source and machine-translated sentences. We also provide target-source phrase alignments and phrase-level labels in separate files.
-<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_training.features">training<a/> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_dev.features">development</a> sets from here (updated 4/4/16)</b></font>.  The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes.</li> 
-</li> 
+<p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i>
+ data, we provide the tokenised translation outputs with phrase 
+segmentation for both source and machine-translated sentences. We also 
+provide target-source phrase alignments and phrase-level labels in 
+separate files.
+<a href="http://hdl.handle.net/11372/LRT-1631" target="_blank">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_training.features" target="_blank">training</a><a> and </a><a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_dev.features" target="_blank">development</a> sets from here (updated 4/4/16)</b></font>.
+  The data is publicly available but since it has been provided by our 
+industry partners it is subject to specific terms and conditions. 
+However, these have no practical implications on the use of this data 
+for research purposes. 
+ 
 
-<p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_test.tar.gz">Download test data (and baseline features)</a>. 
-</li> 
+</p><p>As <i><font color="green">test data</font></i>, we provide tokens from additional 2,000 English-German sentences, produced in the same way.  <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_test.tar.gz" target="_blank">Download test data (and baseline features)</a>. 
+ 
 
 
-<p>The phrase-level submissions are <i><font color="green">evaluated</font></i> are evaluated at the <b>word level</b> using the multiplication of F1-OK and F1-BAD as a primary metric. 
-<!--
-We use word-level scores here because the main goal of the phrase-level QE task is to check whether subsentence-level QE can be improved by using phrase-level features. Therefore, the word-level and phrase-level systems need to be directly comparable
--->
+</p><p>The submissions to the phrase-level task are <i><font color="green">evaluated</font></i> in terms of multiplication of <b>word-level</b> F1-OK and <b>word-level</b>
+ F1-BAD. We will use the test set labelled at the word level, but its 
+labels will be converted in order to agree with phrase bounds: if a 
+phrase has at least one 'BAD' word, all its labels are replaced with 
+'BAD'.</p>
+Sequence 
 
-<p>As <b>baseline system</b> for this task we use the baseline features provided above to train a CRF model with a CRF++ tool. </p>
+	<p style="text-indent:25px">OK OK || BAD OK OK || OK || BAD OK || OK OK </p>
+
+will be converted to:
+
+	<p style="text-indent:25px">OK OK || BAD BAD BAD || OK || BAD BAD || OK OK </p>
+
+<p>As <b>baseline system</b> for this task we use the baseline features provided above to train a CRF model with CRFSuite tool. </p>
+
 
 
 <!-- BEGIN DOCUMENT-LEVEL-->

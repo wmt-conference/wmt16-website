@@ -49,24 +49,54 @@ The goals of the shared metrics task are:
 </UL>
 </p>
 
-<!-- 
 <H3>Changes This Year</H3> 
 
-<p>This year we will use Pearson's correlation coefficient (instead of Spearman's)
-to evaluate system-level metrics</p>
-     -->
+<p>
+Metrics Task goes crazy this year. The good news is that if you do not aim at bleeding edge performance, you will be affected minimally:
+</p>
+
+<ul>
+<li>The set of MT systems in each language pair will be much much larger. (Expect 10k systems, not just 20 per language pair).</li>
+<li>The set of language pairs will be larger.</li>
+<li>The set of test sets (underlying sets of sentences) will be larger and more varied.</li>
+</ul>
+
+
+<p>File formats are <em>not changed</em> (see <a href="#file-formats">below</a>), only the <code>TEST SET</code> should include the track name.</p>
+
+<p>If you <em>do want</em> to provide bleeding-edge results, you may want to know a bit more about the composition of the test sets, system sets, ways of evaluation and the training data we provide.</p>
+
+<p>In short, we are adding "tracks" to cover:</p>
+
+<ul>
+<li>a new domain (IT) with "traditional" golden annotations (relative ranking)</li>
+<li>a new style of golden annotations for system-level as well as for segment-level judgements (“direct assessment”)</li>
+<li>a new domain (medical) and a new golden annotations for this domain</li>
+</ul>
+
+<p>The madness is fully summarized in a <a href="https://docs.google.com/spreadsheets/d/1adIMumREPd2xL-phZDCJFgFc3cX_crZTuWvyghDq47I/edit#gid=0">live Google sheet</a>.</p>
+
+<p>You can easily identify the track by the test set label (e.g. “<code>RRsegNews+</code>”) and based on that, you may want to use a variant of your metric adapted for the task, e.g. tuned on a different development set. <a href="#training-data">Training data</a> are listed below.</p>
+
+<p>Remember to describe the exact setup of your metric used for each of the tracks in your metric paper.</p>
+
+
+
+
 
 <H3>Task Description</H3>
 
-<p>We will provide you with the output of machine translation systems for five
-different language pairs (French&lt;-&gt;English, Romanian&lt;-&gt;English, German&lt;-&gt;English,
-Czech&lt;-&gt;English, Russian&lt;-&gt;English), and will give you the reference translations
+<p>We will provide you with the output of machine translation systems for several
+different language pairs (English into and sometimes out of 
+Basque, Bulgarian, Czech, Dutch, Finnish, German, Polish, Portuguese, Romanian, Russian, Spanish, Turkish),
+and will give you the reference translations
 in each of those languages. You will compute scores for each of the outputs at
 the system-level and the sentence-level. If your automatic metric does not
 produce  sentence-level scores, you can participate in just the system-level
 ranking.  If your automatic metric uses linguistic annotation and supports only some language pairs, 
 you are free to assign
 scores only where you can.</p> 
+
 
 
 <p>We will measure the goodness of automatic evaluation metrics in the
@@ -77,23 +107,68 @@ scores only where you can.</p>
 
         <p><b>System-level correlation:</b> We will use Pearson's correlation
         coefficient to measure the correlation of the automatic metrics' scores
-        with the official human scores as computed in the translation task.
+        with the official human scores as computed in the translation task. (There will be two variants of official scoring this year, Relative Ranking and Direct Assessment.)
         </p>
 
     </li>
     <li>
 
-        <p><b>Sentence-level correlation:</b> We will use Kendall's tau to
-        measure metrics' correlation with human judgments at the
-        sentence-level.  For every pairwise comparison of two systems' output
-        for a single sentence, we will count the automatic metric as being
-        concordant with the human judgment if it orders the systems' output the
-        same way (i.e. the metric assigned a higher score to the higher ranked
-        system).  We will exclude pairs that the human annotators ranked as
-        ties. </p>
+        <p><b>Sentence-level correlation:</b> There will be three types of golden truths in segment/sentence-level evaluation. "Relative ranking" will use the same method as last year, a variation on Kendall's tau counting pairs of sentences ranked the same way by humans and your metric (concordant pairs). "Direct assessment" will use Pearson correlations of your system/segment-level scores with (absolute; averaged) human judgements of translation quality. "HUMEseg" will use Pearson correlation of your segment-level scores with human judgments of semantic nodes, aggregated over each sentence.
+	</p>
 
     </li>
 </UL>
+
+<h4>Summary of Tracks</h4>
+
+<p>The following table summarizes the planned evaluation methods and text domains of each evaluation track.</p>
+
+<p>
+<table border='1'>
+  <tr num='1'>
+    <th num='1'> Track        </td>
+    <th num='2'>Text Domain                                                      </td>
+    <th num='3'>Level        </td>
+    <th num='4'>Golden Truth Source</td>
+  </tr>
+  <tr num='2'>
+    <td num='1'>RRsysNews</td>
+    <td num='2'>news, from <a href="../translation-task.html">WMT16 news task</a></td>
+    <td num='3'>system-level </td>
+    <td num='4'>relative ranking</td>
+  </tr>
+  <tr num='3'>
+    <td num='1'>RRsysIT  </td>
+    <td num='2'>IT, from <a href="../it-translation-task.html">WMT16 IT task</a>  </td>
+    <td num='3'>system-level </td>
+    <td num='4'>relative-ranking</td>
+  </tr>
+  <tr num='4'>
+    <td num='1'>DAsysNews</td>
+    <td num='2'>news, from <a href="../translation-task.html">WMT16 news task</a></td>
+    <td num='3'>system-level </td>
+    <td num='4'>direct assessment</td>
+  </tr>
+  <tr num='5'>
+    <td num='1'>RRsegNews</td>
+    <td num='2'>news, from <a href="../translation-task.html">WMT16 news task</a></td>
+    <td num='3'>segment-level</td>
+    <td num='4'>relative ranking</td>
+  </tr>
+  <tr num='6'>
+    <td num='1'>DAsegNews</td>
+    <td num='2'>news, from <a href="../translation-task.html">WMT16 news task</a></td>
+    <td num='3'>segment-level</td>
+    <td num='4'>direct assessment</td>
+  </tr>
+  <tr num='7'>
+    <td num='1'>HUMEseg  </td>
+    <td num='2'>(consumer) medical, from <a href="http://www.himl.eu/">HimL</a>   </td>
+    <td num='3'>segment-level</td>
+    <td num='4'>correctness of translation of all semantic nodes</td>
+  </tr>
+</table>
+</p>
 
 <H3>Other Requirements</H3>
 
@@ -109,6 +184,8 @@ describing your metric that we can cite in the overview paper.</p>
 
 
 <H3>Download</H3>
+
+<h4>Test Sets (Evaluation Data)</h4>
 <p>Once we receive the system outputs from the translation task we will post
 all of the system outputs for you to score with your metric.  The translations
 will be distributed as plain text files with one translation per line.  </p>
@@ -122,64 +199,12 @@ will be distributed as plain text files with one translation per line.  </p>
 </ul>
      -->
 
-<H3>Submission Format</H3>
+<a name="training-data"/>
+<H4>Training Data</H4>
 
+<p>You may want to use some of the following dataset to tune or train your metric.</p>
 
-
-<p> The output of your software should produce scores for the translations
-either at the <i>system-level</i> or the <i>segment-level</i> (or preferably
-both).</p>
-
-
-<H4>Output file format for system-level rankings</H4>
-
-<p>
-The output files for system-level rankings should be formatted in the following way:
-<pre>
-&lt;METRIC NAME&gt;   &lt;LANG-PAIR&gt;   &lt;TEST SET&gt;   &lt;SYSTEM&gt;   &lt;SYSTEM LEVEL SCORE&gt;
-</pre>
-
-Where:
-<ul>
-<li><code>METRIC NAME</code> is the name of your automatic evaluation metric.</li>
-<li><code>LANG-PAIR</code> is the language pair using two letter abbreviations for the languages (<code>de-en</code> for German-English, for example).  
-<li><code>TEST SET</code> is the ID of the test set (given by the directory structure in the plain text files, <code>newstest2015</code> for example).</li>
-<li><code>SYSTEM</code> is the ID of system being scored (given by the part of the filename for the plain text file, <code>uedin-syntax.3866</code> for example).</li>
-<li><code>SYSTEM LEVEL SCORE</code> is the overall system level score that your metric is predicting.
-</ul>
-Each field should be delimited by a single tab character.
-</p>
-
-<H4>Output file format for segment-level rankings</H4>
-
-<p>
-The output files for segment-level rankings should be formatted in the following way:
-<pre>
-&lt;METRIC NAME&gt;   &lt;LANG-PAIR&gt;   &lt;TEST SET&gt;   &lt;SYSTEM&gt;   &lt;SEGMENT NUMBER&gt;   &lt;SEGMENT SCORE&gt;
-</pre>
-Where:
-<ul>
-<li><code>METRIC NAME</code> is the name of your automatic evaluation metric.</li>
-<li><code>LANG-PAIR</code> is the language pair using two letter abbreviations for the languages (<code>de-en</code> for German-English, for example).  
-<li><code>TEST SET</code> is the ID of the test set (given by the directory structure in the plain text files, <code>newstest2015</code> for example).</li>
-<li><code>SYSTEM</code> is the ID of system being scored (given by the part of the filename for the plain text file, <code>uedin-syntax.3866</code> for example).</li>
-<li><code>SEGMENT NUMBER</code> is the line number starting from 1 of the plain text input files.</li>
-<li><code>SEGMENT SCORE</code> is the score your metric predicts for the particular segment.</li>
-</ul>
-Each field should be delimited by a single tab character.
-</p>
-
-<H4>How to submit</H4>
-<!--
-<p>
-Submissions should be posted on  <a href="https://groups.google.com/forum/#!forum/wmt-metrics-submissions">the google group dedicated to the metrics task.</a>
-</p>
--->
-<p>
-Submissions should be sent as an e-mail to <a href="wmt-metrics-submissions@googlegroups.com">wmt-metrics-submissions@googlegroups.com</a>.
-</p>
-
-<H3>Past Years' Data</H3>
+<h5>RR (Relative Ranking) from Past Years</h5>
 
 <p>The system outputs and human judgments from the previous workshops
 are available for download from the following links:</p>
@@ -203,11 +228,104 @@ performance of your metric against the published results from past years.</p>
 documents and reference human translations and the human judgments of the
 translation quality. </p>
 
+<p>There are no specific training data for RRsysNews vs. RRsysIT. (Or put differently, you have to resort to news-based RR data also for RRsysIT).</p>
+
+<h5>DA (Direct Assessment) Training Data</h5>
+
+<p>There are some direct assessments judgements for <b>system-level</b> English&lt;-&gt;Spanish, but this language pairs is not among the tested pairs this year. Contact Yvette Graham if you are interested in this dataset.</p>
+
+<p>For <b>segment-level</b>, we provide a development set of 500 sentences translated from Czech, German, Finnish and Russian (500 each) <em>into English</em> by some of the WMT2015 systems. The dataset contains:
+
+<ul>
+<li>the source English sentence</li>
+<li>MT output (blind, no identification of the actual system that produced it)</li>
+<li>the reference translation</li>
+<li>human score (a real number between -1.9 and 1.3)</li>
+<li>sBLEU (a real number between 0 and 1); for comparison</li>
+</ul>
+</p>
+
+<p>The package is available here:
+<ul>
+<li>
+<a href="wmt2016-seg-metric-dev.tar.gz">wmt2016-seg-metric-dev.tar.gz</a> (312KB)
+</li>
+</ul>
+</p>
+
+<h5>HUMEseg</h5>
+
+<p>There are no training data for the HUMEseg track.</p>
+
+<p>To give you at least some background, the golden truth segment-level scores are constructed from manual annotations indicating if each node in the semantic tree of the source sentence was translated correctly. The underlying semantic representation is <a href="http://homepages.inf.ed.ac.uk/oabend/ucca.html">UCCA</a>.</p>
+
+<p>There is only one system output per segment.</p>
+
+
+<a name="file-formats"/>
+<H3>Submission Format</H3>
+
+
+
+<p> The output of your software should produce scores for the translations
+either at the <i>system-level</i> or the <i>segment-level</i> (or preferably
+both).</p>
+
+
+<H4>Output file format for system-level rankings</H4>
+
+<p>
+The output files for system-level rankings should be called <code><b>YOURMETRIC.sys.score.gz</b></code> and formatted in the following way:
+<pre>
+&lt;METRIC NAME&gt;   &lt;LANG-PAIR&gt;   &lt;TEST SET&gt;   &lt;SYSTEM&gt;   &lt;SYSTEM LEVEL SCORE&gt;
+</pre>
+
+Where:
+<ul>
+<li><code>METRIC NAME</code> is the name of your automatic evaluation metric.</li>
+<li><code>LANG-PAIR</code> is the language pair using two letter abbreviations for the languages (<code>de-en</code> for German-English, for example).  
+<li><code>TEST SET</code> is the ID of the test set including the evaluation track (given by the directory structure in the plain text files, <code>RRsysNews+newstest2016</code> for example).</li>
+<li><code>SYSTEM</code> is the ID of system being scored (given by the part of the filename for the plain text file, <code>uedin-syntax.3866</code> for example).</li>
+<li><code>SYSTEM LEVEL SCORE</code> is the overall system level score that your metric is predicting.
+</ul>
+Each field should be delimited by a single tab character.
+</p>
+
+<H4>Output file format for segment-level rankings</H4>
+
+<p>
+The output files for segment-level rankings should be called <code><b>YOURMETRIC.seg.score.gz</b></code> and formatted in the following way:
+<pre>
+&lt;METRIC NAME&gt;   &lt;LANG-PAIR&gt;   &lt;TEST SET&gt;   &lt;SYSTEM&gt;   &lt;SEGMENT NUMBER&gt;   &lt;SEGMENT SCORE&gt;
+</pre>
+Where:
+<ul>
+<li><code>METRIC NAME</code> is the name of your automatic evaluation metric.</li>
+<li><code>LANG-PAIR</code> is the language pair using two letter abbreviations for the languages (<code>de-en</code> for German-English, for example).  
+<li><code>TEST SET</code> is the ID of the test set including the evaluation track (given by the directory structure in the plain text files, <code>DAsegNews+newstest2015</code> for example).</li>
+<li><code>SYSTEM</code> is the ID of system being scored (given by the part of the filename for the plain text file, <code>uedin-syntax.3866</code> for example).</li>
+<li><code>SEGMENT NUMBER</code> is the line number starting from 1 of the plain text input files.</li>
+<li><code>SEGMENT SCORE</code> is the score your metric predicts for the particular segment.</li>
+</ul>
+Each field should be delimited by a single tab character.
+</p>
+
+<H4>How to submit</H4>
+<!--
+<p>
+Submissions should be posted on  <a href="https://groups.google.com/forum/#!forum/wmt-metrics-submissions">the google group dedicated to the metrics task.</a>
+</p>
+-->
+<p>
+Submissions should be sent as an e-mail to <a href="wmt-metrics-submissions@googlegroups.com">wmt-metrics-submissions@googlegroups.com</a>.
+</p>
+
 
 <h3>Metrics Task Organizers</h3>
-Milo&#353; Stanojevi&#263; (University of Amsterdam, ILLC)<br>
-Amir Kamran (University of Amsterdam, ILLC)<br>
-Ond&#345;ej Bojar (Charles University in Prague)<br>
+Milo&#353; Stanojevi&#263; (University of Amsterdam, ILLC)<br/>
+Amir Kamran (University of Amsterdam, ILLC)<br/>
+Yvette Graham (Dublin City University)<br/>
+Ond&#345;ej Bojar (Charles University in Prague)<br/>
 
 
 <h3>Acknowledgement</h3>

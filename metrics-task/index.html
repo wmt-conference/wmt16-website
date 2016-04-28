@@ -23,6 +23,7 @@
 <tr><td>End of manual evaluation</td><td>May 22, 2016</td></tr>
       <tr><td>Notification of acceptance</td><td>June 5, 2016</td></tr>
       <tr><td>Camera-ready deadline</td><td>June 22, 2016</td></tr>
+      <tr><td>Conference in Berlin</td><td>August 11-12th, 2016</td></tr>
 </table>
 
 <h3>Metrics Task Overview</h3>
@@ -33,7 +34,7 @@ translation. We will provide you with all of the translations produced in the
 human translations. You will return your automatic metric scores for each of
 the translations at the system-level and/or at the sentence-level. We will
 calculate the system-level and sentence-level correlations of your rankings
-with WMT15 human judgements once the manual evaluation has been completed.
+with WMT16 human judgements once the manual evaluation has been completed.
 </p>
 
 
@@ -86,12 +87,11 @@ Metrics Task goes crazy this year. The good news is that if you do not aim at bl
 
 <H3>Task Description</H3>
 
-<p>We will provide you with the output of machine translation systems for several
-different language pairs (English into and sometimes out of 
-Basque, Bulgarian, Czech, Dutch, Finnish, German, Polish, Portuguese, Romanian, Russian, Spanish, Turkish),
-and will give you the reference translations
-in each of those languages. You will compute scores for each of the outputs at
-the system-level and the sentence-level. If your automatic metric does not
+<p>We will provide you with the output of machine translation systems and reference translations (2 references for Finnish, 1 for others) for several
+language pairs involving English and the following languages:
+Basque, Bulgarian, Czech, Dutch, Finnish, German, Polish, Portuguese, Romanian, Russian, Spanish, and Turkish.
+You will compute scores for each of the outputs at
+the system-level and/or the sentence-level. If your automatic metric does not
 produce  sentence-level scores, you can participate in just the system-level
 ranking.  If your automatic metric uses linguistic annotation and supports only some language pairs, 
 you are free to assign
@@ -113,7 +113,7 @@ scores only where you can.</p>
     </li>
     <li>
 
-        <p><b>Sentence-level correlation:</b> There will be three types of golden truths in segment/sentence-level evaluation. "Relative ranking" will use the same method as last year, a variation on Kendall's tau counting pairs of sentences ranked the same way by humans and your metric (concordant pairs). "Direct assessment" will use Pearson correlations of your system/segment-level scores with (absolute; averaged) human judgements of translation quality. "HUMEseg" will use Pearson correlation of your segment-level scores with human judgments of semantic nodes, aggregated over each sentence.
+        <p><b>Sentence-level correlation:</b> There will be three types of golden truths in segment/sentence-level evaluation. "Relative ranking" will use the same method as last year, a variation on Kendall's tau counting pairs of sentences ranked the same way by humans and your metric (concordant pairs). "Direct assessment" will use Pearson correlations of your scores with (absolute) human judgements of translation quality. "HUMEseg" will use Pearson correlation of your segment-level scores with human judgments of semantic nodes, aggregated over each sentence.
 	</p>
 
     </li>
@@ -225,16 +225,15 @@ want to report results in your paper, you can use this data to compare the
 performance of your metric against the published results from past years.</p>
 
 <p>Last year's data contains all of the system's translations, the source
-documents and reference human translations and the human judgments of the
+documents and human reference translations and the human judgments of the
 translation quality. </p>
 
 <p>There are no specific training data for RRsysNews vs. RRsysIT. (Or put differently, you have to resort to news-based RR data also for RRsysIT).</p>
 
 <h5>DA (Direct Assessment) Training Data</h5>
 
-<p>There are some direct assessments judgements for <b>system-level</b> English&lt;-&gt;Spanish, but this language pairs is not among the tested pairs this year. Contact Yvette Graham if you are interested in this dataset.</p>
 
-<p>For <b>segment-level</b>, we provide a development set of 500 sentences translated from Czech, German, Finnish and Russian (500 each) <em>into English</em> by some of the WMT2015 systems. The dataset contains:
+<p>For <b>segment-level</b>, we provide a development set of 500 sentences translated from Czech, German, Finnish and Russian (500 each) <em>into English</em> (translations were sampled at random from outputs of all systems participating in WMT15 translation task). The dataset contains:
 
 <ul>
 <li>the source English sentence</li>
@@ -252,6 +251,8 @@ translation quality. </p>
 </li>
 </ul>
 </p>
+
+<p>There are some direct assessments judgements for <b>system-level</b> English&lt;-&gt;Spanish, but this language pairs is not among the tested pairs this year. Contact Yvette Graham if you are interested in this dataset.</p>
 
 <h5>HUMEseg</h5>
 

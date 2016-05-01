@@ -126,13 +126,11 @@ have a score close to zero, and the overall score is never greater than
 any of its components.
 We will also report the F1-BAD score.
 <a href="https://gist.github.com/varvara-l/028e4439fb992d089935" target="_blank">Evaluation script.</a> 
-<!--We also provide an <a href=" https://gist.github.com/chrishokamp/e2b5bcc07d1006026c48">alternative evaluation script </a>that takes as input labels in the exact same format as the labels distributed for training and dev sets, i.e.: one line per sentence, one tag per word, whitespace separated, with tags in the set {'OK', 'BAD'}.
-For significance tests, we used the approximate randomisation method with <a href="http://www.nlpado.de/~sebastian/software/sigf.shtml">this code</a>. -->
+<!--We also provide an <a href=" https://gist.github.com/chrishokamp/e2b5bcc07d1006026c48">alternative evaluation script </a>that takes as input labels in the exact same format as the labels distributed for training and dev sets, i.e.: one line per sentence, one tag per word, whitespace separated, with tags in the set {'OK', 'BAD'}.-->
+We compute significance level using approximate randomisation method using <a href="https://gist.github.com/varvara-l/d66450db8da44b8584c02f4b6c79745c">this script</a>.
 
 
 
-
-</p><p>As <b>baseline system</b> for this task we use the baseline features provided above to train a CRF model with CRFSuite tool.</p>
 
 
 <p>As an extension of the word-level task, we introduce a new task: <font color="blue">phrase-level prediction</font>.
@@ -179,7 +177,7 @@ will be converted to:
 
 	<p style="text-indent:25px">OK OK || BAD BAD BAD || OK || BAD BAD || OK OK </p>
 
-<p>As <b>baseline system</b> for this task we use the baseline features provided above to train a CRF model with CRFSuite tool. </p>
+<p>As <b>baseline system</b> for word and phrase-level, we will use the baseline features provided above to train a CRF model with CRFSuite tool. </p>
 
 
 

@@ -198,6 +198,10 @@ will be distributed as plain text files with one translation per line.  </p>
 
 <p>See the <a href="https://docs.google.com/spreadsheets/d/1adIMumREPd2xL-phZDCJFgFc3cX_crZTuWvyghDq47I/edit#gid=0">Google sheet</a> if you want to take part in only some of the languages or tracks and do not want to download more than needed.</p>
 
+<p>Note that the actual sets of sentences differ across test sets (that's natural) but they also <em>differ across language pairs</em>. So always use the triple {test set name, source language, target language} to identify the test set source, reference and a system output.</p>
+
+<p>There are <em>two references</em> for English-to-Finnish newstest: <code>newstest2016-enfi-ref.fi</code> and <code>newstest2016-enfi-ref.fi<b>B</b></code>. You are free to use both; if you use only one, please pick former variant.</p>
+
 <h5>Packages per Language Pair</h5>
 
 <p>To take part in a particular language pair (seg-level or sys-level), download the package for the language pair (as we are adding them):</p>
@@ -208,20 +212,18 @@ will be distributed as plain text files with one translation per line.  </p>
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-ro-en.tar.bz2">wmt16-metrics-inputs-for-ro-en.tar.bz2</a> (480M)</li>
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-ru-en.tar.bz2">wmt16-metrics-inputs-for-ru-en.tar.bz2</a> (841M)</li>
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-tr-en.tar.bz2">wmt16-metrics-inputs-for-tr-en.tar.bz2</a> (245M)</li>
-
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-de-en.tar.bz2">wmt16-metrics-inputs-for-de-en.tar.bz2</a> (759M)</li>
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-en-fi.tar.bz2">wmt16-metrics-inputs-for-en-fi.tar.bz2</a> (809M)</li>
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-en-ru.tar.bz2">wmt16-metrics-inputs-for-en-ru.tar.bz2</a> (1.1G)</li>
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-en-ro.tar.bz2">wmt16-metrics-inputs-for-en-ro.tar.bz2</a> (565M)</li>
 <li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-en-tr.tar.bz2">wmt16-metrics-inputs-for-en-tr.tar.bz2</a> (825M)</li>
-
+<li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-en-pl.tar.bz2">wmt16-metrics-inputs-for-en-pl.tar.bz2</a> (77K)</li>
 <li>wmt16-metrics-inputs-for-en-bg</li>
 <li>wmt16-metrics-inputs-for-en-cs</li>
 <li>wmt16-metrics-inputs-for-en-de</li>
 <li>wmt16-metrics-inputs-for-en-es</li>
 <li>wmt16-metrics-inputs-for-en-eu</li>
 <li>wmt16-metrics-inputs-for-en-nl</li>
-<li>wmt16-metrics-inputs-for-en-pl</li>
 <li>wmt16-metrics-inputs-for-en-pt</li>
 </ul>
 
@@ -238,7 +240,7 @@ will be distributed as plain text files with one translation per line.  </p>
 <p>If you want to participate only in segment-level metrics, we do not need the 10k extra systems, so the package is smaller and includes all languages:</p>
 
 <ul>
-<li>wmt16-metrics-inputs-for-seg-level-only</li>
+<li><a href="http://ufallab.ms.mff.cuni.cz/~bojar/wmt16-metrics-task-data/wmt16-metrics-inputs-for-seg-level-only.tar.bz2">wmt16-metrics-inputs-for-seg-level-only.tar.bz2</a></li>
 </ul>
 
 <!--

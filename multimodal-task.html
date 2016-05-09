@@ -44,8 +44,8 @@ We will provide new training and test datasets for both variants of the task and
 
 <!-- <p><b><font color="red">New</font></b>: -->
 The code for the <b>main baseline system</b> for both tasks is available <a href="https://github.com/elliottd/GroundedTranslation">here</a>, following the approach described in <a href="http://arxiv.org/abs/1510.04709">(Elliott et al. 2015)</a>, in particular, the MLM&#10141;MLM model. A secondary baseline for both tasks will be a Moses phrase-based statistical machine translation system trained using only the textual training data provided, following the pipeline described <a href="http://www.statmt.org/moses/?n=moses.baseline">here</a>.
-<p>
-<b><font color="red">New note on evaluation</font></b>: We are aware that our second baseline performs very well. The goal of this task is to investigate approaches that incorporate a multimodal element at modelling time. This is not to discourage approaches that attempt to further improve on the Moses baseline using textual information only, or using visual information as pre/post-processing. However, we will evaluate these two types of approaches separately.
+
+<p><b><font color="red">New note on evaluation</font></b>: We are aware that our second baseline performs very well. The goal of this task is to investigate approaches that incorporate a multimodal element at modelling time. This is not to discourage approaches that attempt to further improve on the Moses baseline using textual information only, or using visual information as pre/post-processing. However, we will evaluate these two types of approaches separately.
 
 <p><b><font color="red">Language direction</font></b>: We have received several questions about what participants may do with existing English test set images and descriptions. You <b>may not</b> do anything with them for either Constrained or Unconstrained submissions.</p>
 
@@ -128,15 +128,15 @@ We will also provide a baseline system.
 <br>
 -->
 
-<p><i><font color="green">Evaluation</font></i> will be performed against five German descriptions collected as reference on the test set, with lowercased text and without punctuation, using METEOR. We may also include manual evaluation. 
-<b><font color="red">New</font></b>: The METEOR command is the following (e.g. for en-de, using <a href="https://github.com/jhclark/multeval">multeval implementation</a>): 
+<p><i><font color="green">Evaluation</font></i> will be performed against five German descriptions collected as reference on the test set, with lowercased text and without punctuation, using METEOR. We may also include manual evaluation.</p> 
+
+<p><b><font color="red">New</font></b>: The METEOR command is the following (e.g. for en-de, using <a href="https://github.com/jhclark/multeval">multeval implementation</a>): 
 <p>
 <font face="Courier New" size="2">
 ./multeval.sh eval --refs wmt2016/de_test/reference.ref* --hyps-baseline baseline_model/de/generated --hyps-sys1 my_great_model/de_generated --meteor.language de
 </font>
 
-
-
+<p><b><font color="red">Evaluation measure:</font></b> We used Meteor for evaluation because it has a moderate correlation with human judgements for image description (<a href="http://aclweb.org/anthology/P14-2074">(Elliott and Keller, 2014)</a>.</p>
 
 <p><br><hr>
 

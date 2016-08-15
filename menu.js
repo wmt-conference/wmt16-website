@@ -1,5 +1,8 @@
 document.write('\
-[<A HREF="/wmt16/index.html">HOME</A>] <br>\
+[<A HREF="/wmt16/index.html">HOME</A>] \
+[<A HREF="/wmt16/program.html">SCHEDULE</A>] \
+[<A HREF="/wmt16/papers.html">PAPERS</A>] \
+[<A HREF="/wmt16/authors.html">AUTHORS</A>] <br> \
 TRANSLATION TASKS: \
   [<A HREF="/wmt16/translation-task.html">NEWS</A>] \
   [<A HREF="/wmt16/it-translation-task.html">IT-DOMAIN</A>] \
@@ -14,8 +17,7 @@ TRANSLATION TASKS: \
   [<A HREF="/wmt16/ape-task.html">AUTOMATIC POST-EDITING</A>] \
   [<A HREF="/wmt16/bilingual-task.html">BILINGUAL DOCUMENT ALIGNMENT</A>] \
 ');
-/*| [<A HREF="/wmt16/program.html">SCHEDULE</A>]  \
-| [<A HREF="/wmt16/papers.html">PAPERS</A>]  \
+/*| [<A HREF="/wmt16/papers.html">PAPERS</A>]  \
 | [<A HREF="/wmt16/authors.html">AUTHORS</A>] \
 | [<A HREF="/wmt16/results.html">RESULTS</A>]\ */
 

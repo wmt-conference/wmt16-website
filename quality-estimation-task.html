@@ -41,7 +41,8 @@ This year's shared task provides new training and test datasets for all tasks, a
 
 <h3><font color="blue">Task 1: Sentence-level QE</font></h3>
 
-<p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/wmt16_task1_results.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/wmt16_task1_gold.tar.gz">here<a/>.  <b><font color="red">New</font></b>: <a href="http://hdl.handle.net/11372/LRT-1631">Download additional data</a> for training, development and test: independent reference translations and post-editing time. 
+<p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/wmt16_task1_results.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/wmt16_task1_gold.tar.gz">here<a/>.  
+<p><b><font color="red">New</font></b>: <a href="http://hdl.handle.net/11372/LRT-1631">Download additional data</a> for training, development and test: independent reference translations and post-editing time. 
 
 
 <p> This task consists in scoring (and ranking) sentences according to post-editing effort. Multiple labels will be made available, including the percentage of edits need to be fixed (HTER), post-editing time, and keystrokes. Prediction according to each label will be evaluated independently, and any of these can outputs (or their combination) can be used to produce a ranking of translations. The data consists of 15,000 segments on the IT domain translated by an in-house phrase-based SMT system and post-edited by professional translators. The  <a =href="https://github.com/ghpaetzold/PET">PET</a> tool was used to collect these various types of information during post-editing. HTER labels are computed using <a href="http://www.umiacs.umd.edu/~snover/terp/">TER</a> (default settings: tokenised, case insensitive, exact matching only, but with scores capped to 1).

@@ -42,7 +42,7 @@ This year's shared task provides new training and test datasets for all tasks, a
 <h3><font color="blue">Task 1: Sentence-level QE</font></h3>
 
 <p><b><font color="purple">Results <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/wmt16_task1_results.pdf">here<a/></font></b>, <b>gold-standard labels</b> <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/wmt16_task1_gold.tar.gz">here<a/>.  
-<p><b><font color="red">New</font></b>: <a href="http://hdl.handle.net/11372/LRT-1631">Download additional data</a> for training, development and test: independent reference translations and post-editing time. 
+<p><b><font color="red">New</font></b>: <a href="http://hdl.handle.net/11372/LRT-1646">Download additional data</a> for training, development and test: independent reference translations and post-editing time. 
 
 
 <p> This task consists in scoring (and ranking) sentences according to post-editing effort. Multiple labels will be made available, including the percentage of edits need to be fixed (HTER), post-editing time, and keystrokes. Prediction according to each label will be evaluated independently, and any of these can outputs (or their combination) can be used to produce a ranking of translations. The data consists of 15,000 segments on the IT domain translated by an in-house phrase-based SMT system and post-edited by professional translators. The  <a =href="https://github.com/ghpaetzold/PET">PET</a> tool was used to collect these various types of information during post-editing. HTER labels are computed using <a href="http://www.umiacs.umd.edu/~snover/terp/">TER</a> (default settings: tokenised, case insensitive, exact matching only, but with scores capped to 1).
@@ -50,7 +50,7 @@ This year's shared task provides new training and test datasets for all tasks, a
 
 
 <p>As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide English-German datasets with <b>12,000</b> and <b>1,000</b>  source sentences, their machine translations, their post-editions (translations) and HTER as post-editing effort scores (other scores, such as post-editing time can be provided on request). 
-<a href="http://hdl.handle.net/11372/LRT-1631">Download development and training data</a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes. Download the baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_training.baseline17.features">training</a> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_dev.baseline17.features">development</a> sets. We note that some HTER scores in training and development sets distributed go beyond 100. We recommend that for training models scores are capped at 100, as the test set scores will be capped at 100 too.</li>
+<a href="http://hdl.handle.net/11372/LRT-1646">Download development and training data</a>. The data is publicly available but since it has been provided by our industry partners it is subject to specific terms and conditions. However, these have no practical implications on the use of this data for research purposes. Download the baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_training.baseline17.features">training</a> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_dev.baseline17.features">development</a> sets. We note that some HTER scores in training and development sets distributed go beyond 100. We recommend that for training models scores are capped at 100, as the test set scores will be capped at 100 too.</li>
 
 
 <p>As <i><font color="green">test data</font></i>, we provide a new set of <b>2,000</b> English-German translations produced by the same SMT system used for the training data. <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_test.tar.gz">Download test data</a> and <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task1_en-de_test.baseline17.features"> the baseline features</a>. Scores will be capped to 100.
@@ -103,7 +103,7 @@ were not annotated as such (but rather as deletions + insertions) to
 avoid introducing noise in the annotation.</p> 
 
 As <i><font color="green">training</font></i> and <i><font color="green">development</font></i> data, we provide the tokenised translation outputs with tokens annotated with  'OK' or 'BAD' labels. 
-<a href="http://hdl.handle.net/11372/LRT-1631" target="_blank">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_training.features" target="_blank">training</a><a> and </a><a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_dev.features" target="_blank">development</a> sets from here (updated 4/4/16)</b></font>.
+<a href="http://hdl.handle.net/11372/LRT-1646" target="_blank">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_training.features" target="_blank">training</a><a> and </a><a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2_en-de_dev.features" target="_blank">development</a> sets from here (updated 4/4/16)</b></font>.
  The data is publicly available but since it has been provided by our 
 industry partners it is subject to specific terms and conditions. 
 However, these have no practical implications on the use of this data 
@@ -153,7 +153,7 @@ least one 'BAD' word.</p>
 segmentation for both source and machine-translated sentences. We also 
 provide target-source phrase alignments and phrase-level labels in 
 separate files.
-<a href="http://hdl.handle.net/11372/LRT-1631" target="_blank">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_training.features" target="_blank">training</a><a> and </a><a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_dev.features" target="_blank">development</a> sets from here (updated 4/4/16)</b></font>.
+<a href="http://hdl.handle.net/11372/LRT-1646" target="_blank">Download development and training data</a>. <font color="red"><b>Please download baseline features for <a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_training.features" target="_blank">training</a><a> and </a><a href="http://www.quest.dcs.shef.ac.uk/wmt16_files_qe/task2p_en-de_dev.features" target="_blank">development</a> sets from here (updated 4/4/16)</b></font>.
   The data is publicly available but since it has been provided by our 
 industry partners it is subject to specific terms and conditions. 
 However, these have no practical implications on the use of this data 
